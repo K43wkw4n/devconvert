@@ -170,9 +170,9 @@ export type Translations = {
   [K in keyof typeof en]: (typeof en)[K] extends (...args: infer A) => string
     ? (...args: A) => string
     : (typeof en)[K] extends readonly { name: string; url: string; desc: string }[]
-    ? { name: string; url: string; desc: string }[]
+    ? readonly { name: string; url: string; desc: string }[]
     : (typeof en)[K] extends readonly string[]
-    ? string[]
+    ? readonly string[]  // ✅ เปลี่ยนจาก string[] → readonly string[]
     : string
 }
 
