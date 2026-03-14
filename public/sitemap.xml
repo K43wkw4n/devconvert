@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://devconvert.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://devconvert.io/json-to-typescript</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-to-javascript</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-to-yaml</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-to-xml</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-to-csv</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-to-sql</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-beautify</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/json-minify</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/yaml-to-json</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/yaml-to-xml</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/xml-to-json</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/csv-to-json</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/typescript-to-javascript</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/javascript-to-typescript</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/markdown-to-html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/html-to-markdown</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/html-beautify</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/html-minify</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/base64-encode</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/base64-decode</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/url-encode</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/url-decode</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/jwt-decode</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/timestamp-to-date</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/date-to-timestamp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/hex-to-rgb</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/rgb-to-hex</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/hsl-to-rgb</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/css-minify</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/css-beautify</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/css-to-scss</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devconvert.io/css-to-tailwind</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
