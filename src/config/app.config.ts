@@ -8,8 +8,8 @@ export const APP_CONFIG = {
   description:
     "35+ free online developer tools. Convert JSON, YAML, TypeScript, Markdown, Base64, and more – instantly in your browser. No signup, no install.",
   url: "https://devconvert.io",
-  githubUrl: "https://github.com", // เปลี่ยนเป็น GitHub repo จริง
-  contactEmail: "kaewkwannnj@gmail.com", // เปลี่ยนเป็น email จริง
+  githubUrl: "https://github.com/K43wkw4n/devconvert", 
+  contactEmail: "kaewkwannnj@gmail.com", 
 
   // ── SEO ──────────────────────────────────────────────────────────────────
   ogImage: "https://devconvert.io/og-image.png",
@@ -23,12 +23,11 @@ export const APP_CONFIG = {
   ],
 
   // ── Google AdSense ───────────────────────────────────────────────────────
-  // 1. ตั้ง enabled = true เมื่อได้รับ approve จาก Google AdSense
-  // 2. เปลี่ยน publisherId เป็น ID จริงของคุณ (ca-pub-XXXXXXXXXXXXXXXX)
+  // 1. ตั้ง enabled = true เมื่อได้รับ approve จาก Google AdSense 
   // 3. เปลี่ยน slotIds ให้ตรงกับ ad unit ที่สร้างใน AdSense dashboard
   adsense: {
     enabled: false,
-    publisherId: "ca-pub-XXXXXXXXXXXXXXXX",
+    publisherId: "ca-pub-2723243675416986",
     slots: {
       topLeaderboard: "1234567890", // 728x90 บนสุด
       bottomLeaderboard: "2345678901", // 728x90 ล่างสุด
