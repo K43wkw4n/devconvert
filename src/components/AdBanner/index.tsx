@@ -29,13 +29,14 @@ export default function AdBanner({ slot, format = 'responsive', className = '', 
   // Placeholder (AdSense not yet enabled)
   if (!enabled) {
     return (
-      <div
-        className={`ad-banner ad-banner-${format === 'leaderboard' ? 'top' : 'side'} ${className}`}
-        style={defaultStyle}
-        aria-hidden="true"
-      >
-        Advertisement
-      </div>
+      <div></div>
+      // <div
+      //   className={`ad-banner ad-banner-${format === 'leaderboard' ? 'top' : 'side'} ${className}`}
+      //   style={defaultStyle}
+      //   aria-hidden="true"
+      // >
+      //   Advertisement
+      // </div>
     )
   }
 
