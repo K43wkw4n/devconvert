@@ -51,6 +51,7 @@ function AppRoutes() {
           path={ROUTES.PRIVACY.path}
           element={<ROUTES.PRIVACY.component />}
         />
+        <Route path={ROUTES.ABOUT.path} element={<ROUTES.ABOUT.component />} />
         <Route path={ROUTES.TERMS.path} element={<ROUTES.TERMS.component />} />
 
         {/* Converter — handles both canonical IDs and aliases */}

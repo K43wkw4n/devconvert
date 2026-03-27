@@ -84,6 +84,22 @@ export default function AppFooter() {
             className="footer-legal"
           >
             <span
+              onClick={() => navigate(buildPath.about())}
+              style={{
+                cursor: "pointer",
+                fontSize: 12,
+                color: "var(--color-text-muted)",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--color-primary)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--color-text-muted)")
+              }
+            >
+              {t.about}
+            </span>
+            <span
               onClick={() => navigate(buildPath.privacy())}
               style={{
                 cursor: "pointer",

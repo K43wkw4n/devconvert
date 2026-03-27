@@ -5,7 +5,8 @@ import { lazy, type ComponentType } from "react";
 const HomePage = lazy(() => import("@/pages/HomePage"));
 const ConverterPage = lazy(() => import("@/pages/ConverterPage"));
 const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'))
-const TermsPage         = lazy(() => import('@/pages/TermsPage'))
+const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const TermsPage = lazy(() => import('@/pages/TermsPage'))
 
 // ─── Route Definition ─────────────────────────────────────────────────────────
 export interface RouteConfig {
@@ -31,11 +32,17 @@ export const ROUTES = {
     component: PrivacyPolicyPage,
     name: "privacy",
   },
+  ABOUT: {
+    path: '/about',
+    component: AboutPage,
+    name: 'about',
+  },
   TERMS: {
     path: "/terms",
     component: TermsPage,
     name: "terms",
   },
+
   // ── Dynamic routes ─────────────────────────────────────────────────────────
   // :slug จะ match ทั้ง canonical IDs เช่น /json-to-typescript
   // และ aliases เช่น /json2ts ซึ่ง ConverterPage จะ resolve เอง
@@ -62,5 +69,6 @@ export const buildPath = {
   home: () => ROUTES.HOME.path,
   converter: (slug: string) => `/${slug}`,
   privacy: () => ROUTES.PRIVACY.path,
+  about: () => ROUTES.ABOUT.path,
   terms: () => ROUTES.TERMS.path,
 };
