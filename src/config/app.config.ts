@@ -7,12 +7,12 @@ export const APP_CONFIG = {
   tagline: "Free Online Code & Data Converter for Developers",
   description:
     "35+ free online developer tools. Convert JSON, YAML, TypeScript, Markdown, Base64, and more – instantly in your browser. No signup, no install.",
-  url: "https://devconvert.io",
+  url: "https://potamiya.com",
   githubUrl: "https://github.com/K43wkw4n/devconvert", 
   contactEmail: "kaewkwannnj@gmail.com", 
 
   // ── SEO ──────────────────────────────────────────────────────────────────
-  ogImage: "https://devconvert.io/og-image.png",
+  ogImage: "https://potamiya.com/og-image.png",
   twitterHandle: "@devconvert",
   keywords: [
     "json converter",

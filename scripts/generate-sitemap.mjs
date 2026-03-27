@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const BASE_URL = 'https://devconvert.io'
+const BASE_URL = 'https://potamiya.com'
 const TODAY = new Date().toISOString().split('T')[0]
 
 // Manually list all converter IDs (mirrors converters.config.ts)
