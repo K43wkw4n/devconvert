@@ -1,11 +1,17 @@
 import type { Translations } from './en'
 
 const ja: Translations = {
-  allTools: 'すべてのツール', github: 'GitHub',
+  // ── Nav ──────────────────────────────────────────────────────────────────
+  allTools: 'すべてのツール',
+  github: 'GitHub',
+
+  // ── Home ─────────────────────────────────────────────────────────────────
   heroBadge: '⚡ 35以上の無料開発ツール', heroTitle1: '何でも変換。', heroTitle2: '数秒で完了。',
   heroSubtitle: '開発者向けの無料オンラインコード・データ変換ツール。JSON、TypeScript、YAML、Markdown、Base64、カラーなど — すべてブラウザ上でローカル処理。',
   statConverters: 'コンバーター', statLatency: 'サーバー遅延', statClientSide: 'クライアントサイド', statFree: '永久無料',
   searchPlaceholder: 'ツールを検索... (例: JSON, Base64, TypeScript)', mostPopular: '🔥 人気のツール',
+
+  // ── Converter Page ────────────────────────────────────────────────────────
   input: '入力', output: '出力', convert: '変換', autoConvertOn: '自動変換 オン',
   copy: 'コピー', copied: 'コピー済み！', clear: 'クリア', example: 'サンプル', download: 'ダウンロード',
   converting: '変換中...', conversionError: '変換エラー', conversionFailed: '変換失敗',
@@ -13,11 +19,16 @@ const ja: Translations = {
   notFound: 'コンバーターが見つかりません。', browseAll: 'すべてのツールを見る',
   searchResults: (n: number, q: string) => `"${q}" の検索結果：${n} 件`,
   noResults: 'コンバーターが見つかりません。"JSON"、"Base64"、"TypeScript" で検索してみてください。',
+
+  // ── Timezone ─────────────────────────────────────────────────────────────
   timezone: 'タイムゾーン', timezoneSearch: 'タイムゾーンを検索...',
+
+  // ── Theme / Language ──────────────────────────────────────────────────────
   lightMode: 'ライトモード', darkMode: 'ダークモード', language: '言語',
   footerNote: 'すべての変換はブラウザ上でローカルに行われます。データはサーバーに送信されません。',
   footerPrivacy: 'プライバシーポリシー', footerTerms: '利用規約', footerContact: 'お問い合わせ', footerAbout: '私たちについて',
 
+  // ── Privacy Policy ────────────────────────────────────────────────────────
   privacyTitle: 'プライバシーポリシー', privacyLastUpdated: '最終更新',
   privacyIntroTitle: '1. はじめに',
   privacyIntroText: 'DevConvert（「私たち」）は DevConvert ウェブサイト（「サービス」）を運営しています。このページでは、サービスをご利用の際の個人データの収集、使用、開示に関するポリシーをお知らせします。私たちはあなたのプライバシーの保護に取り組んでいます。',
@@ -47,6 +58,23 @@ const ja: Translations = {
   privacyContactTitle: '9. お問い合わせ',
   privacyContactText: 'このプライバシーポリシーについてご質問がある場合は、以下までご連絡ください：',
 
+  // ── about ──────────────────────────────────────────────────────
+  aboutTitle: "について",
+  aboutTitleDescription: "DevConvertは、繰り返し発生する変換作業の時間を節約するために開発された、無料のオープンソース開発者向けユーティリティ集です。ログイン不要、インストール不要、ブラウザからデータが送信されることもありません。",
+  aboutWhatIs: "DevConvertとは何ですか？",
+  aboutWahtIsDescription: "DevConvertは、開発者やエンジニア向けに35種類以上の変換ツールを提供するブラウザベースのツールキットです。JSONをTypeScriptインターフェースに変換したり、文字列をBase64でエンコードしたり、JWTトークンをデコードしたり、HEX、RGB、HSL間で色を変換したり、MarkdownをHTMLに変換したりする必要がある場合でも、DevConvertはブラウザ上で瞬時に処理します。",
+  aboutWhyBuild: "私たちがそれを作った理由",
+  aboutWhyBuildDescription: "開発者なら誰でも、簡単な変換作業のために何十個ものブラウザタブを切り替える煩わしさを経験したことがあるでしょう。DevConvertは、高速で信頼性が高く、常に無料の、常に開いておくだけで済むタブとして開発されました。すべての処理はブラウザ上でJavaScriptを使用してローカルに実行されるため、コードとデータがコンピュータから外部に持ち出されることはありません。",
+  aboutPrivacy: "プライバシー第一",
+  aboutPrivacyDescription: "DevConvertはプライバシーを非常に重視しています。DevConvertはすべての変換処理をクライアント側で実行するため、入力した内容がサーバーに送信されることはありません。ローカルに保存されるデータは、ブラウザのlocalStorageに保存されるテーマと言語の設定のみです。",
+  aboutUcanDo: "DevConvertでできること",
+  aboutUcanDoDescription: "JSON、YAML、XML、CSVなどのデータ形式間の変換。JSONからTypeScriptインターフェースを生成。Base64、URL、HTMLエンティティのエンコードとデコード。JWTトークンのデコード。カラー形式間の変換。MarkdownからHTMLへの変換と、その逆の変換。JSON、HTML、CSSの整形または圧縮。Unixタイムスタンプを人間が読みやすい日付に変換。その他にも多数の機能があり、新しいツールが定期的に追加されます。",
+  aboutAlwaysFree: "いつでも無料",
+  aboutAlwaysFreeDescription: "DevConvertは現在も将来も無料でご利用いただけます。このプロジェクトは、邪魔にならない表示広告によって支えられています。もしDevConvertが役に立つと感じられたら、他の開発者の方々と共有していただくことが、プロジェクトを支援する最良の方法です。",
+  aboutContact: "接触",
+  aboutContactDescription: "ご意見、バグのご報告、新しいコンバーターのリクエストなどございましたら、ぜひお聞かせください。",
+
+  // ── Terms of Service ──────────────────────────────────────────────────────
   termsTitle: '利用規約', termsLastUpdated: '最終更新',
   termsIntroTitle: '1. 利用規約への同意',
   termsIntroText: 'DevConvert（「サービス」）にアクセスまたは使用することで、この利用規約に拘束されることに同意します。これらの条件に同意しない場合は、サービスをご利用にならないでください。',

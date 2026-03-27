@@ -1,11 +1,17 @@
 import type { Translations } from './en'
 
 const zh: Translations = {
-  allTools: '所有工具', github: 'GitHub',
+  // ── Nav ──────────────────────────────────────────────────────────────────
+  allTools: '所有工具',
+  github: 'GitHub',
+
+  // ── Home ─────────────────────────────────────────────────────────────────
   heroBadge: '⚡ 35+ 免费开发者工具', heroTitle1: '转换任何内容。', heroTitle2: '几秒钟内完成。',
   heroSubtitle: '面向开发者的免费在线代码和数据转换工具。JSON、TypeScript、YAML、Markdown、Base64、颜色等——全部在浏览器中本地运行。',
   statConverters: '转换器', statLatency: '服务器延迟', statClientSide: '客户端处理', statFree: '永久免费',
   searchPlaceholder: '搜索转换器... (如 JSON, Base64, TypeScript)', mostPopular: '🔥 最受欢迎',
+
+  // ── Converter Page ────────────────────────────────────────────────────────
   input: '输入', output: '输出', convert: '转换', autoConvertOn: '自动转换 开启',
   copy: '复制', copied: '已复制！', clear: '清空', example: '示例', download: '下载',
   converting: '转换中...', conversionError: '转换错误', conversionFailed: '转换失败',
@@ -13,11 +19,16 @@ const zh: Translations = {
   notFound: '未找到该转换器。', browseAll: '浏览所有工具',
   searchResults: (n: number, q: string) => `"${q}" 的搜索结果：${n} 个`,
   noResults: '未找到转换器。请尝试搜索 "JSON"、"Base64" 或 "TypeScript"。',
+
+  // ── Timezone ─────────────────────────────────────────────────────────────
   timezone: '时区', timezoneSearch: '搜索时区...',
+
+  // ── Theme / Language ──────────────────────────────────────────────────────
   lightMode: '浅色模式', darkMode: '深色模式', language: '语言',
   footerNote: '所有转换均在浏览器本地进行，不会向服务器发送任何数据。',
   footerPrivacy: '隐私政策', footerTerms: '服务条款', footerContact: '联系我们', footerAbout: '关于我们',
 
+  // ── Privacy Policy ────────────────────────────────────────────────────────
   privacyTitle: '隐私政策', privacyLastUpdated: '最后更新',
   privacyIntroTitle: '1. 简介',
   privacyIntroText: 'DevConvert（"我们"）运营 DevConvert 网站（"服务"）。本页面告知您我们在您使用我们的服务时有关个人数据的收集、使用和披露的政策。我们致力于保护您的隐私。',
@@ -47,6 +58,23 @@ const zh: Translations = {
   privacyContactTitle: '9. 联系我们',
   privacyContactText: '如果您对本隐私政策有任何疑问，请通过以下方式联系我们：',
 
+  // ── about ──────────────────────────────────────────────────────
+  aboutTitle: "关于",
+  aboutTitleDescription: "DevConvert 是一套免费开源的开发者实用工具集，旨在节省重复性转换任务的时间。无需登录，无需安装，数据不会离开您的浏览器。",
+  aboutWhatIs: "DevConvert是什么？",
+  aboutWahtIsDescription: "DevConvert 是一款基于浏览器的工具包，为开发者和工程师提供 35 种以上的转换工具。无论您需要将 JSON 转换为 TypeScript 接口、将字符串编码为 Base64、解码 JWT 令牌、在 HEX、RGB 和 HSL 之间转换颜色，还是将 Markdown 转换为 HTML，DevConvert 都能在浏览器中即时完成。",
+  aboutWhyBuild: "我们为什么建造它",
+  aboutWhyBuildDescription: "每个开发者都知道，为了做一个简单的转换，需要在十几个浏览器标签页之间来回切换是多么痛苦。我们打造 DevConvert 的目的就是为了让你只需打开一个标签页——快速、可靠，而且永远免费。所有处理都在你的浏览器本地使用 JavaScript 运行，因此你的代码和数据永远不会离开你的电脑。",
+  aboutPrivacy: "隐私优先",
+  aboutPrivacyDescription: "我们非常重视您的隐私。DevConvert 的所有转换都在客户端完成——您输入的任何内容都不会发送到服务器。唯一存储在本地的数据是您的主题和语言偏好设置，它们保存在您浏览器的 localStorage 中。",
+  aboutUcanDo: "您可以使用 DevConvert 做什么",
+  aboutUcanDoDescription: "支持JSON、YAML、XML和CSV等数据格式之间的转换。支持从JSON生成TypeScript接口。支持Base64编码、URL和HTML实体的编码和解码。支持JWT令牌的解码。支持颜色格式之间的转换。支持Markdown与HTML之间的相互转换。支持JSON、HTML和CSS的优化和压缩。支持将Unix时间戳转换为人类可读的日期格式。更多功能，我们将定期添加新工具。",
+  aboutAlwaysFree: "永远免费",
+  aboutAlwaysFreeDescription: "DevConvert 现在和将来都将免费使用。该项目通过非侵入式展示广告维持运营。如果您觉得它有用，支持它的最佳方式就是把它分享给其他开发者。",
+  aboutContact: "接触",
+  aboutContactDescription: "有任何建议、发现错误或想请求添加新的转换器？欢迎随时联系我们。",
+
+  // ── Terms of Service ──────────────────────────────────────────────────────
   termsTitle: '服务条款', termsLastUpdated: '最后更新',
   termsIntroTitle: '1. 条款接受',
   termsIntroText: '访问或使用 DevConvert（"服务"）即表示您同意受这些服务条款约束。如果您不同意这些条款，请勿使用我们的服务。',

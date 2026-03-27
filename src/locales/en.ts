@@ -105,6 +105,22 @@ const en = {
   privacyContactTitle: '9. Contact Us',
   privacyContactText: 'If you have any questions about this Privacy Policy, please contact us at:',
 
+  // ── about ──────────────────────────────────────────────────────
+  aboutTitle: "About",
+  aboutTitleDescription: "DevConvert is a free, open collection of developer utilities built to save time on repetitive conversion tasks. No login, no installation, no data leaving your browser.",
+  aboutWhatIs: "What is DevConvert?",
+  aboutWahtIsDescription: "DevConvert is a browser-based toolkit offering 35+ conversion tools for developers and engineers. Whether you need to convert JSON to TypeScript interfaces, encode a string in Base64, decode a JWT token, convert colors between HEX, RGB, and HSL, or transform Markdown into HTML — DevConvert handles it instantly, right in your browser.",
+  aboutWhyBuild: "Why we built it",
+  aboutWhyBuildDescription: "Every developer knows the pain of switching between a dozen browser tabs just to do a simple conversion. We built DevConvert to be the one tab you keep open — fast, reliable, and always free. All processing runs locally in your browser using JavaScript, so your code and data never leave your machine.",
+  aboutPrivacy: "Privacy first",
+  aboutPrivacyDescription: "We take privacy seriously. DevConvert performs all conversions client-side — nothing you type is ever sent to a server. The only data stored locally are your theme and language preferences, saved in your browser's localStorage.",
+  aboutUcanDo: "What you can do with DevConvert",
+  aboutUcanDoDescription: "Convert between data formats like JSON, YAML, XML, and CSV. Generate TypeScript interfaces from JSON. Encode and decode Base64, URLs, and HTML entities. Decode JWT tokens. Convert between color formats. Transform Markdown to HTML and back. Beautify or minify JSON, HTML, and CSS. Convert Unix timestamps to human-readable dates. And much more — with new tools added regularly.",
+  aboutAlwaysFree: "Always free",
+  aboutAlwaysFreeDescription: "DevConvert is and will always be free to use. The project is supported by non-intrusive display advertising. If you find it useful, the best way to support it is simply to share it with a fellow developer.",
+  aboutContact: "Contact",
+  aboutContactDescription: "Have a suggestion, found a bug, or want to request a new converter? We'd love to hear from you.",
+
   // ── Terms of Service ──────────────────────────────────────────────────────
   termsTitle: 'Terms of Service',
   termsLastUpdated: 'Last updated',
