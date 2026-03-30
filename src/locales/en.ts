@@ -4,6 +4,7 @@ const en = {
   github: 'GitHub',
 
   // ── Home ─────────────────────────────────────────────────────────────────
+  privacyNote: "Runs 100% in your browser — no data is sent anywhere",
   heroBadge: '⚡ 35+ Free Developer Tools',
   heroTitle1: 'Convert anything.',
   heroTitle2: 'In seconds.',
@@ -35,6 +36,7 @@ const en = {
   browseAll: 'Browse All Tools',
   searchResults: (n: number, q: string) => `${n} result${n !== 1 ? 's' : ''} for "${q}"`,
   noResults: 'No converters found. Try "JSON", "Base64", or "TypeScript".',
+  howToUseTitle: "How to use",
 
   // ── Timezone ─────────────────────────────────────────────────────────────
   timezone: 'Timezone',
@@ -85,7 +87,7 @@ const en = {
   privacyThirdPartyText: 'Our Service may contain links to or use the following third-party services, each with their own privacy policies:',
   privacyThirdPartyItems: [
     { name: 'Google Analytics', url: 'https://policies.google.com/privacy', desc: 'Anonymous usage analytics' },
-    { name: 'Google AdSense',   url: 'https://policies.google.com/privacy', desc: 'Advertising' },
+    { name: 'Google AdSense', url: 'https://policies.google.com/privacy', desc: 'Advertising' },
   ],
 
   privacyChildrenTitle: '6. Children\'s Privacy',
@@ -180,16 +182,139 @@ const en = {
 
   termsContactTitle: '12. Contact Us',
   termsContactText: 'If you have any questions about these Terms of Service, please contact us at:',
-} as const
+
+  // ── WhyDevConvert ─────────────────────────────────────────────────────────────
+  whyTitleDivider: "Why DevConvert?",
+  whyTitle: 'Built for developers,\nby developers.',
+  whySubtitle: 'Every feature is designed to save time on daily tasks. No bloat, no ads, no strings attached.',
+  whyFeat1Title: 'Your data is 100% safe',
+  whyFeat1Body: 'All conversions happen directly in your browser. No code or data is ever sent to any server. Perfect for sensitive data that should never leave your machine.',
+  whyFeat2Title: 'Instant as you type',
+  whyFeat2Body: 'Real-time conversion the moment you paste. No button to press, no loading, no waiting on the network. Results appear within 50ms.',
+  whyFeat3Title: '35+ tools in one place',
+  whyFeat3Body: 'Covers every dev task: JSON, TypeScript, YAML, XML, CSV, SQL, Markdown, HTML, Base64, JWT, colors, CSS, and more. No need to jump between sites.',
+  whyFeat4Title: 'Multi-language UI',
+  whyFeat4Body: 'The interface supports Thai, English, Japanese, and Chinese, making it accessible for developers worldwide.',
+  whyFeat5Title: 'Professional-grade editor',
+  whyFeat5Body: 'Powered by Monaco Editor (the same engine as VS Code) — syntax highlighting, auto-indent, and code folding for every format.',
+  whyFeat6Title: 'Download results instantly',
+  whyFeat6Body: 'Copy the output or download as a .ts, .json, .yaml, .xml file immediately. Ready to use in your project with no extra editing.',
+
+  // ── HowItWorks ────────────────────────────────────────────────────────────────
+  howTitleDivider: "How It Works",
+  howTitle: 'Easy in 3 Steps',
+  howSubtitle: 'No login, no install, no config — open and convert right away.',
+  howStep1Label: 'STEP 01',
+  howStep1Title: 'Paste your data',
+  howStep1Body: 'Paste JSON, YAML, TypeScript, CSV, or any other data into the input panel on the left, or type it directly.',
+  howStep1Hint: 'Supports direct paste from clipboard',
+  howStep2Label: 'STEP 02',
+  howStep2Title: 'Choose your format',
+  howStep2Body: 'Select the target format from the dropdown: TypeScript, JSON, YAML, XML, SQL, Markdown, and many more.',
+  howStep2Hint: 'Converts automatically as soon as you select',
+  howStep3Label: 'STEP 03',
+  howStep3Title: 'Copy or download',
+  howStep3Body: 'Copy the output instantly or download as a file. Use it in your project right away — no further editing needed.',
+  howStep3Hint: 'Save as .ts, .json, .yaml and more',
+
+  // ── ToolCategories ────────────────────────────────────────────────────────────
+  catTitleDivider: "All Tools",
+  catTitle: 'Covers every format\ndevelopers need.',
+  catSubtitle: 'Whether you work with REST APIs, DevOps pipelines, frontend, or data engineering — there\'s the right tool for every job.',
+  catJsonLabel: 'JSON',
+  catJsonDesc: 'JSON ↔ TypeScript, YAML, XML, CSV, SQL',
+  catYamlLabel: 'YAML / XML',
+  catYamlDesc: 'Convert between YAML, XML, JSON and TypeScript',
+  catCodeLabel: 'Code',
+  catCodeDesc: 'TypeScript ↔ JavaScript, CSS ↔ SCSS, Tailwind',
+  catMarkupLabel: 'Markup',
+  catMarkupDesc: 'Markdown ↔ HTML, Format and Minify',
+  catEncodingLabel: 'Encoding',
+  catEncodingDesc: 'Base64, URL, JWT, HTML Entities, number bases',
+  catColorLabel: 'Color',
+  catColorDesc: 'HEX ↔ RGB ↔ HSL with CSS variables',
+
+  // ── PrivacyPerformance ────────────────────────────────────────────────────────
+  ppTitleDivider: "Privacy-first & Fast",
+  ppTitle: 'Your data never leaves\nyour browser.',
+  ppBody: 'DevConvert has no backend server. Every conversion runs 100% in your browser\'s JavaScript. No logs, no tracking, no code sent anywhere. Ideal for enterprise work or confidential data.',
+  ppCheck1: 'No account or login required',
+  ppCheck2: 'Works offline after the first load',
+  ppCheck3: 'Open-source and auditable',
+  ppCheck4: 'No ads, no tracking',
+  ppStat1Label: 'Server latency',
+  ppStat1Sub: 'Everything runs on your machine',
+  ppStat2Label: 'Runs in browser',
+  ppStat2Sub: 'No backend, no API calls',
+  ppStat3Label: 'Tools',
+  ppStat3Sub: 'Covers all popular formats',
+  ppStat4Label: 'Unlimited usage',
+  ppStat4Sub: 'Free forever, no rate limits',
+
+  // ── UseCases ──────────────────────────────────────────────────────────────────
+  useCaseTitleDivider: "For Every Role",
+  useCaseTitle: 'Whoever you are,\nthere\'s a tool for you.',
+  ucRole1: 'Frontend Developer',
+  ucRole1Case1: 'Convert API responses (JSON) to TypeScript interfaces instantly',
+  ucRole1Case2: 'Convert HEX colors from Figma to RGB/HSL for CSS',
+  ucRole1Case3: 'Convert CSS to Tailwind utility classes',
+  ucRole2: 'DevOps / Backend',
+  ucRole2Case1: 'Convert JSON config to YAML for Kubernetes / Docker Compose',
+  ucRole2Case2: 'Decode JWT tokens to inspect claims and expiry',
+  ucRole2Case3: 'Convert timestamps to readable dates in any timezone',
+  ucRole3: 'Data Engineer',
+  ucRole3Case1: 'Convert CSV to JSON array for database import',
+  ucRole3Case2: 'Generate SQL CREATE TABLE + INSERT from JSON sample data',
+  ucRole3Case3: 'Convert XML from legacy APIs to easy-to-use JSON',
+  ucRole4: 'Technical Writer',
+  ucRole4Case1: 'Convert Markdown to HTML for blogs or documentation',
+  ucRole4Case2: 'Format JSON for readability before copying into docs',
+  ucRole4Case3: 'Convert HTML from a CMS to Markdown for GitHub',
+
+  // ── Knowledge Section ─────────────────────────────────────────────────────
+  knowledgeSectionTitle: 'Format Conversion — What Every Dev Should Know',
+  knowledgeCards: [
+    {
+      title: 'Why Format Conversion Exists',
+      body: 'Modern systems rarely share the same data language. APIs speak JSON, configs prefer YAML, enterprise tools demand XML, and pipelines output CSV. Format conversion is not a convenience — it\'s the connective tissue of the entire software stack.',
+    },
+    {
+      title: 'Always Validate After Converting',
+      body: 'Never trust converted output blindly. Run the result through a schema validator or linter before committing it to your codebase. A single misplaced quote or wrong data type can silently break an entire downstream pipeline in production.',
+    },
+    {
+      title: 'Not All Conversions Are Lossless',
+      body: 'XML to JSON loses element ordering and mixed content. YAML to JSON drops all comments. JSON to CSV flattens nested objects, losing hierarchy. Know exactly what gets discarded before you convert — especially if the data feeds a critical downstream process.',
+    },
+    {
+      title: 'Encoding Pitfalls to Watch Out For',
+      body: 'UTF-8 is the universal standard, but legacy systems still emit ISO-8859-1 or Windows-1252. Mixing encodings mid-pipeline causes mojibake — garbled characters that corrupt data silently. Always declare encoding explicitly when reading from or writing converted files to disk.',
+    },
+    {
+      title: 'Automate Recurring Conversions',
+      body: 'One-off conversions are fine, but recurring ones belong in your CI/CD pipeline. Tools like jq (JSON), yq (YAML), and xmllint (XML) are scriptable, auditable, and version-controllable. Automating converts a manual error-prone step into a reproducible, reviewable artefact.',
+    },
+    {
+      title: 'Define Your Schema First',
+      body: 'Define your target schema before converting. A JSON Schema, TypeScript interface, or XSD catches structural issues at conversion time rather than at runtime. Schema-first thinking also makes the conversion reversible — you always have a canonical reference to validate against.',
+    },
+  ],
+  proTipsTitle: 'Pro Tips',
+  proTips: [
+    'Pretty-print before diffing — minified output hides structural changes.',
+    'Strip nulls and empty strings before converting — downstream systems interpret them differently.',
+    'Round-trip test: convert A→B, then B→A, and compare to original. Any diff reveals lossy fields.',
+    'Keep raw source files in version control. Derived formats are regeneratable; originals are not.',
+  ],
+}
 
 export type Translations = {
-  [K in keyof typeof en]: (typeof en)[K] extends (...args: infer A) => string
-    ? (...args: A) => string
-    : (typeof en)[K] extends readonly { name: string; url: string; desc: string }[]
-    ? readonly { name: string; url: string; desc: string }[]
-    : (typeof en)[K] extends readonly string[]
-    ? readonly string[]  // ✅ เปลี่ยนจาก string[] → readonly string[]
-    : string
+  [K in keyof typeof en]:
+  (typeof en)[K] extends (...args: infer A) => string
+  ? (...args: A) => string
+  : (typeof en)[K] extends readonly (infer U)[]
+  ? readonly U[]
+  : string
 }
 
 export default en

@@ -6,6 +6,7 @@ const th: Translations = {
   github: 'GitHub',
 
   // ── Home ─────────────────────────────────────────────────────────────────
+  privacyNote: "ทำงาน 100% ในเบราว์เซอร์ — ไม่ส่งข้อมูลออกไปที่ใด",
   heroBadge: '⚡ เครื่องมือฟรีกว่า 35 อย่าง',
   heroTitle1: 'แปลงได้ทุกอย่าง',
   heroTitle2: 'ภายในไม่กี่วินาที',
@@ -37,6 +38,7 @@ const th: Translations = {
   browseAll: 'ดูเครื่องมือทั้งหมด',
   searchResults: (n: number, q: string) => `พบ ${n} ผลลัพธ์สำหรับ "${q}"`,
   noResults: 'ไม่พบเครื่องมือ ลองค้นหา "JSON", "Base64" หรือ "TypeScript"',
+  howToUseTitle: "วิธีการใช้งาน",
 
   // ── Timezone ─────────────────────────────────────────────────────────────
   timezone: 'โซนเวลา',
@@ -87,7 +89,7 @@ const th: Translations = {
   privacyThirdPartyText: 'บริการของเราอาจใช้บริการจากบุคคลที่สามต่อไปนี้ ซึ่งแต่ละรายมีนโยบายความเป็นส่วนตัวของตนเอง:',
   privacyThirdPartyItems: [
     { name: 'Google Analytics', url: 'https://policies.google.com/privacy', desc: 'วิเคราะห์การใช้งานแบบไม่ระบุตัวตน' },
-    { name: 'Google AdSense',   url: 'https://policies.google.com/privacy', desc: 'การโฆษณา' },
+    { name: 'Google AdSense', url: 'https://policies.google.com/privacy', desc: 'การโฆษณา' },
   ],
 
   privacyChildrenTitle: '6. ความเป็นส่วนตัวของเด็ก',
@@ -182,6 +184,130 @@ const th: Translations = {
 
   termsContactTitle: '12. ติดต่อเรา',
   termsContactText: 'หากคุณมีคำถามเกี่ยวกับข้อกำหนดการใช้งานเหล่านี้ โปรดติดต่อเราที่:',
+
+  // ── WhyDevConvert ─────────────────────────────────────────────────────────────
+  whyTitleDivider: "ทำไมต้อง DevConvert",
+  whyTitle: `ออกแบบมาสำหรับนักพัฒนา\nโดยนักพัฒนา`,
+  whySubtitle: 'ทุกฟีเจอร์ถูกออกแบบมาเพื่อประหยัดเวลาในงานประจำวัน ไม่มี bloat ไม่มี ads ไม่มีเงื่อนไข',
+  whyFeat1Title: 'ข้อมูลของคุณปลอดภัย 100%',
+  whyFeat1Body: 'ทุกการแปลงเกิดขึ้นในเบราว์เซอร์ของคุณโดยตรง ไม่มีการส่งโค้ดหรือข้อมูลออกไปยังเซิร์ฟเวอร์ใด ๆ เหมาะสำหรับข้อมูล sensitive ที่ไม่ควรออกไปนอก machine',
+  whyFeat2Title: 'เร็วทันทีที่พิมพ์',
+  whyFeat2Body: 'แปลงแบบ real-time ทันทีที่คุณวางข้อมูล ไม่ต้องกดปุ่มใด ๆ ไม่มี loading, ไม่รอ network ผลลัพธ์ปรากฏภายใน 50ms',
+  whyFeat3Title: '35+ เครื่องมือในที่เดียว',
+  whyFeat3Body: 'ครอบคลุมทุกงาน dev: JSON, TypeScript, YAML, XML, CSV, SQL, Markdown, HTML, Base64, JWT, สี, CSS และอื่น ๆ ไม่ต้องวิ่งหลายเว็บ',
+  whyFeat4Title: 'รองรับหลายภาษา',
+  whyFeat4Body: 'อินเทอร์เฟซรองรับภาษาไทย, อังกฤษ, ญี่ปุ่น และจีน ให้นักพัฒนาทั่วโลกใช้งานได้อย่างสะดวก',
+  whyFeat5Title: 'Editor ระดับมืออาชีพ',
+  whyFeat5Body: 'ใช้ Monaco Editor (เดียวกับ VS Code) รองรับ syntax highlighting, auto-indent และ code folding สำหรับทุก format',
+  whyFeat6Title: 'ดาวน์โหลดผลลัพธ์ได้ทันที',
+  whyFeat6Body: 'ผลลัพธ์ที่ได้สามารถ copy หรือดาวน์โหลดเป็นไฟล์ .ts, .json, .yaml, .xml ฯลฯ ได้ทันที นำไปใช้ใน project ได้เลย',
+
+  // ── HowItWorks ────────────────────────────────────────────────────────────────
+  howTitleDivider: "วิธีใช้งาน",
+  howTitle: 'ใช้งานง่าย 3 ขั้นตอน',
+  howSubtitle: 'ไม่ต้อง login ไม่ต้อง install ไม่ต้อง config — เปิดและแปลงได้เลย',
+  howStep1Label: 'ขั้นตอนที่ 01',
+  howStep1Title: 'วางข้อมูลของคุณ',
+  howStep1Body: 'วาง JSON, YAML, TypeScript, CSV หรือข้อมูลอื่น ๆ ลงในช่อง input ทางซ้าย หรือพิมพ์เองก็ได้',
+  howStep1Hint: 'รองรับ paste จาก clipboard โดยตรง',
+  howStep2Label: 'ขั้นตอนที่ 02',
+  howStep2Title: 'เลือก format ที่ต้องการ',
+  howStep2Body: 'เลือก format ปลายทางจาก dropdown: TypeScript, JSON, YAML, XML, SQL, Markdown และอีกมากมาย',
+  howStep2Hint: 'แปลงอัตโนมัติทันทีที่คุณเลือก',
+  howStep3Label: 'ขั้นตอนที่ 03',
+  howStep3Title: 'คัดลอกหรือดาวน์โหลด',
+  howStep3Body: 'คัดลอก output ได้ทันที หรือดาวน์โหลดเป็นไฟล์ นำไปใช้งานใน project ได้เลยโดยไม่ต้องแก้ไขเพิ่ม',
+  howStep3Hint: 'บันทึกเป็น .ts, .json, .yaml และอื่น ๆ',
+
+  // ── ToolCategories ────────────────────────────────────────────────────────────
+  catTitleDivider: "เครื่องมือทั้งหมด",
+  catTitle: 'ครอบคลุมทุก format\nที่นักพัฒนาต้องการ',
+  catSubtitle: 'ไม่ว่าจะทำงานกับ REST API, DevOps pipeline, frontend หรือ data engineering — มีเครื่องมือที่ใช่สำหรับทุกงาน',
+  catJsonLabel: 'JSON',
+  catJsonDesc: 'JSON ↔ TypeScript, YAML, XML, CSV, SQL',
+  catYamlLabel: 'YAML / XML',
+  catYamlDesc: 'แปลงระหว่าง YAML, XML, JSON และ TypeScript',
+  catCodeLabel: 'โค้ด',
+  catCodeDesc: 'TypeScript ↔ JavaScript, CSS ↔ SCSS, Tailwind',
+  catMarkupLabel: 'Markup',
+  catMarkupDesc: 'Markdown ↔ HTML, Format และ Minify',
+  catEncodingLabel: 'Encoding',
+  catEncodingDesc: 'Base64, URL, JWT, HTML Entities, เลขฐาน',
+  catColorLabel: 'สี',
+  catColorDesc: 'HEX ↔ RGB ↔ HSL พร้อม CSS variables',
+
+  // ── PrivacyPerformance ────────────────────────────────────────────────────────
+  ppTitleDivider: "เน้นความเป็นส่วนตัวและรวดเร็ว",
+  ppTitle: 'ข้อมูลของคุณไม่เคย\nออกไปจากเบราว์เซอร์',
+  ppBody: 'DevConvert ไม่มี backend server ทุกการแปลงเกิดขึ้นใน JavaScript ของเบราว์เซอร์ 100% ไม่มีการเก็บ log, ไม่มีการ track ข้อมูล, ไม่มีการส่งโค้ดออกไปที่ใด เหมาะสำหรับงาน enterprise หรือข้อมูลที่เป็น confidential',
+  ppCheck1: 'ไม่มีการสร้าง account หรือ login',
+  ppCheck2: 'ทำงาน offline ได้หลังจาก load ครั้งแรก',
+  ppCheck3: 'open-source และตรวจสอบโค้ดได้',
+  ppCheck4: 'ไม่มีโฆษณา ไม่มี tracking',
+  ppStat1Label: 'หน่วงเวลาเซิร์ฟเวอร์',
+  ppStat1Sub: 'ทุกอย่างทำงานในเครื่องคุณ',
+  ppStat2Label: 'ทำงานในเบราว์เซอร์',
+  ppStat2Sub: 'ไม่มี backend, ไม่มี API call',
+  ppStat3Label: 'เครื่องมือ',
+  ppStat3Sub: 'ครอบคลุมทุก format ยอดนิยม',
+  ppStat4Label: 'ใช้ได้ไม่จำกัด',
+  ppStat4Sub: 'ฟรีตลอดไป ไม่มี rate limit',
+
+  // ── UseCases ──────────────────────────────────────────────────────────────────
+  useCaseTitleDivider: "สำหรับทุกบทบาท",
+  useCaseTitle: 'ไม่ว่าคุณจะเป็นใคร\nมีเครื่องมือที่ใช่สำหรับคุณ',
+  ucRole1: 'Frontend Developer',
+  ucRole1Case1: 'แปลง API response (JSON) เป็น TypeScript interface ได้ทันที',
+  ucRole1Case2: 'แปลง HEX สีจาก Figma เป็น RGB/HSL สำหรับ CSS',
+  ucRole1Case3: 'แปลง CSS เป็น Tailwind utility class',
+  ucRole2: 'DevOps / Backend',
+  ucRole2Case1: 'แปลง JSON config เป็น YAML สำหรับ Kubernetes / Docker Compose',
+  ucRole2Case2: 'Decode JWT token เพื่อตรวจสอบ claims และ expiry',
+  ucRole2Case3: 'แปลง timestamp เป็นวันที่อ่านออกในทุก timezone',
+  ucRole3: 'Data Engineer',
+  ucRole3Case1: 'แปลง CSV เป็น JSON array สำหรับ import ลง database',
+  ucRole3Case2: 'สร้าง SQL CREATE TABLE + INSERT จาก JSON sample data',
+  ucRole3Case3: 'แปลง XML จาก legacy API เป็น JSON ที่ใช้งานง่าย',
+  ucRole4: 'Technical Writer',
+  ucRole4Case1: 'แปลง Markdown เป็น HTML สำหรับ blog หรือ documentation',
+  ucRole4Case2: 'Format JSON ให้อ่านง่ายก่อน copy ใส่ใน doc',
+  ucRole4Case3: 'แปลง HTML จาก CMS เป็น Markdown สำหรับ GitHub',
+
+  // ── Knowledge Section ─────────────────────────────────────────────────────
+  knowledgeSectionTitle: 'สิ่งที่นักพัฒนาควรรู้เกี่ยวกับการแปลงรูปแบบข้อมูล',
+  knowledgeCards: [
+    {
+      title: 'ทำไมถึงต้องมีการแปลงรูปแบบ',
+      body: 'ระบบสมัยใหม่แทบไม่เคยใช้ภาษาข้อมูลเดียวกัน API พูด JSON, ไฟล์ config ใช้ YAML, เครื่องมือองค์กรต้องการ XML, และ pipeline ส่งออก CSV การแปลงรูปแบบไม่ใช่แค่ความสะดวก แต่คือกาวที่เชื่อมโครงสร้างซอฟต์แวร์ทั้งหมดเข้าด้วยกัน',
+    },
+    {
+      title: 'ตรวจสอบความถูกต้องหลังแปลงเสมอ',
+      body: 'อย่าไว้ใจผลลัพธ์ที่แปลงมาโดยไม่ตรวจสอบ ให้รัน schema validator หรือ linter ก่อนเสมอ เครื่องหมายคำพูดผิดที่หรือประเภทข้อมูลผิดเพียงตัวเดียว อาจทำให้ pipeline ทั้งหมดล่มโดยไม่แสดงข้อผิดพลาดใน production',
+    },
+    {
+      title: 'การแปลงไม่ใช่ทุกอย่างที่ไม่สูญเสียข้อมูล',
+      body: 'XML → JSON ทำให้สูญเสียลำดับ element และ mixed content. YAML → JSON ตัด comment ทิ้งทั้งหมด. JSON → CSV ทำให้ nested object แบนราบ สูญเสีย hierarchy ทำความเข้าใจว่าอะไรจะหายไปก่อนแปลง โดยเฉพาะถ้าข้อมูลนั้นป้อนเข้า process ที่สำคัญ',
+    },
+    {
+      title: 'กับดัก Encoding ที่ควรระวัง',
+      body: 'UTF-8 คือมาตรฐานสากล แต่ระบบเก่ายังคงส่งออก ISO-8859-1 หรือ Windows-1252 การผสม encoding กลางกระบวนการทำให้เกิด mojibake — ตัวอักษรแปลกที่ทำให้ข้อมูลเสียหายโดยไม่แสดงข้อผิดพลาด ควรระบุ encoding อย่างชัดเจนทุกครั้งที่อ่านหรือเขียนไฟล์',
+    },
+    {
+      title: 'ทำให้การแปลงที่ทำซ้ำเป็นอัตโนมัติ',
+      body: 'การแปลงครั้งเดียวไม่มีปัญหา แต่ถ้าต้องทำซ้ำ ควรผนวกเข้าใน CI/CD pipeline เครื่องมืออย่าง jq (JSON), yq (YAML), และ xmllint (XML) สามารถเขียน script ได้ ตรวจสอบย้อนหลังได้ และควบคุมเวอร์ชันได้ การทำให้เป็นอัตโนมัติเปลี่ยนขั้นตอนที่ผิดพลาดง่ายให้กลายเป็น artefact ที่ตรวจสอบได้',
+    },
+    {
+      title: 'กำหนด Schema ก่อนเสมอ',
+      body: 'กำหนด schema ปลายทางก่อนแปลงข้อมูล JSON Schema, TypeScript interface หรือ XSD จะช่วยตรวจจับปัญหาโครงสร้างตอนแปลง ไม่ใช่ตอน runtime แนวคิด schema-first ยังทำให้การแปลงย้อนกลับได้ เพราะมีอ้างอิงที่ canonical สำหรับตรวจสอบเสมอ',
+    },
+  ],
+  proTipsTitle: 'เคล็ดลับจากมืออาชีพ',
+  proTips: [
+    'ใช้ pretty-print ก่อน diff เสมอ — output แบบ minified ซ่อนการเปลี่ยนแปลงโครงสร้าง',
+    'ลบ null และ string ว่างก่อนแปลง — ระบบปลายทางตีความแตกต่างกัน',
+    'ทดสอบ round-trip: แปลง A→B แล้ว B→A แล้วเปรียบเทียบกับต้นฉบับ ความแตกต่างบอก field ที่สูญหาย',
+    'เก็บไฟล์ต้นฉบับไว้ใน version control เสมอ รูปแบบที่แปลงแล้วสร้างใหม่ได้ แต่ต้นฉบับไม่ได้',
+  ],
 }
 
 export default th

@@ -6,6 +6,7 @@ const ja: Translations = {
   github: 'GitHub',
 
   // ── Home ─────────────────────────────────────────────────────────────────
+  privacyNote: "100％ブラウザ上で動作 — データはどこにも送信されません",
   heroBadge: '⚡ 35以上の無料開発ツール', heroTitle1: '何でも変換。', heroTitle2: '数秒で完了。',
   heroSubtitle: '開発者向けの無料オンラインコード・データ変換ツール。JSON、TypeScript、YAML、Markdown、Base64、カラーなど — すべてブラウザ上でローカル処理。',
   statConverters: 'コンバーター', statLatency: 'サーバー遅延', statClientSide: 'クライアントサイド', statFree: '永久無料',
@@ -19,6 +20,7 @@ const ja: Translations = {
   notFound: 'コンバーターが見つかりません。', browseAll: 'すべてのツールを見る',
   searchResults: (n: number, q: string) => `"${q}" の検索結果：${n} 件`,
   noResults: 'コンバーターが見つかりません。"JSON"、"Base64"、"TypeScript" で検索してみてください。',
+  howToUseTitle: "使用方法",
 
   // ── Timezone ─────────────────────────────────────────────────────────────
   timezone: 'タイムゾーン', timezoneSearch: 'タイムゾーンを検索...',
@@ -105,6 +107,130 @@ const ja: Translations = {
   termsChangesText: 'いつでもこれらの条件を変更または置き換える権利を留保します。変更は条件の上部の日付を更新することで通知します。変更が有効になった後も引き続きサービスを使用することで、改訂された条件に拘束されることに同意します。',
   termsContactTitle: '12. お問い合わせ',
   termsContactText: 'この利用規約についてご質問がある場合は、以下までご連絡ください：',
+
+  // ── WhyDevConvert ───────────────────────────────────────────────────────────── 
+  whyTitleDivider: "なぜDevConvertを選ぶのか",
+  whyTitle: '開発者のために\n開発者が作ったツール',
+  whySubtitle: 'すべての機能は日常業務の時間を節約するために設計されています。余計な機能なし、広告なし、制限なし。',
+  whyFeat1Title: 'データは100%安全',
+  whyFeat1Body: 'すべての変換はブラウザ上で直接行われます。コードやデータがサーバーに送信されることは一切ありません。マシン外に出せない機密データにも安心して使用できます。',
+  whyFeat2Title: '入力と同時に即変換',
+  whyFeat2Body: 'データを貼り付けた瞬間にリアルタイム変換。ボタン操作不要、ローディングなし、ネットワーク待機なし。結果は50ms以内に表示されます。',
+  whyFeat3Title: '35以上のツールが一箇所に',
+  whyFeat3Body: 'あらゆる開発タスクに対応: JSON、TypeScript、YAML、XML、CSV、SQL、Markdown、HTML、Base64、JWT、カラー、CSSなど。複数のサイトを行き来する必要はありません。',
+  whyFeat4Title: '多言語UI対応',
+  whyFeat4Body: 'インターフェースはタイ語、英語、日本語、中国語に対応。世界中の開発者が快適に使用できます。',
+  whyFeat5Title: 'プロ仕様のエディタ',
+  whyFeat5Body: 'VS Codeと同じMonaco Editorを採用。シンタックスハイライト、自動インデント、コード折りたたみをすべてのフォーマットで利用可能。',
+  whyFeat6Title: '結果をすぐダウンロード',
+  whyFeat6Body: '出力結果をコピー、または.ts、.json、.yaml、.xmlファイルとしてすぐにダウンロード可能。追加編集なしでプロジェクトにそのまま使用できます。',
+
+  // ── HowItWorks ────────────────────────────────────────────────────────────────
+  howTitleDivider: "使い方",
+  howTitle: '簡単3ステップで使える',
+  howSubtitle: 'ログイン不要、インストール不要、設定不要 — 開いてすぐ変換できます',
+  howStep1Label: 'STEP 01',
+  howStep1Title: 'データを貼り付ける',
+  howStep1Body: 'JSON、YAML、TypeScript、CSV などのデータを左側の入力欄に貼り付けるか、直接入力してください',
+  howStep1Hint: 'クリップボードからの直接貼り付けに対応',
+  howStep2Label: 'STEP 02',
+  howStep2Title: 'フォーマットを選択する',
+  howStep2Body: 'ドロップダウンから変換先フォーマットを選択: TypeScript、JSON、YAML、XML、SQL、Markdown など多数',
+  howStep2Hint: '選択と同時に自動変換されます',
+  howStep3Label: 'STEP 03',
+  howStep3Title: 'コピーまたはダウンロード',
+  howStep3Body: '出力結果をすぐにコピーするか、ファイルとしてダウンロード。追加の編集なしでプロジェクトにそのまま使用できます',
+  howStep3Hint: '.ts、.json、.yaml などの形式で保存可能',
+
+  // ── ToolCategories ────────────────────────────────────────────────────────────
+  catTitleDivider: "すべてのツール",
+  catTitle: '開発者が必要とする\nすべてのフォーマットに対応',
+  catSubtitle: 'REST API、DevOpsパイプライン、フロントエンド、データエンジニアリングなど — あらゆる用途に最適なツールがあります',
+  catJsonLabel: 'JSON',
+  catJsonDesc: 'JSON ↔ TypeScript、YAML、XML、CSV、SQL',
+  catYamlLabel: 'YAML / XML',
+  catYamlDesc: 'YAML、XML、JSON、TypeScript間の変換',
+  catCodeLabel: 'コード',
+  catCodeDesc: 'TypeScript ↔ JavaScript、CSS ↔ SCSS、Tailwind',
+  catMarkupLabel: 'マークアップ',
+  catMarkupDesc: 'Markdown ↔ HTML、フォーマット、ミニファイ',
+  catEncodingLabel: 'エンコーディング',
+  catEncodingDesc: 'Base64、URL、JWT、HTMLエンティティ、進数変換',
+  catColorLabel: 'カラー',
+  catColorDesc: 'HEX ↔ RGB ↔ HSL、CSS変数対応',
+
+  // ── PrivacyPerformance ────────────────────────────────────────────────────────
+  ppTitleDivider: "プライバシー重視＆高速",
+  ppTitle: 'あなたのデータは\nブラウザの外に出ません',
+  ppBody: 'DevConvertにはバックエンドサーバーがありません。すべての変換はブラウザのJavaScript上で100%完結します。ログの保存なし、データの追跡なし、コードの送信なし。エンタープライズ業務や機密データの処理に最適です。',
+  ppCheck1: 'アカウント作成やログイン不要',
+  ppCheck2: '初回ロード後はオフラインで動作',
+  ppCheck3: 'オープンソースで監査可能',
+  ppCheck4: '広告なし、トラッキングなし',
+  ppStat1Label: 'サーバー遅延',
+  ppStat1Sub: 'すべてお使いの端末で処理',
+  ppStat2Label: 'ブラウザで動作',
+  ppStat2Sub: 'バックエンドなし、APIコールなし',
+  ppStat3Label: 'ツール数',
+  ppStat3Sub: '主要フォーマットを網羅',
+  ppStat4Label: '無制限で使用可能',
+  ppStat4Sub: '永久無料、レート制限なし',
+
+  // ── UseCases ──────────────────────────────────────────────────────────────────
+  useCaseTitleDivider: "あらゆる役割に対応",
+  useCaseTitle: 'あなたの役割に合わせた\nツールが揃っています',
+  ucRole1: 'フロントエンド開発者',
+  ucRole1Case1: 'APIレスポンス（JSON）をTypeScriptインターフェースに即変換',
+  ucRole1Case2: 'FigmaのHEXカラーをCSS用のRGB/HSLに変換',
+  ucRole1Case3: 'CSSをTailwindユーティリティクラスに変換',
+  ucRole2: 'DevOps / バックエンド',
+  ucRole2Case1: 'JSONコンフィグをKubernetes / Docker Compose用のYAMLに変換',
+  ucRole2Case2: 'JWTトークンをデコードしてクレームと有効期限を確認',
+  ucRole2Case3: 'タイムスタンプを任意のタイムゾーンの読みやすい日付に変換',
+  ucRole3: 'データエンジニア',
+  ucRole3Case1: 'CSVをデータベースインポート用のJSON配列に変換',
+  ucRole3Case2: 'JSONサンプルデータからSQL CREATE TABLE + INSERTを生成',
+  ucRole3Case3: 'レガシーAPIのXMLを扱いやすいJSONに変換',
+  ucRole4: 'テクニカルライター',
+  ucRole4Case1: 'MarkdownをブログやドキュメントサイトのHTMLに変換',
+  ucRole4Case2: 'ドキュメントに貼り付ける前にJSONを読みやすく整形',
+  ucRole4Case3: 'CMSのHTMLをGitHub用のMarkdownに変換',
+
+  // ── Knowledge Section ─────────────────────────────────────────────────────
+  knowledgeSectionTitle: 'フォーマット変換 — 開発者が知っておくべきこと',
+  knowledgeCards: [
+    {
+      title: 'フォーマット変換が必要な理由',
+      body: '現代のシステムが同じデータ形式を共有することはまずありません。APIはJSONを使い、設定ファイルはYAMLを好み、エンタープライズツールはXMLを要求し、パイプラインはCSVを出力します。フォーマット変換は利便性のためでなく、ソフトウェアスタック全体をつなぐ結合組織です。',
+    },
+    {
+      title: '変換後は必ずバリデーションを',
+      body: '変換後の出力をそのまま信用してはいけません。コードベースにコミットする前に、スキーマバリデーターやリンターで検証しましょう。クォートの位置ひとつ、型のミスマッチひとつが、本番環境のパイプライン全体をサイレントに破壊することがあります。',
+    },
+    {
+      title: 'すべての変換がロスレスではない',
+      body: 'XML→JSONは要素の順序や混合コンテンツを失います。YAML→JSONはすべてのコメントを削除します。JSON→CSVはネストされたオブジェクトをフラット化し、階層構造を失います。特に重要な下流プロセスにデータを供給する場合は、何が失われるかを事前に把握しておきましょう。',
+    },
+    {
+      title: 'エンコーディングの落とし穴',
+      body: 'UTF-8は世界標準ですが、レガシーシステムはISO-8859-1やWindows-1252を出力することがあります。パイプライン途中でエンコーディングが混在すると、文字化け（mojibake）が発生し、データがサイレントに破損します。変換ファイルの読み書き時は、エンコーディングを必ず明示的に宣言しましょう。',
+    },
+    {
+      title: '定期的な変換は自動化する',
+      body: '一度きりの変換は問題ありませんが、繰り返し行うものはCI/CDパイプラインに組み込むべきです。jq（JSON）、yq（YAML）、xmllint（XML）などのツールはスクリプト化・監査・バージョン管理が可能です。自動化によって、エラーが起きやすい手作業を再現可能なアーティファクトに変えられます。',
+    },
+    {
+      title: 'まずスキーマを定義する',
+      body: '変換前にターゲットスキーマを定義しましょう。JSON Schema、TypeScriptインターフェース、XSDを使えば、ランタイムではなく変換時に構造上の問題を検出できます。スキーマファーストの考え方は変換を可逆にし、常に正規の検証基準を持つことができます。',
+    },
+  ],
+  proTipsTitle: 'プロのヒント',
+  proTips: [
+    'diffを取る前はpretty-printを — minified出力は構造変更を隠します',
+    '変換前にnullと空文字列を除去する — 受け取り側の解釈が異なります',
+    'ラウンドトリップテスト: A→BしてB→Aに変換し、元と比較。差分がロスのあるフィールドを教えてくれます',
+    '元ファイルをバージョン管理に保存する。派生フォーマットは再生成できるが、オリジナルはできません',
+  ],
 }
 
 export default ja

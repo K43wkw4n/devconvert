@@ -10,8 +10,8 @@ export type Locale = typeof APP_CONFIG.i18n.supportedLocales[number]
 export const LOCALES: { key: Locale; label: string; flag: string; nativeName: string }[] = [
   { key: 'en', label: 'English',  flag: '🇬🇧', nativeName: 'English'  },
   { key: 'th', label: 'Thai',     flag: '🇹🇭', nativeName: 'ภาษาไทย' },
-  { key: 'zh', label: 'Chinese',  flag: '🇨🇳', nativeName: '中文'     },
   { key: 'ja', label: 'Japanese', flag: '🇯🇵', nativeName: '日本語'   },
+  { key: 'zh', label: 'Chinese',  flag: '🇨🇳', nativeName: '中文'     },
 ]
 
 const TRANSLATIONS: Record<Locale, Translations> = { en, th, zh, ja }

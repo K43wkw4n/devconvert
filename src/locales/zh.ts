@@ -6,6 +6,7 @@ const zh: Translations = {
   github: 'GitHub',
 
   // ── Home ─────────────────────────────────────────────────────────────────
+  privacyNote: "在浏览器中运行 — 数据不会被发送到任何地方",
   heroBadge: '⚡ 35+ 免费开发者工具', heroTitle1: '转换任何内容。', heroTitle2: '几秒钟内完成。',
   heroSubtitle: '面向开发者的免费在线代码和数据转换工具。JSON、TypeScript、YAML、Markdown、Base64、颜色等——全部在浏览器中本地运行。',
   statConverters: '转换器', statLatency: '服务器延迟', statClientSide: '客户端处理', statFree: '永久免费',
@@ -19,6 +20,7 @@ const zh: Translations = {
   notFound: '未找到该转换器。', browseAll: '浏览所有工具',
   searchResults: (n: number, q: string) => `"${q}" 的搜索结果：${n} 个`,
   noResults: '未找到转换器。请尝试搜索 "JSON"、"Base64" 或 "TypeScript"。',
+  howToUseTitle: "如何使用",
 
   // ── Timezone ─────────────────────────────────────────────────────────────
   timezone: '时区', timezoneSearch: '搜索时区...',
@@ -105,6 +107,130 @@ const zh: Translations = {
   termsChangesText: '我们保留随时修改或替换这些条款的权利。我们将通过更新这些条款顶部的日期来提供通知。在任何修订生效后继续访问或使用我们的服务，即表示您同意受修订后的条款约束。',
   termsContactTitle: '12. 联系我们',
   termsContactText: '如果您对这些服务条款有任何疑问，请通过以下方式联系我们：',
+
+  // ── WhyDevConvert ───────────────────────────────────────────────────────────── 
+  whyTitleDivider: "为什么选择 DevConvert",
+  whyTitle: '由开发者打造\n专为开发者服务',
+  whySubtitle: '每个功能都旨在节省日常工作时间。无冗余功能，无广告，无任何附加条件。',
+  whyFeat1Title: '数据安全 100%',
+  whyFeat1Body: '所有转换直接在您的浏览器中完成。任何代码或数据都不会被发送到任何服务器。非常适合不能离开本机的敏感数据。',
+  whyFeat2Title: '输入即时转换',
+  whyFeat2Body: '粘贴数据的瞬间即开始实时转换。无需按任何按钮，无加载等待，无需等待网络。结果在 50ms 内显示。',
+  whyFeat3Title: '35+ 工具集于一处',
+  whyFeat3Body: '覆盖所有开发任务：JSON、TypeScript、YAML、XML、CSV、SQL、Markdown、HTML、Base64、JWT、颜色、CSS 等。无需在多个网站间切换。',
+  whyFeat4Title: '多语言界面',
+  whyFeat4Body: '界面支持泰语、英语、日语和中文，让全球开发者都能方便使用。',
+  whyFeat5Title: '专业级编辑器',
+  whyFeat5Body: '采用与 VS Code 相同的 Monaco Editor，支持所有格式的语法高亮、自动缩进和代码折叠。',
+  whyFeat6Title: '立即下载结果',
+  whyFeat6Body: '可立即复制输出结果，或下载为 .ts、.json、.yaml、.xml 文件。无需额外编辑，可直接用于项目。',
+
+  // ── HowItWorks ────────────────────────────────────────────────────────────────
+  howTitleDivider: "使用方法",
+  howTitle: '简单三步即可使用',
+  howSubtitle: '无需登录、无需安装、无需配置 — 打开即用',
+  howStep1Label: '第 01 步',
+  howStep1Title: '粘贴您的数据',
+  howStep1Body: '将 JSON、YAML、TypeScript、CSV 或其他数据粘贴到左侧输入框，或直接输入也可以',
+  howStep1Hint: '支持直接从剪贴板粘贴',
+  howStep2Label: '第 02 步',
+  howStep2Title: '选择目标格式',
+  howStep2Body: '从下拉菜单中选择目标格式：TypeScript、JSON、YAML、XML、SQL、Markdown 等多种格式',
+  howStep2Hint: '选择后立即自动转换',
+  howStep3Label: '第 03 步',
+  howStep3Title: '复制或下载',
+  howStep3Body: '立即复制输出结果，或下载为文件。无需额外修改，可直接在项目中使用',
+  howStep3Hint: '可保存为 .ts、.json、.yaml 等格式',
+
+  // ── ToolCategories ────────────────────────────────────────────────────────────
+  catTitleDivider: "所有工具",
+  catTitle: '覆盖开发者所需的\n所有格式',
+  catSubtitle: '无论是 REST API、DevOps 流水线、前端开发还是数据工程 — 每项工作都有合适的工具',
+  catJsonLabel: 'JSON',
+  catJsonDesc: 'JSON ↔ TypeScript、YAML、XML、CSV、SQL',
+  catYamlLabel: 'YAML / XML',
+  catYamlDesc: '在 YAML、XML、JSON 和 TypeScript 之间互转',
+  catCodeLabel: '代码',
+  catCodeDesc: 'TypeScript ↔ JavaScript、CSS ↔ SCSS、Tailwind',
+  catMarkupLabel: '标记语言',
+  catMarkupDesc: 'Markdown ↔ HTML、格式化与压缩',
+  catEncodingLabel: '编码',
+  catEncodingDesc: 'Base64、URL、JWT、HTML 实体、进制转换',
+  catColorLabel: '颜色',
+  catColorDesc: 'HEX ↔ RGB ↔ HSL，支持 CSS 变量',
+
+  // ── PrivacyPerformance ────────────────────────────────────────────────────────
+  ppTitleDivider: "隐私优先且快速",
+  ppTitle: '您的数据从不\n离开浏览器',
+  ppBody: 'DevConvert 没有后端服务器。所有转换 100% 在您浏览器的 JavaScript 中完成。不记录日志、不追踪数据、不向外发送任何代码。非常适合企业级工作或处理机密数据。',
+  ppCheck1: '无需注册账户或登录',
+  ppCheck2: '首次加载后可离线使用',
+  ppCheck3: '开源代码，可审计',
+  ppCheck4: '无广告，无追踪',
+  ppStat1Label: '服务器延迟',
+  ppStat1Sub: '一切在您的设备上运行',
+  ppStat2Label: '在浏览器中运行',
+  ppStat2Sub: '无后端，无 API 调用',
+  ppStat3Label: '工具数量',
+  ppStat3Sub: '覆盖所有主流格式',
+  ppStat4Label: '无限制使用',
+  ppStat4Sub: '永久免费，无速率限制',
+
+  // ── UseCases ──────────────────────────────────────────────────────────────────
+  useCaseTitleDivider: "适用于各种角色",
+  useCaseTitle: '无论您是哪种角色\n都有适合您的工具',
+  ucRole1: '前端开发者',
+  ucRole1Case1: '将 API 响应（JSON）立即转换为 TypeScript 接口',
+  ucRole1Case2: '将 Figma 中的 HEX 颜色转换为 CSS 用的 RGB/HSL',
+  ucRole1Case3: '将 CSS 转换为 Tailwind 工具类',
+  ucRole2: 'DevOps / 后端',
+  ucRole2Case1: '将 JSON 配置转换为 Kubernetes / Docker Compose 用的 YAML',
+  ucRole2Case2: '解码 JWT Token 以检查 claims 和过期时间',
+  ucRole2Case3: '将时间戳转换为任意时区的可读日期',
+  ucRole3: '数据工程师',
+  ucRole3Case1: '将 CSV 转换为 JSON 数组以导入数据库',
+  ucRole3Case2: '从 JSON 示例数据生成 SQL CREATE TABLE + INSERT',
+  ucRole3Case3: '将遗留 API 的 XML 转换为易用的 JSON',
+  ucRole4: '技术写作者',
+  ucRole4Case1: '将 Markdown 转换为博客或文档网站的 HTML',
+  ucRole4Case2: '将 JSON 格式化为易读格式，再粘贴到文档中',
+  ucRole4Case3: '将 CMS 的 HTML 转换为 GitHub 用的 Markdown',
+
+  // ── Knowledge Section ─────────────────────────────────────────────────────
+  knowledgeSectionTitle: '格式转换 — 每位开发者都应了解的知识',
+  knowledgeCards: [
+    {
+      title: '为什么需要格式转换',
+      body: '现代系统几乎不会共享相同的数据语言。API 使用 JSON，配置文件偏好 YAML，企业工具需要 XML，而流水线输出 CSV。格式转换不只是便利工具，它是整个软件栈的粘合剂。',
+    },
+    {
+      title: '转换后务必验证',
+      body: '永远不要盲目信任转换结果。在提交到代码库之前，务必使用 schema 验证器或 linter 进行检查。一个错误的引号或错误的数据类型，就可能在生产环境中悄无声息地破坏整个下游流水线。',
+    },
+    {
+      title: '并非所有转换都是无损的',
+      body: 'XML 转 JSON 会丢失元素顺序和混合内容；YAML 转 JSON 会删除所有注释；JSON 转 CSV 会将嵌套对象拍平，丢失层级结构。在转换之前，务必清楚哪些内容会被丢弃——尤其是当这些数据要输入关键的下游流程时。',
+    },
+    {
+      title: '需要注意的编码陷阱',
+      body: 'UTF-8 是通用标准，但旧系统仍然可能输出 ISO-8859-1 或 Windows-1252。在流水线中混用编码会导致乱码（mojibake），悄悄损坏数据。读写转换文件时，务必显式声明编码。',
+    },
+    {
+      title: '将重复转换自动化',
+      body: '一次性转换没有问题，但重复性转换应纳入 CI/CD 流水线。jq（JSON）、yq（YAML）和 xmllint（XML）等工具均可脚本化、可审计、可版本控制。自动化能将容易出错的手动步骤变成可重现、可审查的交付物。',
+    },
+    {
+      title: '先定义 Schema',
+      body: '在转换之前，先定义目标 schema。JSON Schema、TypeScript 接口或 XSD 能在转换时而非运行时发现结构问题。schema 优先的思路还让转换具备可逆性——你始终有一个权威的参照标准用于验证。',
+    },
+  ],
+  proTipsTitle: '专业技巧',
+  proTips: [
+    'diff 前先格式化输出——压缩格式会隐藏结构变化',
+    '转换前先清除 null 和空字符串——下游系统对其解释不同',
+    '进行往返测试：A→B 再 B→A，与原始数据对比，差异即为有损字段',
+    '将原始文件保存到版本控制中。派生格式可以重新生成，但原始文件不可替代',
+  ],
 }
 
 export default zh

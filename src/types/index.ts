@@ -52,6 +52,8 @@ export interface Converter {
   description: string
   /** Longer description for SEO page */
   longDescription: string
+  /** howToUse the tools */
+  howToUse: string
   /** Category for grouping */
   category: ConverterCategory
   /** Monaco language for input editor */

@@ -8,12 +8,13 @@ import type { Converter } from '@/types'
 export function useConverterLocale(converter: Converter | undefined) {
   const { locale } = useI18n()
 
-  if (!converter) return { description: '', longDescription: '' }
+  if (!converter) return { description: '', longDescription: '', howToUse: '' }
 
   const translated = getConverterLocale(converter.id, locale)
 
   return {
     description: translated?.description ?? converter.description,
     longDescription: translated?.longDescription ?? converter.longDescription,
+    howToUse: translated?.howToUse ?? converter.howToUse,
   }
 }
