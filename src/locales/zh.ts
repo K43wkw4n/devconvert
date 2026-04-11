@@ -1,6 +1,7 @@
 import type { Translations } from './en'
 
 const zh: Translations = {
+  home: "首页",
   // ── Nav ──────────────────────────────────────────────────────────────────
   allTools: '所有工具',
   github: 'GitHub',
@@ -231,6 +232,336 @@ const zh: Translations = {
     '进行往返测试：A→B 再 B→A，与原始数据对比，差异即为有损字段',
     '将原始文件保存到版本控制中。派生格式可以重新生成，但原始文件不可替代',
   ],
+
+  // for blog
+  "blogTitle": "博客",
+  "developerBlog": "开发者知识库",
+  "blogDescription": "通过深入的指南、实用的教程以及真实案例，全面提升你的开发技能，内容涵盖 JSON、TypeScript、YAML、编码技术、CSS 以及现代开发流程。从基础到进阶的逐步讲解，结合最佳实践、性能优化技巧以及常见问题解析，帮助你避免踩坑。不论你是在构建应用、处理数据，还是优化前端与后端系统，这里都将为你提供清晰、高效的解决思路，帮助你写出更高质量的代码，更快速地解决问题，并紧跟开发者日常使用的最新工具与技术趋势。",
+  "blogFeaturedArticles": "精选文章",
+  "blogAllArticles": "全部文章",
+  "totalArticles": "涵盖 DevConvert 所有工具的文章",
+  "blogs": [
+    {
+      "id": 1,
+      "slug": "what-is-json",
+      "category": "json",
+      "publishedAt": "2025-01-10",
+      "readingMinutes": 6,
+      "coverEmoji": "📄",
+      "relatedTools": ["json-beautify", "json-to-ts", "json-to-yaml", "json-to-csv"],
+      "content": {
+        "title": "什么是JSON？开发者完整指南",
+        "description": "了解JSON是什么，为何成为API的通用数据格式，以及如何通过实际示例高效使用它。",
+        "sections": [
+          {
+            "heading": "什么是JSON？",
+            "paragraphs": [
+              "JSON（JavaScript Object Notation）是一种轻量级的基于文本的数据格式，用于存储和交换结构化信息。虽然最初源自JavaScript对象语法，但JSON已发展成为几乎所有编程语言和平台上数据交换的事实标准。",
+              "JSON建立在两种基本结构之上：名称/值对的集合（对象）和有序的值列表（数组）。这两个简单的构建块足以表示几乎任何现实世界的数据结构——从用户配置文件到复杂的嵌套配置文件。"
+            ]
+          },
+          {
+            "heading": "为什么JSON成为通用标准",
+            "paragraphs": [
+              "在JSON之前，XML统治着网络。XML功能强大但冗长——一个简单的名称列表需要大量的开始和结束标签。JSON去掉了所有繁文缛节，只保留数据。当REST API在2000年代末开始取代SOAP时，JSON成为自然选择：人类可读、紧凑，且可在任何浏览器中原生解析。",
+              "如今，JSON无处不在：REST API返回JSON，配置文件使用JSON（package.json、tsconfig.json），像MongoDB这样的数据库以BSON（JSON的二进制形式）存储文档，甚至AWS和Azure也使用JSON作为基础设施策略。了解JSON不是可选项，而是现代开发者的基础知识。"
+            ]
+          },
+          {
+            "heading": "JSON数据类型和语法规则",
+            "paragraphs": [
+              "JSON支持六种数据类型：字符串（双引号括起）、数字、布尔值（true或false）、null、对象（花括号）和数组（方括号）。一个关键规则：所有对象键必须是用双引号括起的字符串。与JavaScript对象字面量不同，JSON不允许尾随逗号、注释或单引号。",
+              "严格的语法既是JSON的优势，也是其最大的bug来源。单个缺失的逗号或多余的括号就会破坏整个文档。这就是为什么JSON美化工具和验证器——如DevConvert上的JSON Beautify工具——对于每天使用API或配置文件的开发者来说是必不可少的日常工具。"
+            ]
+          },
+          {
+            "heading": "JSON实践：常见用例",
+            "paragraphs": [
+              "API响应是最常见的JSON场景。当您从REST API获取数据时，响应体几乎总是JSON。前端开发者将这个JSON解析为JavaScript对象，提取所需字段并渲染到UI。",
+              "配置文件是另一个主要用例。Node.js项目使用package.json声明依赖和脚本。TypeScript项目使用tsconfig.json配置编译器。ESLint、Prettier和Babel都使用基于JSON的配置。理解JSON结构有助于更快地调试配置问题。"
+            ]
+          },
+          {
+            "heading": "更高效地使用JSON的技巧",
+            "paragraphs": [
+              "处理压缩的API响应时使用JSON美化工具——单行压缩的JSON无法阅读或调试。DevConvert的JSON Beautify工具能立即将压缩的JSON格式化为适当的缩进。",
+              "构建TypeScript应用时，立即将JSON数据转换为类型化接口。这为您提供自动补全、类型安全和编译时错误检测。DevConvert的JSON to TypeScript工具能从任何JSON对象（包括嵌套结构和数组）生成准确的接口。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "slug": "json-to-typescript-interfaces",
+      "category": "typescript",
+      "publishedAt": "2025-01-17",
+      "readingMinutes": 7,
+      "coverEmoji": "⚡",
+      "relatedTools": ["json-to-ts", "yaml-to-ts", "ts-to-js"],
+      "content": {
+        "title": "JSON转TypeScript：自动生成类型化接口",
+        "description": "停止手动编写TypeScript接口。学习如何在几秒内自动从任何JSON对象生成准确的嵌套类型定义。",
+        "sections": [
+          {
+            "heading": "为什么TypeScript接口很重要",
+            "paragraphs": [
+              "当您从API获取数据时，您收到的是没有类型信息的普通JavaScript对象。TypeScript的强大之处在于能够在编译时而非运行时捕获错误——但只有当您的数据被正确类型化时，这种能力才会激活。没有接口，TypeScript就退化为带注释的JavaScript，您将失去自动补全、重构安全性和类型缩小。",
+              "手动编写接口既繁琐又容易出错。典型的API响应可能有15个字段、嵌套对象、可选数组和联合类型。手动转录所有这些需要时间，还会引入人为错误——可选字段缺少问号，数字字段类型错误。自动化这个转换过程简单来说就是更明智的方法。"
+            ]
+          },
+          {
+            "heading": "如何处理现实世界中的JSON复杂性",
+            "paragraphs": [
+              "真实的API很少返回完全一致的JSON。您可能会看到有时为空的数组、仅在特定条件下出现的字段，或可以是多种类型的值。TypeScript通过联合类型处理这些情况：`string | number`、`string | null`。",
+              "当转换来自您无法控制的API的JSON时，将生成的接口视为起点，而非最终答案。查看生成的接口，对可能缺失的字段添加`?`，或根据API文档指示的可变性扩展类型。转换器节省了您80%的工作；您的领域知识提供剩余的20%。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "slug": "yaml-json-xml-comparison",
+      "category": "yaml",
+      "publishedAt": "2025-01-24",
+      "readingMinutes": 8,
+      "coverEmoji": "📊",
+      "relatedTools": ["yaml-to-json", "json-to-yaml", "xml-to-json", "yaml-to-xml"],
+      "content": {
+        "title": "YAML vs JSON vs XML：应该使用哪种格式？",
+        "description": "三种主流数据序列化格式的实践比较。学习何时使用YAML、JSON或XML，以及如何在不丢失数据的情况下相互转换。",
+        "sections": [
+          {
+            "heading": "三种格式，三种哲学",
+            "paragraphs": [
+              "YAML、JSON和XML都解决同一个问题：将结构化数据表示为文本。但它们的设计理念完全不同。XML（1998年）优先考虑带属性和混合内容的文档语义。JSON（2001年）优先考虑机器可读性和JavaScript兼容性。YAML（2001年）优先考虑人类可读性和配置便利性。",
+              "在现代软件开发中，您会遇到所有三种格式。REST API使用JSON，Kubernetes和Docker Compose使用YAML，企业系统仍然使用XML。"
+            ]
+          },
+          {
+            "heading": "YAML：配置之王",
+            "paragraphs": [
+              "YAML专为人类读写而设计。它使用缩进代替括号，支持用`#`注释，原生支持多行字符串，并在大多数情况下允许不带引号的字符串。Kubernetes部署清单用YAML写比等效的JSON可读性要强得多。",
+              "使用YAML的场景：Kubernetes清单、Docker Compose文件、GitHub Actions工作流、Ansible剧本、CI/CD管道配置，以及任何人类需要定期阅读和编辑的配置文件。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "slug": "base64-url-encoding-explained",
+      "category": "encoding",
+      "publishedAt": "2025-02-07",
+      "readingMinutes": 6,
+      "coverEmoji": "🔐",
+      "relatedTools": ["text-to-base64", "base64-to-text", "url-encode", "url-decode", "html-encode"],
+      "content": {
+        "title": "Base64和URL编码：开发者完整参考",
+        "description": "理解Base64、URL编码和HTML实体编码——它们是什么、何时使用，以及开发者常犯的编码错误。",
+        "sections": [
+          {
+            "heading": "什么是Base64编码？",
+            "paragraphs": [
+              "Base64是一种将二进制数据转换为ASCII文本的编码方案，通过将每3字节的二进制数据表示为从64字符字母表（A–Z、a–z、0–9、+、/）中提取的4个ASCII字符来实现。",
+              "Base64的常见用途包括：邮件附件（MIME使用Base64编码二进制文件）、数据URI（在HTML中嵌入图像）、JWT令牌（头部和载荷使用Base64URL编码）、HTTP基本认证。"
+            ]
+          },
+          {
+            "heading": "选择正确的编码",
+            "paragraphs": [
+              "使用Base64的情况：通过基于文本的协议传输二进制数据、在数据URI中嵌入图像、为HTTP基本认证编码凭据。请注意Base64会使数据大小增加约33%。",
+              "使用URL编码的情况：构建查询字符串、编码包含特殊字符的路径段、处理通过GET请求提交的表单数据。使用HTML编码的情况：在HTML页面中渲染用户生成的内容——这是防止XSS攻击的关键。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "slug": "jwt-token-decode-guide",
+      "category": "encoding",
+      "publishedAt": "2025-02-14",
+      "readingMinutes": 5,
+      "coverEmoji": "🔑",
+      "relatedTools": ["jwt-decode", "text-to-base64", "base64-to-text"],
+      "content": {
+        "title": "JWT令牌详解：如何解码和检查",
+        "description": "了解JSON Web Token的结构、如何解码和检查JWT声明、理解过期和签名验证，以及更快调试认证问题。",
+        "sections": [
+          {
+            "heading": "什么是JWT？",
+            "paragraphs": [
+              "JSON Web Token（JWT）是一种紧凑的、URL安全的令牌格式，用于在两方之间表示声明。JWT常用于Web应用程序和API的认证和授权。用户登录时，服务器颁发JWT，客户端存储并随每个后续请求发送以证明身份。",
+              "JWT由三个用点分隔的部分组成：`header.payload.signature`。每个部分独立进行Base64URL编码。头部描述用于签名的算法。载荷包含声明（数据）。签名验证真实性。"
+            ]
+          },
+          {
+            "heading": "常见JWT问题及调试方法",
+            "paragraphs": [
+              "令牌过期（`exp`在过去）：客户端需要刷新令牌。使用JWT Decode工具检查`exp`字段，确认您所在时区的确切到期时间。",
+              "缺少声明：您的授权逻辑期望`roles`字段，但它不在载荷中。JWT Decode工具让您立即查看所有声明并识别缺少的内容。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "slug": "css-to-tailwind-migration",
+      "category": "css",
+      "publishedAt": "2025-02-21",
+      "readingMinutes": 7,
+      "coverEmoji": "🎨",
+      "relatedTools": ["css-to-tailwind", "css-to-scss", "css-minify", "css-beautify"],
+      "content": {
+        "title": "CSS转Tailwind：实践迁移指南",
+        "description": "学习如何高效地将原生CSS转换为Tailwind工具类，了解何时迁移是有意义的，以及处理没有直接Tailwind等价物的CSS模式。",
+        "sections": [
+          {
+            "heading": "为什么要迁移到Tailwind CSS？",
+            "paragraphs": [
+              "Tailwind CSS采用工具优先的方法：不再编写`.button { background-color: blue; padding: 8px; }`，而是直接在HTML中组合类：`<button class='bg-blue-500 px-4 py-2 rounded'>`。这消除了发明类名的需要，防止CSS文件无限增长，并使样式在组件标记中立即可见。",
+              "团队报告使用Tailwind后CSS包大小显著减小，因为Tailwind的构建过程会删除未使用的类——您的生产CSS只包含您实际使用的内容。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "slug": "unix-timestamp-explained",
+      "category": "utility",
+      "publishedAt": "2025-03-07",
+      "readingMinutes": 5,
+      "coverEmoji": "🕐",
+      "relatedTools": ["timestamp-to-date", "date-to-timestamp"],
+      "content": {
+        "title": "Unix时间戳详解：无国界的日期",
+        "description": "了解Unix时间戳是什么、为何是软件的通用时间格式、如何转换为人类可读的日期，以及开发者常遇到的时间戳陷阱。",
+        "sections": [
+          {
+            "heading": "什么是Unix时间戳？",
+            "paragraphs": [
+              "Unix时间戳（也称为Unix时间、POSIX时间或纪元时间）是自1970年1月1日00:00:00 UTC（称为Unix纪元的时刻）以来经过的秒数。例如，时间戳`1700000000`表示2023年11月14日22:13:20 UTC。",
+              "秒与毫秒：最常见的时间戳bug。JavaScript的`Date.now()`返回毫秒。这1000倍的差异是Web开发中最常见的时间戳bug。10位数字是秒，13位数字是毫秒。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "slug": "number-bases-binary-hex-decimal",
+      "category": "utility",
+      "publishedAt": "2025-03-14",
+      "readingMinutes": 6,
+      "coverEmoji": "🔢",
+      "relatedTools": ["dec-to-bin", "bin-to-dec", "dec-to-hex", "hex-to-dec"],
+      "content": {
+        "title": "二进制、十六进制和十进制：每个开发者都应该了解的数字系统",
+        "description": "掌握作为开发者每天都会用到的三种数字系统。理解用于位运算的二进制、用于颜色和内存的十六进制，以及驱动您代码的十进制转换。",
+        "sections": [
+          {
+            "heading": "为什么开发者需要理解数字进制",
+            "paragraphs": [
+              "计算机在硬件层面以二进制（基数2）运行。人类以十进制（基数10）思考。十六进制（基数16）是桥梁——对人类来说足够紧凑可读，同时与二进制完美对应。",
+              "您作为开发者到处都会遇到十六进制：Web颜色（`#3b82f6`是蓝色）、调试器中的内存地址、UUID字符串。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "slug": "color-formats-hex-rgb-hsl",
+      "category": "colors",
+      "publishedAt": "2025-03-21",
+      "readingMinutes": 5,
+      "coverEmoji": "🎨",
+      "relatedTools": ["hex-to-rgb", "rgb-to-hex", "hsl-to-hex"],
+      "content": {
+        "title": "HEX、RGB和HSL：理解Web颜色格式",
+        "description": "了解HEX、RGB和HSL颜色格式之间的差异、何时在CSS中使用它们，以及如何为任何设计系统准确转换。",
+        "sections": [
+          {
+            "heading": "三种颜色模型解释",
+            "paragraphs": [
+              "Web颜色可以用三种主要格式表示。HEX（`#3b82f6`）是RGB模型的简写，将红、绿、蓝值表示为两位十六进制数。RGB（`rgb(59, 130, 246)`）将相同的三个通道表示为0-255的整数。HSL（`hsl(217, 91%, 60%)`）将颜色表示为色调（0-360°）、饱和度（0-100%）和亮度（0-100%）。",
+              "HSL是构建设计系统和主题变量最适合开发者的格式。色调、饱和度和亮度模型直接映射到人类感知颜色的方式。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "slug": "markdown-to-html-guide",
+      "category": "markup",
+      "publishedAt": "2025-03-28",
+      "readingMinutes": 5,
+      "coverEmoji": "📝",
+      "relatedTools": ["md-to-html", "html-to-md", "html-beautify", "html-minify"],
+      "content": {
+        "title": "Markdown转HTML：为Web转换文档和内容",
+        "description": "了解Markdown到HTML的转换过程、GitHub Flavored Markdown特性、何时转换与原生渲染Markdown，以及如何格式化生产HTML。",
+        "sections": [
+          {
+            "heading": "Markdown存在的原因",
+            "paragraphs": [
+              "Markdown由John Gruber于2004年创建，作为一种使用纯文本语法编写格式化文本的方式，即使在渲染之前也能自然阅读。今天，Markdown是技术文档、README文件、GitHub issues和PR、博客文章的默认写作格式。",
+              "HTML美化在HTML代码中添加一致的缩进和换行。HTML压缩删除空白、注释和不必要的字符。始终在编辑前美化，在部署前压缩。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "slug": "csv-json-data-conversion",
+      "category": "data",
+      "publishedAt": "2025-04-04",
+      "readingMinutes": 5,
+      "coverEmoji": "📊",
+      "relatedTools": ["csv-to-json", "json-to-csv", "json-to-sql"],
+      "content": {
+        "title": "CSV转JSON：为API和数据库转换电子表格数据",
+        "description": "学习如何将CSV文件转换为JSON数组、处理常见的CSV边缘情况，以及在API、数据库和JavaScript应用程序中使用转换后的数据。",
+        "sections": [
+          {
+            "heading": "CSV和JSON为何都不可或缺",
+            "paragraphs": [
+              "CSV是表格数据的通用格式——每个电子表格应用、数据库导出工具和数据分析平台都能读写CSV。JSON是API和JavaScript应用程序的通用格式。在它们之间转换是日常数据工程任务。",
+              "JSON to SQL转换器从JSON数组生成`CREATE TABLE`和`INSERT INTO`语句。让您可以获取示例JSON API响应并立即搭建存储该数据的数据库模式。"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "slug": "typescript-vs-javascript-migration",
+      "category": "typescript",
+      "publishedAt": "2025-04-09",
+      "readingMinutes": 6,
+      "coverEmoji": "⚡",
+      "relatedTools": ["ts-to-js", "js-to-ts", "json-to-ts"],
+      "content": {
+        "title": "TypeScript vs JavaScript：何时以及如何相互转换",
+        "description": "了解TypeScript和JavaScript之间的真正区别、何时迁移，以及如何使用TS↔JS转换器处理项目中的两个方向转换。",
+        "sections": [
+          {
+            "heading": "TypeScript就是JavaScript加上类型层",
+            "paragraphs": [
+              "TypeScript是JavaScript的超集。每个有效的JavaScript文件也是有效的TypeScript文件。TypeScript在顶部添加了一个类型系统——接口、泛型、枚举、联合类型——这些在编译时都会被删除。",
+              "TypeScript的收益与项目规模和团队规模成正比。任何将被多人修改、持续超过3个月或超过约20个文件的项目，TypeScript都值得投入。"
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
 
 export default zh

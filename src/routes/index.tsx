@@ -5,8 +5,10 @@ import { lazy, type ComponentType } from "react";
 const HomePage = lazy(() => import("@/pages/HomePage"));
 const ConverterPage = lazy(() => import("@/pages/ConverterPage"));
 const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'))
-const AboutPage = lazy(() => import('@/pages/AboutPage'))
 const TermsPage = lazy(() => import('@/pages/TermsPage'))
+const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const BlogListPage = lazy(() => import('@/pages/BlogPage'))
+const BlogDetailPage = lazy(() => import('@/pages/BlogDetailPage'))
 
 // ─── Route Definition ─────────────────────────────────────────────────────────
 export interface RouteConfig {
@@ -52,6 +54,18 @@ export const ROUTES = {
     name: "converter",
   },
 
+  // 
+  BLOG: {
+    path: "/blog",
+    component: BlogListPage,
+    name: "blog",
+  },
+  BLOGDetail: {
+    path: "/blog/:slug",
+    component: BlogDetailPage,
+    name: "terms",
+  },
+
   // ── Fallback ───────────────────────────────────────────────────────────────
   // route ที่ไม่ match จะถูก redirect กลับ HOME
   FALLBACK: {
@@ -71,4 +85,6 @@ export const buildPath = {
   privacy: () => ROUTES.PRIVACY.path,
   about: () => ROUTES.ABOUT.path,
   terms: () => ROUTES.TERMS.path,
+  blog: () => ROUTES.BLOG.path,
+  blogDetail: () => ROUTES.BLOGDetail.path,
 };

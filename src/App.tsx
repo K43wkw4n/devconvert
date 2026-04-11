@@ -9,6 +9,8 @@ import { I18nProvider } from "@/contexts/I18nContext";
 import { ROUTES } from "@/routes";
 import { ALIAS_MAP } from "@/config/converters.config";
 import { APP_CONFIG } from "@/config/app.config";
+import BlogListPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
 
 const { Content } = Layout;
 
@@ -56,6 +58,10 @@ function AppRoutes() {
 
         {/* Converter — handles both canonical IDs and aliases */}
         <Route path={ROUTES.CONVERTER.path} element={<ConverterRoute />} />
+
+        {/* blog */}
+        <Route path={ROUTES.BLOG.path} element={<BlogListPage />} />
+        <Route path={ROUTES.BLOGDetail.path} element={<BlogDetailPage />} /> 
 
         {/* Fallback — redirect ทุก path ที่ไม่รู้จักกลับ home */}
         <Route

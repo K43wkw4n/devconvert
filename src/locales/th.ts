@@ -1,6 +1,7 @@
 import type { Translations } from './en'
 
 const th: Translations = {
+  home: "หน้าหลัก",
   // ── Nav ──────────────────────────────────────────────────────────────────
   allTools: 'เครื่องมือทั้งหมด',
   github: 'GitHub',
@@ -308,6 +309,453 @@ const th: Translations = {
     'ทดสอบ round-trip: แปลง A→B แล้ว B→A แล้วเปรียบเทียบกับต้นฉบับ ความแตกต่างบอก field ที่สูญหาย',
     'เก็บไฟล์ต้นฉบับไว้ใน version control เสมอ รูปแบบที่แปลงแล้วสร้างใหม่ได้ แต่ต้นฉบับไม่ได้',
   ],
+
+  // for blog
+  "blogTitle": "บทความ",
+  "developerBlog": "คลังความรู้สำหรับนักพัฒนา",
+  "blogDescription": "ยกระดับทักษะการเขียนโปรแกรมของคุณด้วยบทความเชิงลึก คู่มือการใช้งานจริง และตัวอย่างจากสถานการณ์จริง ครอบคลุมทั้ง JSON, TypeScript, YAML, การเข้ารหัสข้อมูล, CSS และกระบวนการพัฒนาสมัยใหม่ เนื้อหาถูกออกแบบให้เข้าใจง่ายแบบเป็นขั้นตอน พร้อมแนวทางปฏิบัติที่ดีที่สุด เทคนิคเพิ่มประสิทธิภาพ และข้อผิดพลาดที่ควรหลีกเลี่ยง ไม่ว่าคุณจะกำลังพัฒนาแอปพลิเคชัน จัดการข้อมูล หรือปรับปรุงระบบ frontend และ backend ที่นี่คือแหล่งความรู้ที่จะช่วยให้คุณเขียนโค้ดได้สะอาดขึ้น แก้ปัญหาได้เร็วขึ้น และทันต่อเครื่องมือที่นักพัฒนาใช้งานจริงในทุกวัน",
+  "blogFeaturedArticles": "บทความแนะนำ",
+  "blogAllArticles": "บทความทั้งหมด",
+  "totalArticles": "บทความที่ครอบคลุมเครื่องมือทั้งหมดของ DevConvert",
+  "blogs": [
+    {
+      "id": 1,
+      "slug": "what-is-json",
+      "category": "json",
+      "publishedAt": "2025-01-10",
+      "readingMinutes": 6,
+      "coverEmoji": "📄",
+      "relatedTools": ["json-beautify", "json-to-ts", "json-to-yaml", "json-to-csv"],
+      "content": {
+        "title": "JSON คืออะไร? คู่มือฉบับสมบูรณ์สำหรับ Developer",
+        "description": "เรียนรู้ว่า JSON คืออะไร ทำไมถึงกลายเป็น format มาตรฐานของ API และวิธีใช้งานอย่างมีประสิทธิภาพพร้อมตัวอย่างจริง",
+        "sections": [
+          {
+            "heading": "JSON คืออะไร?",
+            "paragraphs": [
+              "JSON (JavaScript Object Notation) คือ format ข้อมูลแบบ text ที่มีน้ำหนักเบา ใช้สำหรับจัดเก็บและแลกเปลี่ยนข้อมูลที่มีโครงสร้าง แม้จะมีรากมาจาก JavaScript แต่ปัจจุบัน JSON กลายเป็นมาตรฐานสากลสำหรับการรับส่งข้อมูลในทุกภาษาโปรแกรมมิ่งและทุก platform",
+              "โครงสร้างพื้นฐานของ JSON มีเพียงสองแบบ ได้แก่ คู่ชื่อ/ค่า (object) และรายการข้อมูลตามลำดับ (array) สองโครงสร้างนี้เพียงพอสำหรับแทนข้อมูลในโลกจริงได้เกือบทุกรูปแบบ ตั้งแต่ข้อมูลผู้ใช้ไปจนถึง configuration file ที่ซับซ้อน"
+            ]
+          },
+          {
+            "heading": "ทำไม JSON ถึงกลายเป็นมาตรฐานสากล",
+            "paragraphs": [
+              "ก่อน JSON จะมา XML ครองตลาด XML มีพลังแต่ verbose มาก แค่จะเก็บรายชื่อธรรมดาก็ต้องใช้ tag เปิดปิดมากมาย JSON ตัดส่วนที่ไม่จำเป็นออกและเก็บไว้เฉพาะข้อมูล เมื่อ REST API เริ่มแทนที่ SOAP ในช่วงปลายปี 2000s JSON จึงเป็นตัวเลือกที่ใช่ เพราะมนุษย์อ่านได้ กระชับ และ parse ได้ใน browser ทุกตัว",
+              "วันนี้ JSON อยู่ทุกที่ REST API ส่งคืนเป็น JSON, configuration file ใช้ JSON (package.json, tsconfig.json), database อย่าง MongoDB เก็บ document ในรูป BSON, แม้แต่ AWS และ Azure ก็ใช้ JSON สำหรับ infrastructure policy การรู้จัก JSON ไม่ใช่ทางเลือก แต่เป็นพื้นฐานของ developer ยุคใหม่"
+            ]
+          },
+          {
+            "heading": "ประเภทข้อมูลและกฎ syntax ของ JSON",
+            "paragraphs": [
+              "JSON รองรับ 6 ประเภทข้อมูล ได้แก่ string (ต้องใช้ double quote), number, boolean (true หรือ false), null, object (ใช้ curly brace) และ array (ใช้ square bracket) กฎสำคัญ: key ของ object ต้องเป็น string ที่ครอบด้วย double quote เท่านั้น ต่างจาก JavaScript ที่อนุญาต single quote หรือ trailing comma",
+              "Syntax ที่เข้มงวดนี้คือทั้งจุดแข็งและแหล่งที่มาของ bug ใน JSON เพียงแค่ comma หายไปหนึ่งตัวหรือ bracket ไม่ครบก็ทำให้ document ทั้งหมดใช้ไม่ได้ นี่คือเหตุผลที่ JSON beautifier และ validator อย่าง JSON Beautify บน DevConvert เป็นเครื่องมือสำคัญสำหรับ developer ที่ต้องทำงานกับ API หรือ configuration file ทุกวัน"
+            ]
+          },
+          {
+            "heading": "JSON ในทางปฏิบัติ: Use Case ที่พบบ่อย",
+            "paragraphs": [
+              "การตอบกลับของ API คือการพบเจอ JSON ที่บ่อยที่สุด เมื่อคุณ fetch ข้อมูลจาก REST API ตัว response body แทบทั้งหมดจะเป็น JSON Frontend developer จะ parse JSON นี้เป็น JavaScript object ดึงข้อมูลที่ต้องการ แล้ว render ออกมาที่ UI",
+              "Configuration file เป็น use case สำคัญอีกตัว โปรเจกต์ Node.js ใช้ package.json สำหรับประกาศ dependency และ script โปรเจกต์ TypeScript ใช้ tsconfig.json สำหรับตั้งค่า compiler ESLint, Prettier และ Babel ต่างใช้ config ที่เป็น JSON การเข้าใจโครงสร้าง JSON ช่วยให้ debug ปัญหา configuration ได้เร็วขึ้น",
+              "นอกจากนี้ JSON ยังใช้สำหรับจัดเก็บข้อมูลใน NoSQL database, serialize application state, กำหนด cloud infrastructure (AWS IAM policy, GCP service account file) และสื่อสารระหว่าง service ใน microservice architecture"
+            ]
+          },
+          {
+            "heading": "เคล็ดลับทำงานกับ JSON ได้ดีขึ้น",
+            "paragraphs": [
+              "ใช้ JSON beautifier เมื่อต้องจัดการกับ API response ที่ถูก minify JSON ที่ถูกบีบอัดไว้ในบรรทัดเดียวอ่านและ debug ไม่ได้เลย เครื่องมือ JSON Beautify ของ DevConvert จัดรูปแบบ JSON ที่ถูก minify ให้มี indentation ที่ถูกต้องทันที",
+              "เมื่อสร้างแอปพลิเคชัน TypeScript ให้แปลง JSON data ของคุณเป็น typed interface ทันที สิ่งนี้มอบ autocomplete, type safety และการตรวจจับ error ณ compile time เครื่องมือ JSON to TypeScript ของ DevConvert สร้าง interface ที่แม่นยำจาก JSON object ใดก็ได้ รวมถึงโครงสร้างที่ซ้อนกันและ array",
+              "สำหรับ data pipeline การแปลง JSON เป็น CSV ทำให้นำเข้าข้อมูลไปยัง Excel, Google Sheets หรือเครื่องมือ import database ได้ง่ายขึ้น ตัว JSON to CSV converter จัดการ object ที่ซ้อนกันโดย flatten ออกมา ทำให้ข้อมูลพร้อมสำหรับ spreadsheet"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 2,
+      "slug": "json-to-typescript-interfaces",
+      "category": "typescript",
+      "publishedAt": "2025-01-17",
+      "readingMinutes": 7,
+      "coverEmoji": "⚡",
+      "relatedTools": ["json-to-ts", "yaml-to-ts", "ts-to-js"],
+      "content": {
+        "title": "JSON to TypeScript: สร้าง Typed Interface โดยอัตโนมัติ",
+        "description": "หยุดเขียน TypeScript interface ด้วยมือ เรียนรู้วิธีสร้าง type definition ที่ถูกต้องและซ้อนกันจาก JSON object ใดก็ได้ในไม่กี่วินาที",
+        "sections": [
+          {
+            "heading": "ทำไม TypeScript Interface ถึงสำคัญ",
+            "paragraphs": [
+              "เมื่อคุณ fetch ข้อมูลจาก API คุณได้รับ JavaScript object ธรรมดาที่ไม่มีข้อมูล type TypeScript มีพลังอยู่ที่การจับ error ณ compile time แทน runtime แต่พลังนั้นจะทำงานได้ก็ต่อเมื่อข้อมูลของคุณมี type ที่ถูกต้อง ถ้าไม่มี interface TypeScript ก็แค่เป็น JavaScript ที่ใส่ annotation มา แล้วคุณก็เสีย autocomplete, ความปลอดภัยในการ refactor และ type narrowing ไป",
+              "การเขียน interface ด้วยมือน่าเบื่อและผิดพลาดง่าย API response ทั่วไปอาจมี 15 field, object ที่ซ้อนกัน, optional array และ union type การถอดความทั้งหมดนั้นด้วยมือใช้เวลาและเพิ่มความผิดพลาดจากมนุษย์ เช่น ลืมเครื่องหมาย ? บน optional field หรือ type ผิดบน number field การ automate การแปลงนี้จึงเป็นวิธีที่ฉลาดกว่า"
+            ]
+          },
+          {
+            "heading": "วิธีการแปลง JSON เป็น TypeScript",
+            "paragraphs": [
+              "ตัวแปลง JSON เป็น TypeScript จะตรวจสอบแต่ละคู่ key-value ใน JSON ของคุณและ infer type TypeScript ที่ถูกต้อง ค่า string กลายเป็น `string`, ตัวเลขกลายเป็น `number`, boolean กลายเป็น `boolean` และค่า null จะถูกทำเครื่องหมายเป็น optional (`field?: type`) Array จะถูกตรวจสอบทีละ element เพื่อระบุประเภทของ element รวมถึง union type เมื่อ array มีค่าผสม",
+              "Object ที่ซ้อนกันจะกลายเป็น interface ที่มีชื่อของตัวเอง ตัวอย่างเช่น JSON object ที่มี `address` object ซ้อนอยู่จะสร้างทั้ง interface `Root` และ interface `Address` โดย `Root.address` มี type เป็น `Address` ซึ่งสร้าง type definition ที่สะอาดและ modular ตรงกับ best practice ของ TypeScript ในโลกจริง"
+            ]
+          },
+          {
+            "heading": "Best Practice ของ TypeScript Interface",
+            "paragraphs": [
+              "ใช้ `interface` สำหรับ object shape ที่สามารถ extend ได้ ใช้ `type` สำหรับ union type, intersection หรือเมื่อต้อง alias primitive สำหรับ type ของ API response ควรใช้ `interface` เพราะ API contract ของคุณคือสัญญาที่นัยถึงความเข้ากันได้ในการ extend",
+              "ทำเครื่องหมาย field ที่เป็น optional จริงๆ ด้วย `?` อย่าทำเครื่องหมาย optional ทุกอย่างเพราะ API บางครั้ง return null นั่นทำลายจุดประสงค์ของ TypeScript ถ้า field สามารถเป็น null ให้ type เป็น `string | null` ไม่ใช่แค่ `string?` ความแตกต่างสำคัญ: optional field อาจไม่มีอยู่ใน object เลย ในขณะที่ nullable field มีอยู่เสมอแต่สามารถเป็น null ได้"
+            ]
+          },
+          {
+            "heading": "รับมือกับ JSON ที่ซับซ้อนในโลกจริง",
+            "paragraphs": [
+              "API จริงๆ แทบไม่เคย return JSON ที่สม่ำเสมออย่างสมบูรณ์แบบ คุณอาจเจอ array ที่บางครั้งว่างเปล่า field ที่ปรากฏเฉพาะในบางเงื่อนไข หรือค่าที่สามารถมีหลาย type TypeScript จัดการสิ่งเหล่านี้ด้วย union type เช่น `string | number`, `string | null`",
+              "เมื่อแปลง JSON ที่มาจาก API ที่คุณไม่ได้ควบคุม ให้มอง interface ที่สร้างขึ้นมาเป็นจุดเริ่มต้น ไม่ใช่คำตอบสุดท้าย ตรวจสอบ interface ที่สร้างและเพิ่ม `?` ให้ field ที่อาจหายไป หรือขยาย type ตามที่ document ของ API ระบุ ตัวแปลงช่วยงาน 80% ความรู้ domain ของคุณให้อีก 20%"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 3,
+      "slug": "yaml-json-xml-comparison",
+      "category": "yaml",
+      "publishedAt": "2025-01-24",
+      "readingMinutes": 8,
+      "coverEmoji": "📊",
+      "relatedTools": ["yaml-to-json", "json-to-yaml", "xml-to-json", "yaml-to-xml"],
+      "content": {
+        "title": "YAML vs JSON vs XML: เลือก Format ไหนดี?",
+        "description": "การเปรียบเทียบเชิงปฏิบัติของ 3 format การ serialize ข้อมูลที่ใช้กันมากที่สุด เรียนรู้ว่าเมื่อไหรควรใช้ YAML, JSON หรือ XML และแปลงระหว่างกันโดยไม่สูญเสียข้อมูล",
+        "sections": [
+          {
+            "heading": "3 Format, 3 แนวคิด",
+            "paragraphs": [
+              "YAML, JSON และ XML แก้ปัญหาเดียวกันคือแทนข้อมูลที่มีโครงสร้างเป็น text แต่ทำด้วยแนวคิดการออกแบบที่ต่างกันโดยสิ้นเชิง XML (1998) ให้ความสำคัญกับ semantics แบบเอกสารด้วย attribute และ mixed content JSON (2001) ให้ความสำคัญกับ machine-readability และความเข้ากันได้กับ JavaScript YAML (2001) ให้ความสำคัญกับ human-readability และความสะดวกในการใช้เป็น configuration",
+              "ในการพัฒนาซอฟต์แวร์ยุคใหม่คุณจะพบทั้งสาม REST API ใช้ JSON Kubernetes และ Docker Compose ใช้ YAML ระบบ Java ระดับ enterprise และ SOAP web service ยังคงใช้ XML การรู้ว่าเมื่อไหรควรใช้อะไรและวิธีแปลงระหว่างกันเป็นทักษะปฏิบัติประจำวัน"
+            ]
+          },
+          {
+            "heading": "JSON: มาตรฐาน API",
+            "paragraphs": [
+              "JSON parse เร็วที่สุด รองรับกว้างขวางที่สุด และกระชับที่สุดในสาม ทุกภาษาโปรแกรมมิ่งมี JSON parser ในตัว `JSON.parse()` ของ browser ก็มีในตัว JSON เป็นตัวเลือกที่ชัดเจนสำหรับ API response, request payload และการสื่อสาร machine-to-machine ที่ขนาดไฟล์และความเร็วในการ parse สำคัญ",
+              "จุดอ่อนของ JSON คือการแก้ไขโดยมนุษย์ double quote ที่เข้มงวด ไม่มี comment ไม่มี trailing comma และไม่มี multiline string ทำให้การเขียน JSON config file ด้วยมือเป็นเรื่องเจ็บปวด นี่คือเหตุผลที่หลายเครื่องมือชอบ YAML สำหรับ configuration"
+            ]
+          },
+          {
+            "heading": "YAML: ราชาแห่ง Configuration",
+            "paragraphs": [
+              "YAML ถูกออกแบบให้มนุษย์อ่านและเขียน ใช้ indentation แทน bracket อนุญาต comment ด้วย `#` รองรับ multiline string โดยกำเนิด และอนุญาต string ที่ไม่ครอบด้วย quote ในกรณีส่วนใหญ่ Kubernetes deployment manifest ใน YAML อ่านง่ายกว่า JSON เทียบเท่ากันมาก",
+              "จุดอ่อนของ YAML คือความเข้มงวด error จาก indentation เป็น silent killer indent 2 space ที่ต้องการ 4 space ทำให้ configuration ทั้งหมดพัง ใช้ YAML สำหรับ Kubernetes manifest, Docker Compose file, GitHub Actions workflow, Ansible playbook, CI/CD pipeline configuration และ config file ที่มนุษย์ต้องอ่านและแก้ไขเป็นประจำ"
+            ]
+          },
+          {
+            "heading": "XML: ยุคสมัยเก่าที่ยังอยู่",
+            "paragraphs": [
+              "ความเก่าแก่ของ XML เป็นทั้งภาระและพลัง ภาระ: tag ที่ verbose และซ้ำซ้อนที่เพิ่ม noise โดยไม่มีคุณค่า พลัง: ecosystem ของเครื่องมือที่ใหญ่โต XPath สำหรับ query, XSLT สำหรับ transformation, XSD สำหรับ schema validation",
+              "เมื่อ migrate จาก XML เป็น JSON ระวังสิ่งที่หายไป XML attribute กลายเป็น JSON property (หรือหายไปถ้า converter ไม่ระวัง), mixed content ไม่มีตัวเทียบ JSON ที่สะอาด และ XML namespace ต้องการการจัดการพิเศษ"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 4,
+      "slug": "base64-url-encoding-explained",
+      "category": "encoding",
+      "publishedAt": "2025-02-07",
+      "readingMinutes": 6,
+      "coverEmoji": "🔐",
+      "relatedTools": ["text-to-base64", "base64-to-text", "url-encode", "url-decode", "html-encode"],
+      "content": {
+        "title": "Base64 และ URL Encoding: คู่มืออ้างอิงฉบับสมบูรณ์สำหรับ Developer",
+        "description": "เข้าใจ Base64, URL encoding และ HTML entity encoding ว่าคืออะไร ใช้เมื่อไหร่ และข้อผิดพลาดที่ developer มักทำกับ encoding",
+        "sections": [
+          {
+            "heading": "Base64 Encoding คืออะไร?",
+            "paragraphs": [
+              "Base64 คือ encoding scheme ที่แปลง binary data เป็น ASCII text โดยแทน binary data ทุกๆ 3 byte เป็น ASCII character 4 ตัวที่ดึงมาจากตัวอักษร 64 ตัว (A–Z, a–z, 0–9, +, /) ชื่อ '64' หมายถึงตัวอักษร 64 ตัวนี้ แต่ละตัว encode ข้อมูล 6 bit",
+              "Base64 ถูกสร้างขึ้นเพื่อแก้ปัญหาเฉพาะ: โปรโตคอลการสื่อสารเก่าๆ (เช่น SMTP ของ email) ถูกออกแบบสำหรับ ASCII text 7-bit ไม่ใช่ binary data ทั่วไป ถ้าพยายาม send ไฟล์ภาพ JPEG หรือ PDF เป็น byte ดิบผ่านระบบนั้น byte binary จะถูกตีความเป็น control character ผิดและทำข้อมูลเสียหาย Base64 encode binary เป็น ASCII text ที่ปลอดภัย"
+            ]
+          },
+          {
+            "heading": "การใช้งาน Base64 ที่พบบ่อย",
+            "paragraphs": [
+              "Email attachment: MIME ใช้ Base64 encode ไฟล์ binary ที่แนบกับ email นี่คือเหตุผลที่ email attachment ถูก encode เป็น Base64 ก่อน transmit",
+              "Data URI: คุณสามารถ embed รูปภาพโดยตรงใน HTML หรือ CSS โดยใช้ data URI: `<img src='data:image/png;base64,...'>` ซึ่งขจัด HTTP request แยกต่างหากสำหรับรูปเล็กๆ อย่าง icon",
+              "JWT token: header และ payload ของ JWT ถูก encode ด้วย Base64URL (รูปแบบที่แทน `+` ด้วย `-` และ `/` ด้วย `_` เพื่อให้ปลอดภัยสำหรับ URL) การ decode JWT คือการ reverse Base64URL encoding นี้ ไม่ต้องใช้ secret key เพื่ออ่าน payload"
+            ]
+          },
+          {
+            "heading": "URL Encoding (Percent Encoding)",
+            "paragraphs": [
+              "URL encoding แปลง character ที่ผิดกฎหรือมีความหมายพิเศษใน URL เป็นรูปแบบที่ปลอดภัย โดย replace แต่ละ byte ที่ไม่ปลอดภัยด้วย `%` ตามด้วยเลข hexadecimal 2 หลักของค่า byte นั้น ช่องว่างกลายเป็น `%20`, ampersand กลายเป็น `%26`",
+              "เสมอ encode ค่า query parameter ไม่ใช่ URL ทั้งหมด การ encode URL เต็ม (รวมถึง `://` และ path slash) จะทำให้ URL พัง encode เฉพาะค่า: `https://example.com/search?q=${encodeURIComponent(userInput)}`"
+            ]
+          },
+          {
+            "heading": "เลือก Encoding ที่ถูกต้อง",
+            "paragraphs": [
+              "ใช้ Base64 เมื่อ: ส่ง binary data ผ่าน text-based protocol, embed รูปภาพใน data URI หรือ encode credential สำหรับ HTTP Basic Auth ระวัง Base64 เพิ่มขนาดข้อมูลประมาณ 33%",
+              "ใช้ URL encoding เมื่อ: สร้าง query string, encode path segment ที่มี character พิเศษ หรือทำงานกับ form data ที่ส่งผ่าน GET request",
+              "ใช้ HTML encoding เมื่อ: render เนื้อหาที่ผู้ใช้สร้างขึ้นในหน้า HTML, สร้าง HTML จาก code หรือแทรกค่า dynamic ลงใน HTML attribute"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 5,
+      "slug": "jwt-token-decode-guide",
+      "category": "encoding",
+      "publishedAt": "2025-02-14",
+      "readingMinutes": 5,
+      "coverEmoji": "🔑",
+      "relatedTools": ["jwt-decode", "text-to-base64", "base64-to-text"],
+      "content": {
+        "title": "JWT Token อธิบาย: วิธี Decode และตรวจสอบ",
+        "description": "เรียนรู้โครงสร้างของ JSON Web Token, วิธี decode และตรวจสอบ JWT claim, เข้าใจการหมดอายุและการ verify signature และ debug ปัญหา authentication ได้เร็วขึ้น",
+        "sections": [
+          {
+            "heading": "JWT คืออะไร?",
+            "paragraphs": [
+              "JSON Web Token (JWT) คือ format token ที่กระชับและปลอดภัยสำหรับ URL ใช้แทน claim ระหว่างสองฝ่าย JWT ใช้กันทั่วไปสำหรับ authentication และ authorization ในเว็บแอปพลิเคชันและ API เมื่อผู้ใช้ login เซิร์ฟเวอร์จะออก JWT ที่ client เก็บและส่งกับทุก request ถัดไปเพื่อพิสูจน์ตัวตน",
+              "JWT ประกอบด้วย 3 ส่วนคั่นด้วย dot: `header.payload.signature` แต่ละส่วน encode ด้วย Base64URL อย่างอิสระ header อธิบาย algorithm ที่ใช้ sign payload มี claim (ข้อมูล) signature verify ความถูกต้อง"
+            ]
+          },
+          {
+            "heading": "Decode vs Verify: ความแตกต่างที่สำคัญ",
+            "paragraphs": [
+              "การ decode JWT หมายถึงการ reverse Base64URL encoding เพื่ออ่าน header และ payload ทุกคนสามารถ decode JWT ใดก็ได้ ไม่ต้องใช้ key เครื่องมือ JWT Decode ของ DevConvert ทำสิ่งนี้: แสดง claim ที่มนุษย์อ่านได้ภายใน token ใดๆ",
+              "การ verify JWT หมายถึงการตรวจสอบ cryptographic signature เพื่อยืนยันว่า token ถูกออกโดยฝ่ายที่เชื่อถือและไม่ถูกแก้ไข ซึ่งต้องใช้ secret key (สำหรับ HS256) หรือ public key (สำหรับ RS256) ไม่ควรเชื่อถือ JWT payload ฝั่ง client โดยไม่มีการ verify ฝั่ง server"
+            ]
+          },
+          {
+            "heading": "ปัญหา JWT ที่พบบ่อยและวิธี Debug",
+            "paragraphs": [
+              "Token หมดอายุ (`exp` อยู่ในอดีต): client ต้องรับ token ใหม่ ตรวจสอบ field `exp` ด้วยเครื่องมือ JWT Decode เพื่อยืนยันเวลาหมดอายุที่แน่นอนใน timezone ของคุณ",
+              "Signature ไม่ถูกต้อง: token ถูก sign ด้วย key ที่ต่างออกไป หรือ token ถูกแก้ไขระหว่างส่ง ต้องตรวจสอบฝั่ง server เสมอ",
+              "Missing claim: logic authorization ของคุณคาดว่าจะมี field `roles` แต่ไม่มีใน payload เครื่องมือ JWT Decode ช่วยให้คุณเห็น claim ทั้งหมดทันทีและระบุสิ่งที่หายไป"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 6,
+      "slug": "css-to-tailwind-migration",
+      "category": "css",
+      "publishedAt": "2025-02-21",
+      "readingMinutes": 7,
+      "coverEmoji": "🎨",
+      "relatedTools": ["css-to-tailwind", "css-to-scss", "css-minify", "css-beautify"],
+      "content": {
+        "title": "CSS to Tailwind: คู่มือการ Migrate เชิงปฏิบัติ",
+        "description": "เรียนรู้วิธีแปลง vanilla CSS เป็น Tailwind utility class อย่างมีประสิทธิภาพ เข้าใจว่าเมื่อไหร่การ migrate จึงสมเหตุสมผล และจัดการ CSS pattern ที่ไม่มีตัวเทียบ Tailwind โดยตรง",
+        "sections": [
+          {
+            "heading": "ทำไมถึง Migrate มา Tailwind CSS?",
+            "paragraphs": [
+              "Tailwind CSS ใช้ utility-first approach แทนการเขียน `.button { background-color: blue; padding: 8px; }` คุณ compose class โดยตรงใน HTML: `<button class='bg-blue-500 px-4 py-2 rounded'>` ซึ่งขจัดความจำเป็นในการคิดชื่อ class ป้องกัน CSS file จากการเติบโตไม่สิ้นสุด และทำให้ style มองเห็นได้ทันทีใน component markup",
+              "ทีมงานรายงานว่า CSS bundle size เล็กลงอย่างมีนัยสำคัญด้วย Tailwind เพราะกระบวนการ build ของ Tailwind ตัด class ที่ไม่ได้ใช้ออก CSS production ของคุณมีเฉพาะสิ่งที่คุณใช้จริงๆ"
+            ]
+          },
+          {
+            "heading": "วิธีแปลง CSS เป็น Tailwind Class",
+            "paragraphs": [
+              "กระบวนการแปลง map คู่ property-value ของ CSS กับ naming convention ของ Tailwind CSS property ส่วนใหญ่มีตัวเทียบ Tailwind โดยตรง: `margin-top: 16px` map เป็น `mt-4` (Tailwind ใช้หน่วยฐาน 4px), `display: flex` map เป็น `flex`, `font-weight: 700` map เป็น `font-bold`",
+              "ตัวแปลง CSS to Tailwind ของ DevConvert จัดการ CSS declaration ที่พบบ่อยที่สุดโดยอัตโนมัติ วาง CSS rule ของคุณแล้วเครื่องมือจะ output Tailwind class ที่เทียบเท่า ซึ่งมีประโยชน์โดยเฉพาะเมื่อคุณได้รับ CSS จาก designer (เช่น จาก Figma CSS export) และต้องแปลงเป็น component class"
+            ]
+          },
+          {
+            "heading": "CSS Minification และ Beautification",
+            "paragraphs": [
+              "CSS minification ลบ whitespace, comment และ semicolon ที่ซ้ำซ้อนทั้งหมดเพื่อสร้าง stylesheet ที่เล็กที่สุด CSS file ทั่วไปสามารถลดได้ 30–50% ผ่าน minification เสมอ minify CSS production เพื่อลดเวลาโหลดหน้า",
+              "CSS beautification ทำตรงข้าม: ใช้ CSS ที่ถูก minify หรือจัดรูปแบบไม่ดีและเพิ่ม indentation, line break และ spacing ที่สม่ำเสมอ ซึ่งจำเป็นเมื่อคุณได้รับ CSS จาก third-party หรือ legacy stylesheet ที่ต้องอ่าน เข้าใจ และแก้ไข"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 7,
+      "slug": "unix-timestamp-explained",
+      "category": "utility",
+      "publishedAt": "2025-03-07",
+      "readingMinutes": 5,
+      "coverEmoji": "🕐",
+      "relatedTools": ["timestamp-to-date", "date-to-timestamp"],
+      "content": {
+        "title": "Unix Timestamp อธิบาย: วันและเวลาไร้พรมแดน",
+        "description": "เรียนรู้ว่า Unix timestamp คืออะไร ทำไมถึงเป็น format เวลาสากลสำหรับซอฟต์แวร์ วิธีแปลงเป็นวันที่ที่มนุษย์อ่านได้ และ timestamp pitfall ที่ developer มักพบ",
+        "sections": [
+          {
+            "heading": "Unix Timestamp คืออะไร?",
+            "paragraphs": [
+              "Unix timestamp (เรียกอีกว่า Unix time, POSIX time หรือ epoch time) คือจำนวนวินาทีที่ผ่านไปนับตั้งแต่วันที่ 1 มกราคม 1970 เวลา 00:00:00 UTC ซึ่งเรียกว่า Unix epoch ตัวอย่างเช่น timestamp `1700000000` แทนวันที่ 14 พฤศจิกายน 2023 เวลา 22:13:20 UTC",
+              "สิ่งสำคัญคือ Unix epoch กำหนดจุดอ้างอิงเดียวที่สอดคล้องกันที่ทุกระบบเห็นด้วย ไม่ว่าจะเป็น timezone, locale หรือระบบปฏิทิน"
+            ]
+          },
+          {
+            "heading": "วินาที vs มิลลิวินาที: Bug Timestamp ที่พบบ่อยที่สุด",
+            "paragraphs": [
+              "Unix timestamp ดั้งเดิมนับวินาที แต่ `Date.now()` ของ JavaScript return มิลลิวินาที ความต่าง 1000 เท่านี้คือ timestamp bug ที่พบบ่อยที่สุดในการพัฒนาเว็บ timestamp `1700000000` คือวันในปี 2023 แต่ `1700000000000` คือวันเดียวกันในมิลลิวินาที ส่งค่าผิดแล้วการคำนวณวันของคุณจะผิด 31 ปี",
+              "ตรวจสอบ timestamp ของคุณเสมอ: ถ้าตัวเลขมี 10 หลักคือวินาที ถ้ามี 13 หลักคือมิลลิวินาที เครื่องมือ Timestamp to Date ของ DevConvert รับทั้งสอง format โดยอัตโนมัติและแสดงวันที่ที่ถูกต้องใน timezone ท้องถิ่นของคุณ, UTC และ ISO 8601"
+            ]
+          },
+          {
+            "heading": "ทำไม Timestamp ถึงดีกว่า Date String",
+            "paragraphs": [
+              "Date string อย่าง `12/01/2024` มีความคลุมเครือ เป็นวันที่ 1 ธันวาคมหรือ 12 มกราคม? convention ของอเมริกาและยุโรปต่างกัน Date string ยังมี timezone assumption โดยนัย `2024-01-15 14:30:00` ที่เก็บใน database อาจเป็นเวลาท้องถิ่น, UTC หรือ timezone ของ server ขึ้นอยู่กับว่าใครเขียน code",
+              "Timestamp ไม่มีความคลุมเครือ `1705328400` คือช่วงเวลาเดียวในโลก การเก็บและเปรียบเทียบ timestamp หลีกเลี่ยง timezone conversion bug ทั้งหมด เก็บเป็น timestamp ทุกที่ แสดงในเวลาท้องถิ่นของผู้ใช้เมื่อ render"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 8,
+      "slug": "number-bases-binary-hex-decimal",
+      "category": "utility",
+      "publishedAt": "2025-03-14",
+      "readingMinutes": 6,
+      "coverEmoji": "🔢",
+      "relatedTools": ["dec-to-bin", "bin-to-dec", "dec-to-hex", "hex-to-dec"],
+      "content": {
+        "title": "Binary, Hex และ Decimal: ระบบตัวเลขที่ Developer ทุกคนต้องรู้",
+        "description": "เชี่ยวชาญ 3 ระบบตัวเลขที่คุณจะใช้ทุกวันในฐานะ developer เข้าใจ binary สำหรับ bitwise operation, hexadecimal สำหรับสีและ memory และ decimal conversion ที่ขับเคลื่อน code ของคุณ",
+        "sections": [
+          {
+            "heading": "ทำไม Developer ต้องเข้าใจเลขฐาน",
+            "paragraphs": [
+              "คอมพิวเตอร์ทำงานด้วย binary (ฐาน-2) ในระดับ hardware มนุษย์คิดด้วย decimal (ฐาน-10) Hexadecimal (ฐาน-16) เป็นสะพานเชื่อม — กระชับพอสำหรับมนุษย์อ่านและ map ได้อย่างสมบูรณ์แบบกับ binary developer ทุกคนพบทั้งสามเมื่อทำงานกับสี, memory address, bitwise operation, debugging, low-level code และ networking",
+              "คุณไม่จำเป็นต้องคำนวณในใจด้วย hex นั่นคือสิ่งที่เครื่องมือมีไว้ แต่คุณต้องรู้จักว่าเลขฐานแทนอะไรและรู้ว่าเมื่อไหรค่าใน code หรือ log ของคุณเป็น hex, binary หรือ decimal"
+            ]
+          },
+          {
+            "heading": "Hexadecimal (ฐาน-16): Format ที่มีประสิทธิภาพที่มนุษย์อ่านได้",
+            "paragraphs": [
+              "Hexadecimal ใช้ 16 สัญลักษณ์: 0–9 สำหรับค่า 0–9 และ A–F สำหรับค่า 10–15 หนึ่ง hex digit แทน 4 bit พอดี สอง hex digit แทนหนึ่ง byte พอดี ความสอดคล้องสมบูรณ์แบบกับ binary ทำให้ hex เป็น format ที่นิยมสำหรับแสดงข้อมูล binary ให้มนุษย์",
+              "คุณพบ hex ทุกที่ในฐานะ developer: สีเว็บ (`#3b82f6` คือสีน้ำเงิน), memory address ใน debugger, UUID string (`550e8400-e29b-41d4-a716-446655440000`)"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 9,
+      "slug": "color-formats-hex-rgb-hsl",
+      "category": "colors",
+      "publishedAt": "2025-03-21",
+      "readingMinutes": 5,
+      "coverEmoji": "🎨",
+      "relatedTools": ["hex-to-rgb", "rgb-to-hex", "hsl-to-hex"],
+      "content": {
+        "title": "HEX, RGB และ HSL: เข้าใจ Format สีสำหรับเว็บ",
+        "description": "เรียนรู้ความแตกต่างระหว่าง format สี HEX, RGB และ HSL ว่าควรใช้อะไรใน CSS ของคุณและวิธีแปลงระหว่างกันอย่างแม่นยำสำหรับ design system ใดก็ได้",
+        "sections": [
+          {
+            "heading": "3 Color Model อธิบาย",
+            "paragraphs": [
+              "สีเว็บสามารถแสดงได้ใน 3 format หลัก HEX (`#3b82f6`) เป็น shorthand สำหรับ RGB model แสดงค่าสีแดง เขียว และน้ำเงินเป็นตัวเลข hexadecimal 2 หลัก RGB (`rgb(59, 130, 246)`) แสดง 3 channel เดียวกันเป็น integer 0–255 HSL (`hsl(217, 91%, 60%)`) แสดงสีเป็น Hue (0–360°), Saturation (0–100%) และ Lightness (0–100%)",
+              "ทั้งสามแบบอธิบาย color space เดียวกัน สีเดิมทำได้ด้วยทุก format การเลือกระหว่างกันเป็นเรื่องของ workflow และ readability"
+            ]
+          },
+          {
+            "heading": "ควรใช้ HSL เมื่อไหร่",
+            "paragraphs": [
+              "HSL เป็น format ที่เป็นมิตรกับ developer มากที่สุดสำหรับสร้าง design system และ theme variable รูปแบบ hue, saturation และ lightness map โดยตรงกับวิธีที่มนุษย์รับรู้สี: hue คือ 'สี', saturation คือ 'ความสดใส' และ lightness คือ 'ความสว่าง'",
+              "การสร้าง color scale ใน HSL ง่ายมาก ต้องการ gray scale 9 ขั้น? กำหนด hue ที่ 220°, saturation ที่ 10% และเปลี่ยน lightness จาก 10% ถึง 90%"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 10,
+      "slug": "markdown-to-html-guide",
+      "category": "markup",
+      "publishedAt": "2025-03-28",
+      "readingMinutes": 5,
+      "coverEmoji": "📝",
+      "relatedTools": ["md-to-html", "html-to-md", "html-beautify", "html-minify"],
+      "content": {
+        "title": "Markdown to HTML: แปลง Documentation และ Content สำหรับเว็บ",
+        "description": "เรียนรู้กระบวนการแปลง Markdown เป็น HTML, feature ของ GitHub Flavored Markdown, เมื่อไหรควรแปลงและเมื่อไหรควร render Markdown โดยตรง และวิธี format HTML สำหรับ production",
+        "sections": [
+          {
+            "heading": "ทำไม Markdown ถึงมีอยู่",
+            "paragraphs": [
+              "Markdown ถูกสร้างโดย John Gruber ในปี 2004 เป็นวิธีเขียน text ที่จัดรูปแบบโดยใช้ plain-text syntax ที่อ่านได้ตามธรรมชาติแม้ก่อน render เป้าหมาย: syntax ที่สะอาดมากจนคุณไม่จำเป็นต้องเห็น render เพื่อเข้าใจเอกสาร",
+              "วันนี้ Markdown เป็น format การเขียน default สำหรับ technical documentation, README file, GitHub issue และ pull request, blog post (ผ่าน static site generator อย่าง Hugo และ Jekyll)"
+            ]
+          },
+          {
+            "heading": "HTML Formatting: Beautify และ Minify",
+            "paragraphs": [
+              "HTML Beautify เพิ่ม indentation และ line break ที่สม่ำเสมอให้กับ HTML code จำเป็นเมื่อทำงานกับ HTML ที่สร้างโดยเครื่องมือ export จากระบบอื่น หรือถูก minify สำหรับ production HTML ที่อ่านได้คือ HTML ที่บำรุงรักษาได้",
+              "HTML Minify ลบ whitespace, comment และ character ที่ไม่จำเป็นออกจาก HTML สำหรับเว็บไซต์ production การ minify HTML ลดขนาดหน้าและปรับปรุง Time to First Byte เสมอ beautify ก่อนแก้ไข minify ก่อน deploy"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 11,
+      "slug": "csv-json-data-conversion",
+      "category": "data",
+      "publishedAt": "2025-04-04",
+      "readingMinutes": 5,
+      "coverEmoji": "📊",
+      "relatedTools": ["csv-to-json", "json-to-csv", "json-to-sql"],
+      "content": {
+        "title": "CSV to JSON: แปลงข้อมูล Spreadsheet สำหรับ API และ Database",
+        "description": "เรียนรู้วิธีแปลงไฟล์ CSV เป็น JSON array จัดการ edge case ของ CSV ทั่วไป และใช้ข้อมูลที่แปลงแล้วใน API, database และแอปพลิเคชัน JavaScript",
+        "sections": [
+          {
+            "heading": "ทำไม CSV และ JSON ถึงยังสำคัญทั้งคู่",
+            "paragraphs": [
+              "CSV (Comma-Separated Values) และ JSON รองรับ ecosystem ที่ต่างกัน CSV เป็น format สากลสำหรับข้อมูลแบบตาราง ทุก spreadsheet application, database export tool และ data analytics platform สามารถอ่านและเขียน CSV ได้ JSON เป็น format สากลสำหรับ API และแอปพลิเคชัน JavaScript",
+              "การแปลงระหว่างกันเป็นงานประจำในด้าน data engineering คุณได้รับ data export จากระบบธุรกิจในรูปแบบ CSV และต้องนำเข้า API คุณมี JSON จาก API และต้องวิเคราะห์ใน Excel"
+            ]
+          },
+          {
+            "heading": "JSON to SQL: Scaffold Database Schema",
+            "paragraphs": [
+              "ก้าวต่อจาก CSV ตัวแปลง JSON to SQL ของ DevConvert สร้างทั้ง statement `CREATE TABLE` และ `INSERT INTO` จาก JSON array ซึ่งช่วยให้คุณนำ JSON API response ตัวอย่างมาสร้าง database schema เพื่อเก็บข้อมูลนั้นได้ทันที",
+              "ตัวแปลง infer ประเภท SQL column จากค่า JSON: string กลายเป็น `VARCHAR(255)`, ตัวเลขกลายเป็น `INTEGER` หรือ `FLOAT`, boolean กลายเป็น `BOOLEAN` SQL ที่สร้างขึ้นเป็นจุดเริ่มต้น คุณจะต้องปรับขนาด column เพิ่ม index ตาม requirement"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 12,
+      "slug": "typescript-vs-javascript-migration",
+      "category": "typescript",
+      "publishedAt": "2025-04-09",
+      "readingMinutes": 6,
+      "coverEmoji": "⚡",
+      "relatedTools": ["ts-to-js", "js-to-ts", "json-to-ts"],
+      "content": {
+        "title": "TypeScript vs JavaScript: เมื่อไหรและอย่างไรที่จะแปลงระหว่างกัน",
+        "description": "เข้าใจความแตกต่างที่แท้จริงระหว่าง TypeScript และ JavaScript เมื่อไหรควร migrate และวิธีใช้ตัวแปลง TS↔JS จัดการทั้งสองทิศทางของการแปลงในโปรเจกต์ของคุณ",
+        "sections": [
+          {
+            "heading": "TypeScript คือ JavaScript บวก Type Layer",
+            "paragraphs": [
+              "TypeScript เป็น superset ของ JavaScript ทุก JavaScript file ที่ถูกต้องก็เป็น TypeScript file ที่ถูกต้องด้วย TypeScript เพิ่ม type system ไว้ด้านบน ซึ่งทั้งหมดถูกลบออกเมื่อ compile JavaScript ที่รันใน browser หรือ Node.js เป็น JavaScript บริสุทธิ์ TypeScript เป็นเครื่องมือในเวลา development",
+              "นี่มีนัยสำคัญ: การ migrate จาก JavaScript เป็น TypeScript เป็น additive ไม่ใช่ destructive คุณกำลังเพิ่ม type ไม่ใช่เปลี่ยน behavior คุณสามารถ migrate ทีละ file ทีละ function โดยไม่ต้องเขียนใหม่ทั้งหมด"
+            ]
+          },
+          {
+            "heading": "เมื่อไหรที่ TypeScript คุ้มค่า",
+            "paragraphs": [
+              "TypeScript คุ้มค่าตามขนาดของโปรเจกต์และทีม โปรเจกต์ solo สุดสัปดาห์ด้วย JavaScript ล้วนๆ ก็ไม่เป็นไร แต่ทีม 6 คนที่ทำงานบน production API มา 2 ปีโดยไม่มี TypeScript คือฝันร้ายด้านบำรุงรักษา",
+              "จุดคุ้มทุนโดยประมาณ: โปรเจกต์ใดก็ตามที่จะถูกแก้ไขโดยมากกว่าหนึ่งคน จะมีอายุนานกว่า 3 เดือน หรือมีมากกว่า 20 file ต่ำกว่าเกณฑ์นั้น ค่าใช้จ่ายในการตั้งค่า TypeScript มากกว่าประโยชน์ที่ได้รับ"
+            ]
+          }
+        ]
+      },
+    }
+  ]
 }
 
 export default th

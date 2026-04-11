@@ -821,3 +821,44 @@ body {
 .text-newline {
   white-space: pre-line;
 }
+
+/* hamburger */
+/* ซ่อน mobile / desktop */
+.desktop-menu {
+  display: flex;
+  gap: 8px;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+/* Active state */
+.header-nav-link.active {
+  border-bottom: 2px solid var(--color-primary);
+  border-top: 2px solid var(--color-primary);
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+}
+
+/* Drawer menu */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-menu .active {
+  background: var(--color-primary-light);
+  font-weight: bold;
+}

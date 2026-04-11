@@ -1,6 +1,7 @@
 import type { Translations } from './en'
 
 const ja: Translations = {
+  home: "ホームページ",
   // ── Nav ──────────────────────────────────────────────────────────────────
   allTools: 'すべてのツール',
   github: 'GitHub',
@@ -231,6 +232,335 @@ const ja: Translations = {
     'ラウンドトリップテスト: A→BしてB→Aに変換し、元と比較。差分がロスのあるフィールドを教えてくれます',
     '元ファイルをバージョン管理に保存する。派生フォーマットは再生成できるが、オリジナルはできません',
   ],
+
+  // for blog
+  "blogTitle": "ブログ",
+  "developerBlog": "開発者ナレッジハブ",
+  "blogDescription": "JSON、TypeScript、YAML、エンコーディング技術、CSS、そして最新の開発ワークフローまでを網羅した実践的なガイドと詳細なチュートリアルで、開発スキルを一段階引き上げましょう。ステップバイステップの解説、ベストプラクティス、パフォーマンス最適化のコツ、よくあるミスの回避方法などを分かりやすく紹介します。アプリケーション開発、データ処理、フロントエンドやバックエンドの最適化に取り組むすべての開発者にとって、よりクリーンなコードを書き、問題を迅速に解決し、日々進化する開発ツールに追いつくための知識を提供します。",
+  "blogFeaturedArticles": "注目の記事",
+  "blogAllArticles": "すべての記事",
+  "totalArticles": "DevConvert のすべてのツールを網羅した記事",
+  "blogs": [
+    {
+      "id": 1,
+      "slug": "what-is-json",
+      "category": "json",
+      "publishedAt": "2025-01-10",
+      "readingMinutes": 6,
+      "coverEmoji": "📄",
+      "relatedTools": ["json-beautify", "json-to-ts", "json-to-yaml", "json-to-csv"],
+      "content": {
+        "title": "JSONとは？開発者のための完全ガイド",
+        "description": "JSONとは何か、なぜAPIの普遍的なデータフォーマットになったのか、実例を使って効率的に活用する方法を学びましょう。",
+        "sections": [
+          {
+            "heading": "JSONとは？",
+            "paragraphs": [
+              "JSON（JavaScript Object Notation）は、構造化された情報を保存・交換するための軽量なテキストベースのデータ形式です。JavaScriptのオブジェクト構文から派生したJSONは、現在ではあらゆるプログラミング言語とプラットフォームでのデータ交換の事実上の標準となっています。",
+              "JSONは二つの基本構造で構成されています：名前/値のペアのコレクション（オブジェクト）と値の順序付きリスト（配列）です。この二つのシンプルなビルディングブロックで、ユーザープロファイルから複雑なネストされた設定ファイルまで、ほぼあらゆる実世界のデータ構造を表現できます。"
+            ]
+          },
+          {
+            "heading": "JSONが普遍的な標準になった理由",
+            "paragraphs": [
+              "JSONの前はXMLがウェブを支配していました。XMLは強力でしたが、冗長でした。単純な名前のリストでも、大量の開始タグと終了タグが必要でした。JSONは余分な要素を排除し、データのみを保持しました。2000年代後半にREST APIがSOAPに取って代わり始めると、JSONは自然な選択肢となりました。人間が読みやすく、コンパクトで、どのブラウザでもネイティブに解析できるからです。",
+              "今日、JSONはあらゆる場所に存在します：REST APIはJSONを返し、設定ファイルはJSONを使用し（package.json、tsconfig.json）、MongoDBのようなデータベースはBSON（JSONのバイナリ形式）でドキュメントを保存し、AWSやAzureでさえインフラストラクチャポリシーにJSONを使用します。JSONを知ることは選択肢ではなく、現代の開発者にとって基礎知識です。"
+            ]
+          },
+          {
+            "heading": "JSONのデータ型と構文ルール",
+            "paragraphs": [
+              "JSONは6つのデータ型をサポートします：文字列（ダブルクォートで囲む）、数値、ブール値（trueまたはfalse）、null、オブジェクト（波括弧）、配列（角括弧）です。重要なルール：すべてのオブジェクトキーはダブルクォートで囲まれた文字列でなければなりません。JavaScriptオブジェクトリテラルとは異なり、JSONではトレーリングカンマ、コメント、シングルクォートは使用できません。",
+              "厳格な構文はJSONの強みであると同時に、最大のバグの原因でもあります。カンマが1つ欠けているだけ、または括弧が1つ余分なだけでドキュメント全体が壊れます。これが、DevConvertのJSON Beautifyツールのようなbeautifierやvalidatorが、APIや設定ファイルを扱う開発者の日常的なツールとして不可欠な理由です。"
+            ]
+          },
+          {
+            "heading": "実践でのJSON：よくある使用例",
+            "paragraphs": [
+              "APIレスポンスは最も一般的なJSON遭遇場面です。REST APIからデータをフェッチすると、レスポンスボディはほぼ常にJSONです。フロントエンド開発者はこのJSONをJavaScriptオブジェクトに解析し、必要なフィールドを抽出してUIにレンダリングします。",
+              "設定ファイルもう一つの主要な使用例です。Node.jsプロジェクトはpackage.jsonを使用して依存関係とスクリプトを宣言します。TypeScriptプロジェクトはtsconfig.jsonを使用してコンパイラを設定します。ESLint、Prettier、BabelはすべてJSONベースの設定を使用します。JSON構造を理解することで、設定の問題をより迅速にデバッグできます。"
+            ]
+          },
+          {
+            "heading": "JSONをより効率的に扱うためのヒント",
+            "paragraphs": [
+              "縮小されたAPIレスポンスを扱う際はJSONビューティファイアを使用してください。1行に収められたコンパクトなJSONは読んだりデバッグしたりすることが不可能です。DevConvertのJSON Beautifyツールは、縮小されたJSONを適切なインデントで即座にフォーマットします。",
+              "TypeScriptアプリケーションを構築する際は、JSONデータをすぐに型付きインターフェースに変換してください。これにより、オートコンプリート、型安全性、コンパイル時のエラー検出が得られます。DevConvertのJSON to TypeScriptツールは、ネストされた構造や配列を含む任意のJSONオブジェクトから正確なインターフェースを生成します。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 2,
+      "slug": "json-to-typescript-interfaces",
+      "category": "typescript",
+      "publishedAt": "2025-01-17",
+      "readingMinutes": 7,
+      "coverEmoji": "⚡",
+      "relatedTools": ["json-to-ts", "yaml-to-ts", "ts-to-js"],
+      "content": {
+        "title": "JSONからTypeScriptへ：型付きインターフェースを自動生成",
+        "description": "TypeScriptインターフェースを手書きするのをやめましょう。任意のJSONオブジェクトから正確なネストされた型定義を数秒で自動生成する方法を学びます。",
+        "sections": [
+          {
+            "heading": "TypeScriptインターフェースが重要な理由",
+            "paragraphs": [
+              "APIからデータをフェッチすると、型情報のないプレーンなJavaScriptオブジェクトを受け取ります。TypeScriptの力は、ランタイムではなくコンパイル時にエラーを検出する能力にありますが、その力はデータが適切に型付けされている場合にのみ発揮されます。インターフェースがなければ、TypeScriptは注釈付きのJavaScriptに退化し、オートコンプリート、リファクタリングの安全性、型の絞り込みを失います。",
+              "インターフェースを手書きすることは面倒でエラーが起きやすいです。典型的なAPIレスポンスには15のフィールド、ネストされたオブジェクト、オプショナルな配列、ユニオン型が含まれる場合があります。これらをすべて手動で書き写すには時間がかかり、人的エラーが発生します。この変換を自動化することが、単純により賢いアプローチです。"
+            ]
+          },
+          {
+            "heading": "JSONからTypeScriptへの変換の仕組み",
+            "paragraphs": [
+              "JSONからTypeScriptへのコンバーターは、JSONの各キーと値のペアを検査し、適切なTypeScript型を推論します。文字列値は`string`に、数値は`number`に、ブール値は`boolean`になり、null値はオプショナル（`field?: type`）としてフラグが立てられます。配列は要素ごとに検査されて要素型が決定されます。",
+              "ネストされたオブジェクトは独自の名前付きインターフェースになります。例えば、ネストされた`address`オブジェクトを持つJSONオブジェクトは、`Root`インターフェースと`Address`インターフェースの両方を生成し、`Root.address`は`Address`型になります。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 3,
+      "slug": "yaml-json-xml-comparison",
+      "category": "yaml",
+      "publishedAt": "2025-01-24",
+      "readingMinutes": 8,
+      "coverEmoji": "📊",
+      "relatedTools": ["yaml-to-json", "json-to-yaml", "xml-to-json", "yaml-to-xml"],
+      "content": {
+        "title": "YAML vs JSON vs XML：どのフォーマットを使うべきか？",
+        "description": "3つの主要なデータシリアライゼーション形式の実践的な比較。YAML、JSON、XMLをいつ使用するか、データを失わずに変換する方法を学びます。",
+        "sections": [
+          {
+            "heading": "3つのフォーマット、3つの哲学",
+            "paragraphs": [
+              "YAML、JSON、XMLはすべて同じ問題を解決します：構造化データをテキストとして表現すること。しかし、それぞれ全く異なる設計哲学で実現しています。XML（1998年）は属性と混合コンテンツを持つドキュメントライクなセマンティクスを優先します。JSON（2001年）は機械可読性とJavaScript互換性を優先します。YAML（2001年）は人間の可読性と設定の使いやすさを優先します。",
+              "モダンなソフトウェア開発では、3つすべてに遭遇します。REST APIはJSONを使い、KubernetesとDocker ComposeはYAMLを使い、エンタープライズシステムはXMLを使います。"
+            ]
+          },
+          {
+            "heading": "フォーマット間の変換：注意点",
+            "paragraphs": [
+              "すべての変換がロスレスというわけではありません。YAMLからJSONへの変換はほぼロスレスですが、コメントは失われます（JSONにはコメント構文がありません）。JSONからYAMLへの変換は完全にロスレスです。XMLからJSONへの変換は、コンバーターが`@attribute`のような規則を使用しない限り、属性が失われます。",
+              "DevConvertは、JSON↔YAML、JSON↔XML、YAML↔XMLの6つの主要変換ペアすべてを、エッジケースのインテリジェントな処理で対応します。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 4,
+      "slug": "base64-url-encoding-explained",
+      "category": "encoding",
+      "publishedAt": "2025-02-07",
+      "readingMinutes": 6,
+      "coverEmoji": "🔐",
+      "relatedTools": ["text-to-base64", "base64-to-text", "url-encode", "url-decode", "html-encode"],
+      "content": {
+        "title": "Base64とURLエンコーディング：開発者の完全リファレンス",
+        "description": "Base64、URLエンコーディング、HTMLエンティティエンコーディングを理解しましょう——それぞれが何か、いつ使うか、開発者がよく犯すエンコーディングの間違い。",
+        "sections": [
+          {
+            "heading": "Base64エンコーディングとは？",
+            "paragraphs": [
+              "Base64は、バイナリデータをASCIIテキストに変換するエンコーディングスキームです。3バイトのバイナリデータを64文字のアルファベット（A–Z、a–z、0–9、+、/）から4つのASCII文字として表現します。'64'という名前は64文字のアルファベットを指し、各文字は正確に6ビットの情報をエンコードします。",
+              "Base64は特定の問題を解決するために発明されました：古い通信プロトコル（メールのSMTPなど）は任意のバイナリデータではなく、7ビットのASCIIテキスト用に設計されていました。"
+            ]
+          },
+          {
+            "heading": "正しいエンコーディングの選択",
+            "paragraphs": [
+              "Base64を使用する場面：テキストベースのプロトコル経由でバイナリデータを送信する場合、データURIに画像を埋め込む場合、HTTP Basic AuthのクレデンシャルをエンコードするためBase64はデータサイズを約33%増加させることに注意してください。",
+              "URLエンコーディングを使用する場面：クエリ文字列の構築、特殊文字を含むパスセグメントのエンコード、GETリクエストで送信されるフォームデータの処理。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 5,
+      "slug": "jwt-token-decode-guide",
+      "category": "encoding",
+      "publishedAt": "2025-02-14",
+      "readingMinutes": 5,
+      "coverEmoji": "🔑",
+      "relatedTools": ["jwt-decode", "text-to-base64", "base64-to-text"],
+      "content": {
+        "title": "JWTトークン解説：デコードと検査の方法",
+        "description": "JSON Web Tokenの構造、JWTクレームのデコードと検査方法、有効期限と署名検証の理解、認証問題の迅速なデバッグについて学びます。",
+        "sections": [
+          {
+            "heading": "JWTとは？",
+            "paragraphs": [
+              "JSON Web Token（JWT）は、2つの当事者間でクレームを表現するために使用されるコンパクトでURL安全なトークン形式です。JWTはWebアプリケーションとAPIの認証と認可に一般的に使用されます。",
+              "JWTはドットで区切られた3つの部分で構成されています：`header.payload.signature`。各部分はBase64URLで独立してエンコードされます。ヘッダーは署名に使用されたアルゴリズムを記述します。ペイロードにはクレーム（データ）が含まれます。署名は真正性を検証します。"
+            ]
+          },
+          {
+            "heading": "よくあるJWTの問題とデバッグ方法",
+            "paragraphs": [
+              "トークンの有効期限切れ（`exp`が過去）：クライアントはトークンをリフレッシュする必要があります。JWT Decodeツールを使用して`exp`フィールドを検査し、タイムゾーンでの正確な有効期限を確認します。",
+              "クレームの欠如：認可ロジックが`roles`フィールドを期待しているがペイロードにない場合。JWT Decodeツールを使用してすべてのクレームを即座に確認し、欠けているものを特定します。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 6,
+      "slug": "css-to-tailwind-migration",
+      "category": "css",
+      "publishedAt": "2025-02-21",
+      "readingMinutes": 7,
+      "coverEmoji": "🎨",
+      "relatedTools": ["css-to-tailwind", "css-to-scss", "css-minify", "css-beautify"],
+      "content": {
+        "title": "CSSからTailwindへ：実践的な移行ガイド",
+        "description": "バニラCSSをTailwindユーティリティクラスに効率的に変換する方法、移行が意味をなす状況、直接のTailwind相当がないCSSパターンの処理方法を学びます。",
+        "sections": [
+          {
+            "heading": "Tailwind CSSに移行する理由",
+            "paragraphs": [
+              "Tailwind CSSはユーティリティファーストのアプローチを採用しています。`.button { background-color: blue; padding: 8px; }`を書く代わりに、HTML内でクラスを直接組み合わせます：`<button class='bg-blue-500 px-4 py-2 rounded'>`。これにより、クラス名を考える必要がなくなり、CSSファイルが無限に大きくなることを防ぎます。",
+              "チームは、TailwindによってCSSバンドルサイズが大幅に縮小したと報告しています。Tailwindのビルドプロセスが未使用クラスを削除するため、本番CSSには実際に使用するものだけが含まれます。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 7,
+      "slug": "unix-timestamp-explained",
+      "category": "utility",
+      "publishedAt": "2025-03-07",
+      "readingMinutes": 5,
+      "coverEmoji": "🕐",
+      "relatedTools": ["timestamp-to-date", "date-to-timestamp"],
+      "content": {
+        "title": "Unixタイムスタンプ解説：国境のない日付",
+        "description": "Unixタイムスタンプとは何か、なぜソフトウェアの普遍的な時間フォーマットなのか、人間が読める日付に変換する方法、そして開発者がよく遭遇するタイムスタンプの落とし穴について学びます。",
+        "sections": [
+          {
+            "heading": "Unixタイムスタンプとは？",
+            "paragraphs": [
+              "Unixタイムスタンプ（Unix時間、POSIX時間、エポック時間とも呼ばれる）は、1970年1月1日00:00:00 UTC（Unixエポックと呼ばれる瞬間）からの経過秒数です。例えば、タイムスタンプ`1700000000`は2023年11月14日22:13:20 UTCを表します。",
+              "秒対ミリ秒は最も一般的なタイムスタンプバグです。JavaScriptの`Date.now()`はミリ秒を返します。この1000倍の差がWeb開発で最も一般的なタイムスタンプバグです。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 8,
+      "slug": "number-bases-binary-hex-decimal",
+      "category": "utility",
+      "publishedAt": "2025-03-14",
+      "readingMinutes": 6,
+      "coverEmoji": "🔢",
+      "relatedTools": ["dec-to-bin", "bin-to-dec", "dec-to-hex", "hex-to-dec"],
+      "content": {
+        "title": "2進数、16進数、10進数：すべての開発者が知るべき数値システム",
+        "description": "開発者として毎日使う3つの数値システムをマスターしましょう。ビット演算のための2進数、色とメモリのための16進数、そしてコードを動かす10進数変換を理解します。",
+        "sections": [
+          {
+            "heading": "開発者が数値基数を理解する必要がある理由",
+            "paragraphs": [
+              "コンピューターはハードウェアレベルで2進数（基数2）で動作します。人間は10進数（基数10）で考えます。16進数（基数16）はその橋渡しをします。",
+              "Webカラー：CSSカラー`#1a2b3c`は3つの16進数ペア——`1a`（赤）、`2b`（緑）、`3c`（青）です。それぞれを10進数に変換するとRGB(26, 43, 60)になります。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 9,
+      "slug": "color-formats-hex-rgb-hsl",
+      "category": "colors",
+      "publishedAt": "2025-03-21",
+      "readingMinutes": 5,
+      "coverEmoji": "🎨",
+      "relatedTools": ["hex-to-rgb", "rgb-to-hex", "hsl-to-hex"],
+      "content": {
+        "title": "HEX、RGB、HSL：Webカラーフォーマットを理解する",
+        "description": "HEX、RGB、HSLカラーフォーマットの違い、CSSでいつ使用するか、そしてデザインシステム向けに正確に変換する方法を学びます。",
+        "sections": [
+          {
+            "heading": "3つのカラーモデル解説",
+            "paragraphs": [
+              "Webカラーは3つの主要なフォーマットで表現できます。HEX（`#3b82f6`）はRGBモデルの短縮形で、赤、緑、青の値を2桁の16進数として表します。RGB（`rgb(59, 130, 246)`）は同じ3チャンネルを0〜255の整数で表します。HSL（`hsl(217, 91%, 60%)`）は色を色相（0〜360°）、彩度（0〜100%）、明度（0〜100%）で表します。",
+              "HSLはデザインシステムとテーマ変数を構築するための最も開発者フレンドリーなフォーマットです。色相、彩度、明度のモデルは、人間の色の知覚方法に直接対応します。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 10,
+      "slug": "markdown-to-html-guide",
+      "category": "markup",
+      "publishedAt": "2025-03-28",
+      "readingMinutes": 5,
+      "coverEmoji": "📝",
+      "relatedTools": ["md-to-html", "html-to-md", "html-beautify", "html-minify"],
+      "content": {
+        "title": "MarkdownからHTMLへ：Web向けドキュメントとコンテンツの変換",
+        "description": "Markdownのな変換プロセス、GitHub Flavored Markdownの機能、いつ変換しいつネイティブレンダリングするか、そして本番向けHTMLのフォーマット方法を学びます。",
+        "sections": [
+          {
+            "heading": "Markdownが存在する理由",
+            "paragraphs": [
+              "Markdownは2004年にJohn Gruberによって作成されました。レンダリング前でも自然に読めるプレーンテキスト構文を使用して書式付きテキストを記述する方法として生まれました。今日、Markdownはテクニカルドキュメント、READMEファイル、GitHubのissueとプルリクエスト、ブログ投稿のデフォルト記述フォーマットです。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 11,
+      "slug": "csv-json-data-conversion",
+      "category": "data",
+      "publishedAt": "2025-04-04",
+      "readingMinutes": 5,
+      "coverEmoji": "📊",
+      "relatedTools": ["csv-to-json", "json-to-csv", "json-to-sql"],
+      "content": {
+        "title": "CSVからJSONへ：APIとデータベース向けスプレッドシートデータの変換",
+        "description": "CSVファイルをJSON配列に変換する方法、一般的なCSVエッジケースの処理、変換されたデータのAPI、データベース、JavaScriptアプリケーションでの使用方法を学びます。",
+        "sections": [
+          {
+            "heading": "CSVとJSONの両方が依然として不可欠な理由",
+            "paragraphs": [
+              "CSVは表形式データの普遍的なフォーマットです。JSONはAPIとJavaScriptアプリケーションの普遍的なフォーマットです。これらを変換することはデータエンジニアリングの日常的なタスクです。",
+              "CSVファイルは平文ファイルで、各行がデータの行で、各行内の値はカンマで区切られています。最初の行は通常ヘッダー行です。コンバーターはヘッダーを読み込み、それらの名前を後続の各行のJSONキーとして使用します。"
+            ]
+          }
+        ]
+      },
+    },
+    {
+      "id": 12,
+      "slug": "typescript-vs-javascript-migration",
+      "category": "typescript",
+      "publishedAt": "2025-04-09",
+      "readingMinutes": 6,
+      "coverEmoji": "⚡",
+      "relatedTools": ["ts-to-js", "js-to-ts", "json-to-ts"],
+      "content": {
+        "title": "TypeScript vs JavaScript：いつ、どのように変換するか",
+        "description": "TypeScriptとJavaScriptの本当の違い、いつ移行するか、そしてプロジェクトで両方向の変換を処理するためのTS↔JSコンバーターの使用方法を理解します。",
+        "sections": [
+          {
+            "heading": "TypeScriptはJavaScriptにタイプレイヤーを加えたもの",
+            "paragraphs": [
+              "TypeScriptはJavaScriptのスーパーセットです。有効なJavaScriptファイルはすべて有効なTypeScriptファイルでもあります。TypeScriptはコンパイル時にすべて削除される型システムを追加します。",
+              "TypeScriptの投資対効果はプロジェクトとチームの規模に正比例します。複数人が変更し、3ヶ月以上続き、またはファイルが20以上あるプロジェクトなら、TypeScriptが価値をもたらします。"
+            ]
+          }
+        ]
+      },
+    }
+  ]
 }
 
 export default ja

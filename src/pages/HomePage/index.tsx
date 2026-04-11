@@ -236,6 +236,8 @@ export default function HomePage() {
 
         <DividerBetweenSection name={t.useCaseTitleDivider} />
         <UseCases />
+
+        
       </div>
     </>
   )
