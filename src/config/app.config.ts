@@ -12,7 +12,7 @@ export const APP_CONFIG = {
   contactEmail: "kaewkwannnj@gmail.com", 
 
   // ── SEO ──────────────────────────────────────────────────────────────────
-  ogImage: "https://potamiya.com/og-image.png",
+  ogImage: "https://potamiya.com/favicon.svg",
   twitterHandle: "@devconvert",
   keywords: [
     "json converter",
