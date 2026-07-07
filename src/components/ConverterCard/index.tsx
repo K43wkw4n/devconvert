@@ -30,7 +30,12 @@ export default function ConverterCard({ converter, compact = false }: ConverterC
       onClick={() => navigate(buildPath.converter(converter.id))}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.converter(converter.id))}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          navigate(buildPath.converter(converter.id))
+        }
+      }}
       aria-label={`Open ${converter.name} converter`}
     >
       <div className="card-icon">

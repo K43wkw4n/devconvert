@@ -104,12 +104,21 @@ export default function CodeEditor({
     const editorTheme = theme === 'dark' ? 'devconvert-dark' : 'devconvert-light'
     monaco.editor.setTheme(editorTheme)
 
-    // Show placeholder when empty
+    // Show placeholder when empty using decorations
     if (placeholder && !value) {
       const model = editor.getModel()
       if (model && model.getValue() === '') {
-        editor.setValue('')
-        // Use decorations for placeholder effect
+        editor.deltaDecorations([], [
+          {
+            range: new monaco.Range(1, 1, 1, 1),
+            options: {
+              isWholeLine: false,
+              className: 'editor-placeholder',
+              glyphMarginClassName: 'codicon codicon-note',
+              glyphMarginHoverMessage: { value: placeholder },
+            },
+          },
+        ])
       }
     }
   }

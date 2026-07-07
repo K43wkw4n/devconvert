@@ -27,7 +27,7 @@ function detectTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(detectTheme)
+  const [theme, setThemeState] = useState<Theme>(() => detectTheme())
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)

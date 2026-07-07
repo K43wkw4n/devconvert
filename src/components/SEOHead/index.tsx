@@ -44,11 +44,17 @@ export default function SEOHead({ title, description, keywords, canonicalPath }:
 }
 
 function setMeta(attrName: string, attrValue: string, content: string) {
-  let el = document.querySelector<HTMLMetaElement>(`meta[${attrName}="${attrValue}"]`)
+  // Query for existing meta tag with exact attribute match
+  const selector = `meta[${attrName}="${attrValue}"]`
+  let el = document.querySelector<HTMLMetaElement>(selector)
+  
+  // If not found, create new meta tag
   if (!el) {
     el = document.createElement('meta')
     el.setAttribute(attrName, attrValue)
     document.head.appendChild(el)
   }
+  
+  // Update content
   el.content = content
 }

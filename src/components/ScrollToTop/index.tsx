@@ -40,11 +40,21 @@ export default function ScrollToTop() {
   useEffect(() => {
     const handleScroll = () => {
       scrollPositions.set(pathname, window.scrollY)
+      // Prevent memory leak: limit map size to 50 entries
+      if (scrollPositions.size > 50) {
+        const firstKey = scrollPositions.keys().next().value
+        if (firstKey) scrollPositions.delete(firstKey)
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname])
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => scrollPositions.clear()
+  }, [])
 
   return null
 }

@@ -252,15 +252,23 @@ export function csvToJson(input: string): ConvertResult {
       for (let i = 0; i < line.length; i++) {
         const ch = line[i]
         if (ch === '"') {
-          if (inQuote && line[i + 1] === '"') { current += '"'; i++ }
-          else inQuote = !inQuote
+          if (inQuote && line[i + 1] === '"') { 
+            // Escaped quote: "" becomes "
+            current += '"'
+            i++
+          } else {
+            // Toggle quote state
+            inQuote = !inQuote
+          }
         } else if (ch === ',' && !inQuote) {
-          result.push(current); current = ''
+          // Unquoted comma is a delimiter
+          result.push(current.trim())
+          current = ''
         } else {
           current += ch
         }
       }
-      result.push(current)
+      result.push(current.trim())
       return result
     }
 
@@ -274,8 +282,10 @@ export function csvToJson(input: string): ConvertResult {
         if (trimmed === '') obj[h] = null
         else if (trimmed === 'true') obj[h] = true
         else if (trimmed === 'false') obj[h] = false
-        else if (!isNaN(Number(trimmed)) && trimmed !== '') obj[h] = Number(trimmed)
-        else obj[h] = trimmed
+        else if (!isNaN(Number(trimmed)) && trimmed !== '' && !trimmed.startsWith('0')) {
+          // Check if it's a numeric string (not octal like "0123")
+          obj[h] = Number(trimmed)
+        } else obj[h] = trimmed
       })
       return obj
     })

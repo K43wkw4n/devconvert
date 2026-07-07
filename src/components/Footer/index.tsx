@@ -85,65 +85,37 @@ export default function AppFooter() {
           >
             <span
               onClick={() => navigate(buildPath.about())}
-              style={{
-                cursor: "pointer",
-                fontSize: 12,
-                color: "var(--color-text-muted)",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--color-primary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--color-text-muted)")
-              }
+              className="footer-legal-link"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.about())}
             >
               {t.about}
             </span>
             <span
               onClick={() => navigate(buildPath.privacy())}
-              style={{
-                cursor: "pointer",
-                fontSize: 12,
-                color: "var(--color-text-muted)",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--color-primary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--color-text-muted)")
-              }
+              className="footer-legal-link"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.privacy())}
             >
               {t.footerPrivacy}
             </span>
             <span
               onClick={() => navigate(buildPath.terms())}
-              style={{
-                cursor: "pointer",
-                fontSize: 12,
-                color: "var(--color-text-muted)",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--color-primary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--color-text-muted)")
-              }
+              className="footer-legal-link"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.terms())}
             >
               {t.footerTerms}
             </span>
             <a
               href={`mailto:${APP_CONFIG.contactEmail}`}
+              className="footer-legal-link"
               style={{
-                fontSize: 12,
-                color: "var(--color-text-muted)",
                 textDecoration: "none",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--color-primary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--color-text-muted)")
-              }
             >
               {t.footerContact}
             </a>

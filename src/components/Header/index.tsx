@@ -114,13 +114,15 @@ export default function AppHeader() {
               />
             </Tooltip>
 
-            <Button
-              type="text"
-              icon={<GithubOutlined />}
-              className="header-nav-link"
+            <a
               href={APP_CONFIG.githubUrl}
               target="_blank"
-            />
+              rel="noopener noreferrer"
+              className="header-nav-link"
+              title="GitHub"
+            >
+              <GithubOutlined />
+            </a>
           </div>
 
           {/* MOBILE HAMBURGER */}

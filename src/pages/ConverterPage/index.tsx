@@ -190,6 +190,7 @@ export default function ConverterPage() {
   const [optionValues, setOptionValues] = useState<Record<string, string>>({});
   const autoTimer = useRef<ReturnType<typeof setTimeout>>();
   const prevConverterIdRef = useRef<string | undefined>();
+  const converterChangeRef = useRef<boolean>(false);
 
   // ── Available language options (derived from converter map) ──
   const allInputLangs = useMemo(() => getAllInputLangs(), []);
@@ -220,6 +221,7 @@ export default function ConverterPage() {
 
     setError(null);
     setWarnings([]);
+    converterChangeRef.current = true;  // Mark converter as changed
 
     if (!sameInputLang || !prevId) {
       setInput(converter.inputPlaceholder ?? "");
@@ -265,9 +267,14 @@ export default function ConverterPage() {
   useEffect(() => {
     if (!converter || !input.trim()) return;
     clearTimeout(autoTimer.current);
+    
+    // Add extra delay when converter changes to prevent race conditions
+    const delay = converterChangeRef.current ? 100 : 350;
+    converterChangeRef.current = false;
+    
     autoTimer.current = setTimeout(() => {
       runConvert(input, converter, optionValues);
-    }, 350);
+    }, delay);
     return () => clearTimeout(autoTimer.current);
   }, [input, converter, optionValues, runConvert]);
 

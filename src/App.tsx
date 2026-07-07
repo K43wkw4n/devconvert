@@ -93,12 +93,7 @@ function ThemedApp() {
       colorTextSecondary: isDark ? "#94a3b8" : "#3a4d6e",
       colorTextPlaceholder: isDark ? "#4a5568" : "#8899b8",
       borderRadius: 8,
-      fontFamily:
-        APP_CONFIG.editor.fontFamily
-          .split(",")
-          .slice(-1)[0]
-          .trim()
-          .replace(/['"]/g, "") || "system-ui",
+      fontFamily: APP_CONFIG.editor.fontFamily || 'system-ui',
     },
     components: {
       Select: {
