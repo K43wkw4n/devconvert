@@ -233,6 +233,8 @@ const zh: Translations = {
     '将原始文件保存到版本控制中。派生格式可以重新生成，但原始文件不可替代',
   ],
 
+  "qrcode": "生成二维码",
+
   // for blog
   "blogTitle": "博客",
   "developerBlog": "开发者知识库",

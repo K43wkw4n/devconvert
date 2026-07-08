@@ -310,6 +310,8 @@ const th: Translations = {
     'เก็บไฟล์ต้นฉบับไว้ใน version control เสมอ รูปแบบที่แปลงแล้วสร้างใหม่ได้ แต่ต้นฉบับไม่ได้',
   ],
 
+  "qrcode": "สร้าง QR Code",
+
   // for blog
   "blogTitle": "บทความ",
   "developerBlog": "คลังความรู้สำหรับนักพัฒนา",

@@ -309,6 +309,8 @@ const en = {
     'Keep raw source files in version control. Derived formats are regeneratable; originals are not.',
   ],
 
+  "qrcode": "Gen QR Code",
+
   // for blog
   "blogTitle": "Blog",
   "developerBlog": "Developer Insights",

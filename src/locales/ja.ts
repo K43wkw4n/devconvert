@@ -233,6 +233,8 @@ const ja: Translations = {
     '元ファイルをバージョン管理に保存する。派生フォーマットは再生成できるが、オリジナルはできません',
   ],
 
+  "qrcode": "QRコードを作成する",
+
   // for blog
   "blogTitle": "ブログ",
   "developerBlog": "開発者ナレッジハブ",
