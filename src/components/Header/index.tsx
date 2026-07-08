@@ -80,13 +80,29 @@ export default function AppHeader() {
             >
               {t.blogTitle}
             </Button>
+
+            {/* <Button
+              type="text"
+              className={`header-nav-link`}
+              onClick={() => window.open("https://qrcode.potamiya.com", "_blank", "noopener,noreferrer")}
+            >
+              <a href="https://qrcode.potamiya.com" target="_blank" rel="noopener">{t.qrcode}</a>
+            </Button> */}
+
+            <Button
+              type="text"
+              className={`header-nav-link`}
+              onClick={() => navigate("https://qrcode.potamiya.com")}
+            >
+              {t.qrcode}
+            </Button>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <nav className="header-nav">
           {/* Desktop menu */}
-          <div className="desktop-menu">
+          <div className="">
             {!isHome && (
               <Button
                 type="text"
