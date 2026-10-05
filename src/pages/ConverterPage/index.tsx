@@ -379,7 +379,6 @@ export default function ConverterPage() {
       <SEOHead
         title={converter.seoTitle}
         description={converter.seoDescription}
-        keywords={converter.seoKeywords}
         canonicalPath={`/${converter.id}`}
       />
 

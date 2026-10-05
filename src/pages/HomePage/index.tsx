@@ -66,9 +66,8 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="DevConvert – Free Online Code & Data Converter for Developers"
-        description="30+ free online developer tools. Convert JSON, YAML, TypeScript, Markdown, Base64, and more – instantly in your browser. No signup, no install."
-        keywords={['json converter', 'typescript converter', 'yaml converter', 'developer tools', 'free online tools']}
+        title="DevConvert | Free Online Developer Tools & Code Converters"
+        description="Convert JSON, YAML, TypeScript, Markdown, Base64, and more with free online developer tools. Fast, private conversions run in your browser."
         canonicalPath="/"
       />
 

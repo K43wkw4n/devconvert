@@ -72,27 +72,20 @@ src/
 }
 ```
 
-3. **Update sitemap**: `node scripts/generate-sitemap.mjs`
+3. **Update sitemap**: `npm run generate:sitemap` (also runs automatically during `npm run build`)
 4. Done! The tool is now live at `/json-to-graphql`
 
 ## 🔌 Google AdSense Setup
 
 1. Get approved for Google AdSense
-2. In `src/components/AdBanner/index.tsx`:
-   - Set `ADSENSE_ENABLED = true`
-   - Set `ADSENSE_CLIENT = 'ca-pub-YOUR_PUBLISHER_ID'`
-3. In `index.html`, uncomment the AdSense script tag
-4. Replace slot IDs in ConverterPage.tsx and HomePage.tsx
+2. In `src/config/app.config.ts`, set `adsense.enabled` to `true`, set the publisher ID, and replace the ad slot IDs.
+3. Add Google's asynchronous AdSense loader script to `index.html`. It is intentionally not loaded while AdSense is disabled to avoid unnecessary third-party requests.
 
 ## 🔍 SEO Strategy
 
-Each converter page has:
-- Unique `<title>` and `<meta description>`
-- Canonical URL (`/json-to-typescript`)
-- URL aliases that redirect to canonical (`/json2ts` → `/json-to-typescript`)
-- Structured data (WebApplication schema)
-- `sitemap.xml` with all converter URLs
-- `robots.txt` allowing all crawlers
+The app updates page titles, descriptions, canonical URLs, social previews, and WebPage structured data as routes change. Converter aliases redirect to their canonical routes (for example, `/json2ts` → `/json-to-typescript`). The sitemap is generated from converter definitions and blog data during each production build and includes the static pages, tools, and articles.
+
+Submit `https://potamiya.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools, then monitor indexing and search performance there. Crawling, indexing, snippets, and rankings are decided by each search engine; no sitemap, metadata, or structured data can guarantee a particular position.
 
 ## 🌐 Deployment
 

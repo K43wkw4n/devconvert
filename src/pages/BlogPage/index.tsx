@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Breadcrumb, Tag, Card, Row, Col, Typography, Space, Badge } from 'antd'
 import { HomeOutlined, ReadOutlined, ClockCircleOutlined, ArrowRightOutlined } from '@ant-design/icons'
 import SEOHead from '@/components/SEOHead'
@@ -105,29 +105,28 @@ export default function BlogListPage() {
                             const color = CATEGORY_COLORS[blog.category] ?? '#6b7280'
                             return (
                                 <Col xs={24} md={8} key={blog.id}>
-                                    <Card
-                                        hoverable
-                                        onClick={() => navigate(`/blog/${blog.slug}`)}
-                                        style={{
-                                            height: '100%',
-                                            cursor: 'pointer',
-                                            border: '1px solid var(--color-border)',
-                                            background: 'var(--color-bg-elevated)',
-                                            borderRadius: 12,
-                                            transition: 'transform 0.18s ease, box-shadow 0.18s ease',
-                                        }}
-                                        styles={{ body: { padding: 24 } }}
-                                        onMouseEnter={e => {
-                                            const el = e.currentTarget as HTMLElement
-                                            el.style.transform = 'translateY(-3px)'
-                                            el.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'
-                                        }}
-                                        onMouseLeave={e => {
-                                            const el = e.currentTarget as HTMLElement
-                                            el.style.transform = 'translateY(0)'
-                                            el.style.boxShadow = 'none'
-                                        }}
-                                    >
+                                    <Link to={`/blog/${blog.slug}`} style={{ display: 'block', color: 'inherit', textDecoration: 'none' }}>
+                                      <Card
+                                          hoverable
+                                          style={{
+                                              height: '100%',
+                                              border: '1px solid var(--color-border)',
+                                              background: 'var(--color-bg-elevated)',
+                                              borderRadius: 12,
+                                              transition: 'transform 0.18s ease, box-shadow 0.18s ease',
+                                          }}
+                                          styles={{ body: { padding: 24 } }}
+                                          onMouseEnter={e => {
+                                              const el = e.currentTarget as HTMLElement
+                                              el.style.transform = 'translateY(-3px)'
+                                              el.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'
+                                          }}
+                                          onMouseLeave={e => {
+                                              const el = e.currentTarget as HTMLElement
+                                              el.style.transform = 'translateY(0)'
+                                              el.style.boxShadow = 'none'
+                                          }}
+                                      >
                                         {/* Emoji */}
                                         <div style={{
                                             fontSize: 32,
@@ -204,7 +203,8 @@ export default function BlogListPage() {
                                             </Space>
                                             <ArrowRightOutlined style={{ fontSize: 12, color: color }} />
                                         </div>
-                                    </Card>
+                                      </Card>
+                                    </Link>
                                 </Col>
                             )
                         })}
@@ -222,16 +222,17 @@ export default function BlogListPage() {
                             const tr = blog.content
                             const color = CATEGORY_COLORS[blog.category] ?? '#6b7280'
                             return (
-                                <div
+                                <Link
+                                    to={`/blog/${blog.slug}`}
                                     key={blog.id}
-                                    onClick={() => navigate(`/blog/${blog.slug}`)}
                                     style={{
                                         display: 'flex',
                                         alignItems: 'flex-start',
                                         gap: 16,
                                         padding: '16px 20px',
                                         borderRadius: 10,
-                                        cursor: 'pointer',
+                                        color: 'inherit',
+                                        textDecoration: 'none',
                                         transition: 'background 0.15s ease',
                                         border: '1px solid transparent',
                                     }}
@@ -304,7 +305,7 @@ export default function BlogListPage() {
                                     </div>
 
                                     <ArrowRightOutlined style={{ fontSize: 12, color: 'var(--color-text-secondary)', flexShrink: 0, marginTop: 4 }} />
-                                </div>
+                                </Link>
                             )
                         })}
                     </div>

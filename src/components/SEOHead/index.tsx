@@ -4,18 +4,18 @@ import { APP_CONFIG } from '@/config/app.config'
 interface SEOHeadProps {
   title: string
   description: string
-  keywords?: string[]
   canonicalPath?: string
 }
 
-export default function SEOHead({ title, description, keywords, canonicalPath }: SEOHeadProps) {
+export default function SEOHead({ title, description, canonicalPath }: SEOHeadProps) {
   useEffect(() => {
     const base = APP_CONFIG.url
-    const fullUrl = `${base}${canonicalPath ?? ''}`
+    const path = canonicalPath ?? window.location.pathname
+    const normalizedPath = path === '/' ? '/' : `/${path.replace(/^\/+|\/+$/g, '')}`
+    const fullUrl = `${base}${normalizedPath}`
 
     document.title = title
     setMeta('name', 'description', description)
-    if (keywords?.length) setMeta('name', 'keywords', keywords.join(', '))
 
     // Open Graph
     setMeta('property', 'og:title', title)
@@ -24,21 +24,36 @@ export default function SEOHead({ title, description, keywords, canonicalPath }:
     setMeta('property', 'og:image', APP_CONFIG.ogImage)
 
     // Twitter
-    setMeta('property', 'twitter:title', title)
-    setMeta('property', 'twitter:description', description)
-    setMeta('property', 'twitter:url', fullUrl)
+    setMeta('name', 'twitter:title', title)
+    setMeta('name', 'twitter:description', description)
+    setMeta('name', 'twitter:url', fullUrl)
+    setMeta('name', 'twitter:image', APP_CONFIG.ogImage)
 
     // Canonical
-    if (canonicalPath) {
-      let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
-      if (!link) {
-        link = document.createElement('link')
-        link.rel = 'canonical'
-        document.head.appendChild(link)
-      }
-      link.href = fullUrl
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    if (!link) {
+      link = document.createElement('link')
+      link.rel = 'canonical'
+      document.head.appendChild(link)
     }
-  }, [title, description, keywords, canonicalPath])
+    link.href = fullUrl
+
+    let schema = document.querySelector<HTMLScriptElement>('#page-schema')
+    if (!schema) {
+      schema = document.createElement('script')
+      schema.id = 'page-schema'
+      schema.type = 'application/ld+json'
+      document.head.appendChild(schema)
+    }
+    schema.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: title,
+      description,
+      url: fullUrl,
+      isPartOf: { '@id': `${base}/#website` },
+    })
+  }, [title, description, canonicalPath])
 
   return null
 }
