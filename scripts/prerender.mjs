@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import chromium from '@sparticuz/chromium'
 import puppeteer from 'puppeteer'
 import { createServer, preview } from 'vite'
 
@@ -26,13 +27,20 @@ try {
   previewServer = await preview({
     preview: { host: '127.0.0.1', port: 4173, strictPort: true },
   })
-  browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-    ...(process.platform === 'win32' && existsSync(edgePath)
-      ? { executablePath: edgePath }
-      : {}),
-  })
+  const launchOptions = process.platform === 'linux'
+    ? {
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: 'shell',
+      }
+    : {
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        ...(process.platform === 'win32' && existsSync(edgePath)
+          ? { executablePath: edgePath }
+          : {}),
+      }
+  browser = await puppeteer.launch(launchOptions)
   const page = await browser.newPage()
   await page.emulateLocale('en-US')
 
