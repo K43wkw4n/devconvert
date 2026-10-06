@@ -64,7 +64,7 @@ export default function HomePage() {
   const current = examples[tick];
 
   return (
-    <>
+    <> 
       <SEOHead
         title="DevConvert | Free Online Developer Tools & Code Converters"
         description="Convert JSON, YAML, TypeScript, Markdown, Base64, and more with free online developer tools. Fast, private conversions run in your browser."
