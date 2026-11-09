@@ -1,56 +1,100 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { APP_CONFIG } from '@/config/app.config'
 
 interface AdBannerProps {
-  /** Key จาก APP_CONFIG.adsense.slots */
-  slot: keyof typeof APP_CONFIG.adsense.slots
-  format?: 'leaderboard' | 'rectangle' | 'responsive'
+  /** Slot ที่ map ไปยัง ad unit ใน APP_CONFIG.ads */
+  slot: keyof typeof APP_CONFIG.ads.slots
+  /** Slot สำหรับจอแคบ เพื่อใช้ mobile ad unit โดยไม่โหลดทั้งสองขนาด */
+  mobileSlot?: keyof typeof APP_CONFIG.ads.slots
   className?: string
   style?: React.CSSProperties
 }
 
-export default function AdBanner({ slot, format = 'responsive', className = '', style }: AdBannerProps) {
-  const adRef = useRef<HTMLModElement>(null)
-  const { enabled, publisherId, slots } = APP_CONFIG.adsense
-  const slotId = slots[slot]
+const MOBILE_QUERY = '(max-width: 768px)'
+
+export default function AdBanner({ slot, mobileSlot, className = '', style }: AdBannerProps) {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches
+  )
+  const bannerRef = useRef<HTMLDivElement>(null)
+  const nativeContainerRef = useRef<HTMLDivElement>(null)
+  const { enabled, units, slots } = APP_CONFIG.ads
+  const selectedSlot = mobileSlot && isMobile ? mobileSlot : slot
+  const unit = units[slots[selectedSlot]]
 
   useEffect(() => {
-    if (!enabled) return
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const w = window as any
-      if (w.adsbygoogle) w.adsbygoogle.push({})
-    } catch { /* ignore in dev */ }
-  }, [slotId, enabled])
+    const mediaQuery = window.matchMedia(MOBILE_QUERY)
+    const handleChange = (event: MediaQueryListEvent) => setIsMobile(event.matches)
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
 
-  const heightMap = { leaderboard: '90px', rectangle: '250px', responsive: '100px' }
-  const defaultStyle: React.CSSProperties = { minHeight: heightMap[format], ...style }
+  useEffect(() => {
+    const banner = bannerRef.current
+    if (!enabled || unit.type !== 'native' || !banner || !nativeContainerRef.current) return
 
-  // Placeholder (AdSense not yet enabled)
-  if (!enabled) {
+    const script = document.createElement('script')
+    script.async = true
+    script.setAttribute('data-cfasync', 'false')
+    script.src = `https://bauval.org/21/${unit.key}`
+    script.onerror = () => {
+      console.error(`Failed to load native ad unit "${unit.key}"`)
+    }
+    banner.appendChild(script)
+
+    return () => {
+      script.remove()
+      nativeContainerRef.current?.replaceChildren()
+    }
+  }, [enabled, unit])
+
+  if (!enabled) return null
+
+  const containerStyle: React.CSSProperties = {
+    width: '100%',
+    maxWidth: unit.type === 'native' ? undefined : unit.width,
+    minHeight: unit.type === 'native' ? unit.minHeight : unit.height,
+    margin: '16px auto',
+    display: 'flex',
+    justifyContent: 'center',
+    ...style,
+  }
+
+  if (unit.type === 'native') {
     return (
-      <div></div>
-      // <div
-      //   className={`ad-banner ad-banner-${format === 'leaderboard' ? 'top' : 'side'} ${className}`}
-      //   style={defaultStyle}
-      //   aria-hidden="true"
-      // >
-      //   Advertisement
-      // </div>
+      <div ref={bannerRef} className={className} style={containerStyle} role="region" aria-label="Advertisement">
+        <div id={`container-${unit.key}`} ref={nativeContainerRef} />
+      </div>
     )
   }
 
-  // Production: real AdSense tag
+  const iframeDocument = `<!doctype html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
+      <body style="margin:0;padding:0;overflow:hidden">
+        <script>window.atOptions = ${JSON.stringify({
+          key: unit.key,
+          format: 'iframe',
+          height: unit.height,
+          width: unit.width,
+          params: {},
+        })};</script>
+        <script src="https://bauval.org/22/${unit.key}"></script>
+      </body>
+    </html>`
+
   return (
-    <div className={className} style={defaultStyle}>
-      <ins
-        ref={adRef}
-        className="adsbygoogle"
-        style={{ display: 'block', ...style }}
-        data-ad-client={publisherId}
-        data-ad-slot={slotId}
-        data-ad-format={format === 'responsive' ? 'auto' : undefined}
-        data-full-width-responsive={format === 'responsive' ? 'true' : undefined}
+    <div className={className} style={containerStyle}>
+      <iframe
+        title="Advertisement"
+        srcDoc={iframeDocument}
+        width={unit.width}
+        height={unit.height}
+        scrolling="no"
+        style={{ border: 0, display: 'block', maxWidth: '100vw' }}
       />
     </div>
   )

@@ -72,7 +72,11 @@ export default function HomePage() {
       />
 
       {/* Top Ad Banner */}
-      <AdBanner slot="topLeaderboard" format="leaderboard" style={{ marginBottom: -40 }} />
+      <AdBanner
+        slot="topLeaderboard"
+        mobileSlot="mobileBanner"
+        style={{ marginBottom: -40 }}
+      />
 
       <div className="app-content">
         {/* Hero */}

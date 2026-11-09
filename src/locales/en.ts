@@ -71,17 +71,16 @@ const en = {
   ],
   privacyDataAnalytics: 'We may use Google Analytics to collect anonymous usage statistics such as page views and feature usage. This data does not identify you personally.',
 
-  privacyAdsTitle: '3. Google AdSense & Advertising',
-  privacyAdsText: 'We use Google AdSense to display advertisements on our Service. Google AdSense uses cookies and web beacons to serve ads based on prior visits to our website or other websites. Google\'s use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our sites and/or other sites on the Internet.',
-  privacyAdsOptOut: 'You may opt out of personalized advertising by visiting Google\'s Ads Settings at',
-  privacyAdsPolicy: 'For more information about Google\'s privacy practices, please visit the Google Privacy & Terms page at',
+  privacyAdsTitle: '3. Third-Party Advertising',
+  privacyAdsText: 'We use Adsterra to display advertisements on our Service. Adsterra and its advertising partners may use cookies, web beacons, or similar technologies to deliver, personalize, and measure advertisements in accordance with their own privacy policies. These third parties may collect information about your visits to this and other websites. We do not control their data practices.',
+  privacyAdsOptOut: 'You can manage cookies through your browser settings and review the advertising provider\'s privacy policy for information about available choices:',
 
   privacyCookiesTitle: '4. Cookies',
   privacyCookiesText: 'We use the following types of cookies:',
   privacyCookiesItems: [
     'Essential cookies: Required for the Service to function (theme and language preferences stored in localStorage).',
     'Analytics cookies: Google Analytics cookies to understand how visitors interact with our Service.',
-    'Advertising cookies: Google AdSense cookies to display relevant advertisements.',
+    'Advertising cookies or similar technologies: used by third-party advertising providers to deliver and measure advertisements.',
   ],
   privacyCookiesControl: 'You can control cookies through your browser settings. Note that disabling cookies may affect the functionality of our Service.',
 
@@ -89,7 +88,7 @@ const en = {
   privacyThirdPartyText: 'Our Service may contain links to or use the following third-party services, each with their own privacy policies:',
   privacyThirdPartyItems: [
     { name: 'Google Analytics', url: 'https://policies.google.com/privacy', desc: 'Anonymous usage analytics' },
-    { name: 'Google AdSense', url: 'https://policies.google.com/privacy', desc: 'Advertising' },
+    { name: 'Adsterra', url: 'https://adsterra.com/privacy-policy/', desc: 'Third-party advertising and related technologies' },
   ],
 
   privacyChildrenTitle: '6. Children\'s Privacy',
@@ -168,7 +167,7 @@ const en = {
   ],
 
   termsAdsTitle: '7. Advertising',
-  termsAdsText: 'The Service is supported by advertising provided by Google AdSense. By using the Service, you acknowledge that advertisements may be displayed. We are not responsible for the content of third-party advertisements. Your interactions with advertisers found in the Service are solely between you and such advertisers.',
+  termsAdsText: 'The Service is supported by third-party advertising, including Adsterra. By using the Service, you acknowledge that advertisements may be displayed and that advertising providers may use cookies or similar technologies under their own privacy policies. We are not responsible for the content or data practices of third-party advertisements. Your interactions with advertisers found in the Service are solely between you and such advertisers.',
 
   termsLinksTitle: '8. Third-Party Links',
   termsLinksText: 'The Service may contain links to third-party websites or services that are not owned or controlled by DevConvert. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites or services.',

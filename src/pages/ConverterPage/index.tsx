@@ -382,7 +382,7 @@ export default function ConverterPage() {
         canonicalPath={`/${converter.id}`}
       />
 
-      <AdBanner slot="converterTop" format="leaderboard" />
+      <AdBanner slot="converterTop" mobileSlot="mobileBanner" />
 
       <div className="app-content">
         {/* Breadcrumb */}
@@ -619,7 +619,7 @@ export default function ConverterPage() {
 
         <AdBanner
           slot="converterBottom"
-          format="leaderboard"
+          mobileSlot="mobileBanner"
           style={{ marginTop: 32 }}
         />
 

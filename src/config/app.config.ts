@@ -22,18 +22,42 @@ export const APP_CONFIG = {
     "free online tools",
   ],
 
-  // ── Google AdSense ───────────────────────────────────────────────────────
-  // 1. ตั้ง enabled = true เมื่อได้รับ approve จาก Google AdSense 
-  // 3. เปลี่ยน slotIds ให้ตรงกับ ad unit ที่สร้างใน AdSense dashboard
-  adsense: {
-    enabled: false,
-    publisherId: "ca-pub-2723243675416986",
+  // ── Ad network ────────────────────────────────────────────────────────────
+  ads: {
+    enabled: true,
+    units: {
+      rectangle300x250: {
+        type: "iframe",
+        key: "37cac6812dcf6b22bcedeaa0409ce312",
+        width: 300,
+        height: 250,
+      },
+      mobile320x50: {
+        type: "iframe",
+        key: "5db206ec80ff9f7f1bb714d0e46450ff",
+        width: 320,
+        height: 50,
+      },
+      leaderboard728x90: {
+        type: "iframe",
+        key: "cde01e1f28ff026095f7c2d5b8456292",
+        width: 728,
+        height: 90,
+      },
+      nativeBanner: {
+        type: "native",
+        key: "2d767644960a122557901560ccbdf09e",
+        minHeight: 250,
+      },
+    },
     slots: {
-      topLeaderboard: "1234567890", // 728x90 บนสุด
-      bottomLeaderboard: "2345678901", // 728x90 ล่างสุด
-      sideRectangle: "3456789012", // 300x250 ด้านข้าง
-      converterTop: "4567890123", // บนหน้า converter
-      converterBottom: "5678901234", // ล่างหน้า converter
+      topLeaderboard: "leaderboard728x90",
+      bottomLeaderboard: "leaderboard728x90",
+      sideRectangle: "rectangle300x250",
+      converterTop: "leaderboard728x90",
+      converterBottom: "leaderboard728x90",
+      mobileBanner: "mobile320x50",
+      nativeBanner: "nativeBanner",
     },
   },
 

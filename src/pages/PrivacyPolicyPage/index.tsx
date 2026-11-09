@@ -2,7 +2,7 @@ import LegalPage, { LegalParagraph, LegalList, LegalLink, LegalHighlight } from 
 import { APP_CONFIG } from '@/config/app.config'
 import { useI18n } from '@/contexts/I18nContext'
 
-const LAST_UPDATED = 'January 1, 2025'
+const LAST_UPDATED = 'November 9, 2026'
 
 export default function PrivacyPolicyPage() {
   const { t } = useI18n()
@@ -32,14 +32,8 @@ export default function PrivacyPolicyPage() {
           <LegalParagraph>{t.privacyAdsText}</LegalParagraph>
           <LegalParagraph>
             {t.privacyAdsOptOut}{' '}
-            <LegalLink href="https://www.google.com/settings/ads">
-              google.com/settings/ads
-            </LegalLink>
-          </LegalParagraph>
-          <LegalParagraph>
-            {t.privacyAdsPolicy}{' '}
-            <LegalLink href="https://policies.google.com/privacy">
-              policies.google.com/privacy
+            <LegalLink href="https://adsterra.com/privacy-policy/">
+              Adsterra Privacy Policy
             </LegalLink>
           </LegalParagraph>
         </>
@@ -108,7 +102,7 @@ export default function PrivacyPolicyPage() {
       lastUpdated={LAST_UPDATED}
       lastUpdatedLabel={t.privacyLastUpdated}
       sections={sections}
-      seoDescription={`${APP_CONFIG.name} Privacy Policy — how we handle your data, Google AdSense advertising, cookies, and your rights.`}
+      seoDescription={`${APP_CONFIG.name} Privacy Policy — how we handle your data, third-party advertising, cookies, and your rights.`}
       canonicalPath="/privacy"
     />
   )
