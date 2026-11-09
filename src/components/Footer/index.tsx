@@ -1,7 +1,8 @@
 import { APP_CONFIG } from "@/config/app.config";
 import { useI18n } from "@/contexts/I18nContext";
 import { buildPath } from "@/routes";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCookieConsent } from "@/contexts/CookieConsentContext";
 
 // Popular tool links — เพิ่มที่นี่หากต้องการเพิ่ม footer links
 const FOOTER_LINKS = [
@@ -19,6 +20,7 @@ const FOOTER_LINKS = [
 export default function AppFooter() {
   const { t } = useI18n();
   const navigate = useNavigate();
+  const { openPreferences } = useCookieConsent();
 
   return (
     <footer className="app-footer">
@@ -83,42 +85,28 @@ export default function AppFooter() {
             }}
             className="footer-legal"
           >
-            <span
-              onClick={() => navigate(buildPath.about())}
-              className="footer-legal-link"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.about())}
-            >
+            <Link to={buildPath.about()} className="footer-legal-link">
               {t.about}
-            </span>
-            <span
-              onClick={() => navigate(buildPath.privacy())}
-              className="footer-legal-link"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.privacy())}
-            >
-              {t.footerPrivacy}
-            </span>
-            <span
-              onClick={() => navigate(buildPath.terms())}
-              className="footer-legal-link"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && navigate(buildPath.terms())}
-            >
-              {t.footerTerms}
-            </span>
-            <a
-              href={`mailto:${APP_CONFIG.contactEmail}`}
-              className="footer-legal-link"
-              style={{
-                textDecoration: "none",
-              }}
-            >
+            </Link>
+            <Link to={buildPath.contact()} className="footer-legal-link">
               {t.footerContact}
-            </a>
+            </Link>
+            <Link to={buildPath.privacy()} className="footer-legal-link">
+              {t.footerPrivacy}
+            </Link>
+            <Link to={buildPath.cookies()} className="footer-legal-link">
+              {t.footerCookies}
+            </Link>
+            <Link to={buildPath.terms()} className="footer-legal-link">
+              {t.footerTerms}
+            </Link>
+            <button
+              type="button"
+              onClick={openPreferences}
+              className="footer-legal-link"
+            >
+              {t.manageCookies}
+            </button>
           </div>
 
           {/* Copyright */}

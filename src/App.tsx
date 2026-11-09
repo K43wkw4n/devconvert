@@ -9,6 +9,8 @@ import { I18nProvider } from "@/contexts/I18nContext";
 import { ROUTES } from "@/routes";
 import { ALIAS_MAP } from "@/config/converters.config";
 import { APP_CONFIG } from "@/config/app.config";
+import CookieConsentBanner from "@/components/CookieConsent";
+import { CookieConsentProvider } from "@/contexts/CookieConsentContext";
 import BlogListPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 
@@ -54,6 +56,8 @@ function AppRoutes() {
           element={<ROUTES.PRIVACY.component />}
         />
         <Route path={ROUTES.ABOUT.path} element={<ROUTES.ABOUT.component />} />
+        <Route path={ROUTES.CONTACT.path} element={<ROUTES.CONTACT.component />} />
+        <Route path={ROUTES.COOKIES.path} element={<ROUTES.COOKIES.component />} />
         <Route path={ROUTES.TERMS.path} element={<ROUTES.TERMS.component />} />
 
         {/* Converter — handles both canonical IDs and aliases */}
@@ -117,6 +121,7 @@ function ThemedApp() {
           <AppRoutes />
         </Content>
         <AppFooter />
+        <CookieConsentBanner />
       </Layout>
     </ConfigProvider>
   );
@@ -128,7 +133,9 @@ export default function App() {
   return (
     <ThemeProvider>
       <I18nProvider>
-        <ThemedApp />
+        <CookieConsentProvider>
+          <ThemedApp />
+        </CookieConsentProvider>
       </I18nProvider>
     </ThemeProvider>
   );

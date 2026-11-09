@@ -55,6 +55,26 @@ const en = {
   footerTerms: 'Terms of Service',
   footerContact: 'Contact',
   footerAbout: 'About',
+  footerCookies: 'Cookie Policy',
+  manageCookies: 'Manage cookie preferences',
+
+  // ── Cookie consent ──────────────────────────────────────────────────────
+  consentTitle: 'Your privacy choices',
+  consentDescription: 'We use essential browser storage to run this site. With your permission, Adsterra may use advertising cookies or similar technologies. Optional ads are off until you choose.',
+  consentNecessary: 'Essential storage',
+  consentNecessaryDescription: 'Stores site preferences and your consent choice. This is required for the site and cannot be disabled here.',
+  consentAdvertising: 'Third-party advertising',
+  consentAdvertisingDescription: 'Allows Adsterra and its partners to load ads and use related technologies. You can change this choice at any time.',
+  consentAcceptAll: 'Accept advertising',
+  consentRejectOptional: 'Reject optional',
+  consentCustomize: 'Customize',
+  consentSave: 'Save choices',
+
+  // ── Contact ─────────────────────────────────────────────────────────────
+  contactTitle: 'Contact',
+  contactDescription: 'Questions, feedback, or privacy requests? Contact the DevConvert team by email or visit our project on GitHub.',
+  contactEmailLabel: 'Email',
+  contactGithub: 'Visit the DevConvert project on GitHub',
 
   // ── Privacy Policy ────────────────────────────────────────────────────────
   privacyTitle: 'Privacy Policy',
@@ -69,25 +89,24 @@ const en = {
     'Theme preference (dark/light mode) — stored in localStorage',
     'Language preference (EN/TH/ZH/JA) — stored in localStorage',
   ],
-  privacyDataAnalytics: 'We may use Google Analytics to collect anonymous usage statistics such as page views and feature usage. This data does not identify you personally.',
+  privacyDataAnalytics: 'We do not currently use an analytics service. If this changes, we will update this policy before enabling it.',
 
   privacyAdsTitle: '3. Third-Party Advertising',
-  privacyAdsText: 'We use Adsterra to display advertisements on our Service. Adsterra and its advertising partners may use cookies, web beacons, or similar technologies to deliver, personalize, and measure advertisements in accordance with their own privacy policies. These third parties may collect information about your visits to this and other websites. We do not control their data practices.',
-  privacyAdsOptOut: 'You can manage cookies through your browser settings and review the advertising provider\'s privacy policy for information about available choices:',
+  privacyAdsText: 'We use Adsterra to display advertisements. Ad requests and related third-party technologies are not loaded until you choose to allow advertising. If you allow it, Adsterra and its partners may use cookies, web beacons, or similar technologies to deliver and measure ads and may process information such as your device or browsing activity under their own privacy policies. We do not control their data practices.',
+  privacyAdsOptOut: 'You can withdraw or change your advertising choice at any time using Manage cookie preferences in the footer. For details about the provider\'s practices, see:',
 
   privacyCookiesTitle: '4. Cookies',
   privacyCookiesText: 'We use the following types of cookies:',
   privacyCookiesItems: [
     'Essential cookies: Required for the Service to function (theme and language preferences stored in localStorage).',
-    'Analytics cookies: Google Analytics cookies to understand how visitors interact with our Service.',
-    'Advertising cookies or similar technologies: used by third-party advertising providers to deliver and measure advertisements.',
+    'Consent preference: Your essential and advertising choices are stored in localStorage.',
+    'Advertising cookies or similar technologies: Adsterra may use these only after you allow third-party advertising.',
   ],
-  privacyCookiesControl: 'You can control cookies through your browser settings. Note that disabling cookies may affect the functionality of our Service.',
+  privacyCookiesControl: 'You can change your advertising choice at any time using Manage cookie preferences in the footer. See our Cookie Policy for details.',
 
   privacyThirdPartyTitle: '5. Third-Party Services',
-  privacyThirdPartyText: 'Our Service may contain links to or use the following third-party services, each with their own privacy policies:',
+  privacyThirdPartyText: 'Our advertising provider has its own privacy policy and data practices:',
   privacyThirdPartyItems: [
-    { name: 'Google Analytics', url: 'https://policies.google.com/privacy', desc: 'Anonymous usage analytics' },
     { name: 'Adsterra', url: 'https://adsterra.com/privacy-policy/', desc: 'Third-party advertising and related technologies' },
   ],
 
@@ -97,9 +116,8 @@ const en = {
   privacyGdprTitle: '7. Your Rights (GDPR)',
   privacyGdprText: 'If you are located in the European Economic Area (EEA), you have certain data protection rights. Since we do not collect personal data directly, most GDPR rights are inherently satisfied. However, you may:',
   privacyGdprItems: [
-    'Clear your locally stored preferences at any time by clearing your browser\'s localStorage.',
-    'Opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on.',
-    'Opt out of personalized ads via Google\'s Ad Settings.',
+    'Change or withdraw your advertising consent at any time using Manage cookie preferences in the footer.',
+    'Clear locally stored preferences by clearing this site\'s localStorage in your browser.',
   ],
 
   privacyChangesTitle: '8. Changes to This Policy',
@@ -107,6 +125,21 @@ const en = {
 
   privacyContactTitle: '9. Contact Us',
   privacyContactText: 'If you have any questions about this Privacy Policy, please contact us at:',
+
+  // ── Cookie Policy ────────────────────────────────────────────────────────
+  cookieTitle: 'Cookie Policy',
+  cookieIntroTitle: 'How browser storage is used',
+  cookieIntroText: 'DevConvert uses browser storage for essential site preferences and to remember your privacy choices. Optional third-party advertising is disabled unless you explicitly allow it.',
+  cookieEssential: 'Essential storage',
+  cookieEssentialDescription: 'These browser preferences support basic site features and remember your consent choice. They are stored locally and are not sent to DevConvert servers.',
+  cookieEssentialItems: [
+    'Theme and language preferences stored in localStorage.',
+    'Your advertising consent choice and the time it was saved, stored in localStorage.',
+  ],
+  cookieAdvertising: 'Third-party advertising',
+  cookieAdvertisingDescription: 'If you allow advertising, Adsterra may load ad content and use cookies or similar technologies to deliver and measure ads. Those technologies are controlled by the provider, not DevConvert. Rejecting or withdrawing consent prevents future ad requests from this site; it does not delete data already stored by the provider.',
+  cookieRetention: 'Manage or withdraw consent',
+  cookieRetentionDescription: 'Choose whether to allow advertising below or use Manage cookie preferences in the site footer. You can also clear this site’s localStorage in your browser. For data held by the advertising provider, please refer to its privacy policy.',
 
   // ── about ──────────────────────────────────────────────────────
   aboutTitle: "About",

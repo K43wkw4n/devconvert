@@ -26,6 +26,8 @@ if (new Set(converterIds).size !== converterIds.length || new Set(blogSlugs).siz
 const paths = [
   '/',
   '/about',
+  '/contact',
+  '/cookies',
   '/privacy',
   '/terms',
   '/blog',

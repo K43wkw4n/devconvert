@@ -7,6 +7,8 @@ const ConverterPage = lazy(() => import("@/pages/ConverterPage"));
 const PrivacyPolicyPage = lazy(() => import('@/pages/PrivacyPolicyPage'))
 const TermsPage = lazy(() => import('@/pages/TermsPage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const ContactPage = lazy(() => import('@/pages/ContactPage'))
+const CookiePolicyPage = lazy(() => import('@/pages/CookiePolicyPage'))
 const BlogListPage = lazy(() => import('@/pages/BlogPage'))
 const BlogDetailPage = lazy(() => import('@/pages/BlogDetailPage'))
 
@@ -38,6 +40,16 @@ export const ROUTES = {
     path: '/about',
     component: AboutPage,
     name: 'about',
+  },
+  CONTACT: {
+    path: '/contact',
+    component: ContactPage,
+    name: 'contact',
+  },
+  COOKIES: {
+    path: '/cookies',
+    component: CookiePolicyPage,
+    name: 'cookies',
   },
   TERMS: {
     path: "/terms",
@@ -84,6 +96,8 @@ export const buildPath = {
   converter: (slug: string) => `/${slug}`,
   privacy: () => ROUTES.PRIVACY.path,
   about: () => ROUTES.ABOUT.path,
+  contact: () => ROUTES.CONTACT.path,
+  cookies: () => ROUTES.COOKIES.path,
   terms: () => ROUTES.TERMS.path,
   blog: () => ROUTES.BLOG.path,
   blogDetail: () => ROUTES.BLOGDetail.path,

@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { APP_CONFIG } from '@/config/app.config'
+import { useCookieConsent } from '@/contexts/CookieConsentContext'
 
 interface AdBannerProps {
   /** Slot ที่ map ไปยัง ad unit ใน APP_CONFIG.ads */
@@ -16,9 +17,9 @@ export default function AdBanner({ slot, mobileSlot, className = '', style }: Ad
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== 'undefined' && window.matchMedia(MOBILE_QUERY).matches
   )
-  const bannerRef = useRef<HTMLDivElement>(null)
-  const nativeContainerRef = useRef<HTMLDivElement>(null)
   const { enabled, units, slots } = APP_CONFIG.ads
+  const { consent } = useCookieConsent()
+  const canLoadAds = enabled && consent?.advertising === true
   const selectedSlot = mobileSlot && isMobile ? mobileSlot : slot
   const unit = units[slots[selectedSlot]]
 
@@ -29,26 +30,7 @@ export default function AdBanner({ slot, mobileSlot, className = '', style }: Ad
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  useEffect(() => {
-    const banner = bannerRef.current
-    if (!enabled || unit.type !== 'native' || !banner || !nativeContainerRef.current) return
-
-    const script = document.createElement('script')
-    script.async = true
-    script.setAttribute('data-cfasync', 'false')
-    script.src = `https://bauval.org/21/${unit.key}`
-    script.onerror = () => {
-      console.error(`Failed to load native ad unit "${unit.key}"`)
-    }
-    banner.appendChild(script)
-
-    return () => {
-      script.remove()
-      nativeContainerRef.current?.replaceChildren()
-    }
-  }, [enabled, unit])
-
-  if (!enabled) return null
+  if (!enabled || consent?.advertising === false) return null
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
@@ -60,15 +42,26 @@ export default function AdBanner({ slot, mobileSlot, className = '', style }: Ad
     ...style,
   }
 
-  if (unit.type === 'native') {
+  if (!canLoadAds) {
     return (
-      <div ref={bannerRef} className={className} style={containerStyle} role="region" aria-label="Advertisement">
-        <div id={`container-${unit.key}`} ref={nativeContainerRef} />
-      </div>
+      <div
+        className={className}
+        style={containerStyle}
+        aria-hidden="true"
+      />
     )
   }
 
-  const iframeDocument = `<!doctype html>
+  const iframeDocument = unit.type === 'native'
+    ? `<!doctype html>
+      <html>
+        <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+        <body style="margin:0;padding:0;overflow:hidden">
+          <div id="container-${unit.key}"></div>
+          <script async data-cfasync="false" src="https://bauval.org/21/${unit.key}"></script>
+        </body>
+      </html>`
+    : `<!doctype html>
     <html>
       <head>
         <meta charset="utf-8">
@@ -87,13 +80,15 @@ export default function AdBanner({ slot, mobileSlot, className = '', style }: Ad
     </html>`
 
   return (
-    <div className={className} style={containerStyle}>
+    <div className={className} style={containerStyle} role="region" aria-label="Advertisement">
       <iframe
         title="Advertisement"
         srcDoc={iframeDocument}
-        width={unit.width}
-        height={unit.height}
+        width={unit.type === 'native' ? '100%' : unit.width}
+        height={unit.type === 'native' ? unit.minHeight : unit.height}
         scrolling="no"
+        loading="lazy"
+        sandbox="allow-scripts"
         style={{ border: 0, display: 'block', maxWidth: '100vw' }}
       />
     </div>

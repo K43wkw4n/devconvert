@@ -1,11 +1,15 @@
 import LegalPage, { LegalParagraph, LegalList, LegalLink, LegalHighlight } from '@/components/LegalPage'
 import { APP_CONFIG } from '@/config/app.config'
 import { useI18n } from '@/contexts/I18nContext'
+import { useCookieConsent } from '@/contexts/CookieConsentContext'
+import { Button } from 'antd'
+import { buildPath } from '@/routes'
 
 const LAST_UPDATED = 'November 9, 2026'
 
 export default function PrivacyPolicyPage() {
   const { t } = useI18n()
+  const { openPreferences } = useCookieConsent()
 
   const sections = [
     {
@@ -35,6 +39,11 @@ export default function PrivacyPolicyPage() {
             <LegalLink href="https://adsterra.com/privacy-policy/">
               Adsterra Privacy Policy
             </LegalLink>
+          </LegalParagraph>
+          <Button onClick={openPreferences}>{t.manageCookies}</Button>
+          <LegalParagraph>
+            {t.footerCookies}:{' '}
+            <LegalLink href={buildPath.cookies()}>{t.cookieTitle}</LegalLink>
           </LegalParagraph>
         </>
       ),
