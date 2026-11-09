@@ -83,12 +83,11 @@ export default function AdBanner({ slot, mobileSlot, className = '', style }: Ad
     <div className={className} style={containerStyle} role="region" aria-label="Advertisement">
       <iframe
         title="Advertisement"
-        srcDoc={iframeDocument}
+        src={`data:text/html;charset=utf-8,${encodeURIComponent(iframeDocument)}`}
         width={unit.type === 'native' ? '100%' : unit.width}
         height={unit.type === 'native' ? unit.minHeight : unit.height}
         scrolling="no"
         loading="lazy"
-        sandbox="allow-scripts"
         style={{ border: 0, display: 'block', maxWidth: '100vw' }}
       />
     </div>
